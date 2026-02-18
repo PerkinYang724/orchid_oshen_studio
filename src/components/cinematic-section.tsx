@@ -182,7 +182,7 @@ export function CinematicSection({
                 />
               ))}
             <motion.div
-              className={`relative z-10 h-full ${className}`}
+              className={`relative z-10 h-full min-h-0 overflow-y-auto ${className}`}
               style={{ opacity, scale, willChange: "transform, opacity" }}
             >
               {typeof children === "function"
