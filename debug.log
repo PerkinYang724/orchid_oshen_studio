@@ -1,0 +1,111 @@
+2026-02-14T20:27:03.356Z [console][error] ./user/app/src/app/page.tsx:11:1
+Module not found: Can't resolve '@/components/footer'
+   9 | import { Skills } from "@/components/skills";
+  10 | import { Contact } from "@/components/contact";
+> 11 | import { Footer } from "@/components/footer";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  12 |
+  13 | export default function Home() {
+  14 |   const containerRef = useRef<HTMLDivElement>(null);
+
+Import map: aliased to relative './src/components/footer' inside of [project]/user/app
+
+Import traces:
+  Client Component Browser:
+    ./user/app/src/app/page.tsx [Client Component Browser]
+    ./user/app/src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./user/app/src/app/page.tsx [Client Component SSR]
+    ./user/app/src/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+2026-02-14T20:27:03.357Z [console][error] ./user/app/src/app/page.tsx:6:1
+Module not found: Can't resolve '@/components/hero'
+  4 | import { useRef } from "react";
+  5 | import { Navbar } from "@/components/navbar";
+> 6 | import { Hero } from "@/components/hero";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  7 | import { About } from "@/components/about";
+  8 | import { Projects } from "@/components/projects";
+  9 | import { Skills } from "@/components/skills";
+
+Import map: aliased to relative './src/components/hero' inside of [project]/user/app
+
+Import traces:
+  Client Component Browser:
+    ./user/app/src/app/page.tsx [Client Component Browser]
+    ./user/app/src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./user/app/src/app/page.tsx [Client Component SSR]
+    ./user/app/src/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+2026-02-14T20:27:03.357Z [console][error] ./user/app/src/app/page.tsx:5:1
+Module not found: Can't resolve '@/components/navbar'
+  3 | import { motion, useScroll, useTransform } from "framer-motion";
+  4 | import { useRef } from "react";
+> 5 | import { Navbar } from "@/components/navbar";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { Hero } from "@/components/hero";
+  7 | import { About } from "@/components/about";
+  8 | import { Projects } from "@/components/projects";
+
+Import map: aliased to relative './src/components/navbar' inside of [project]/user/app
+
+Import traces:
+  Client Component Browser:
+    ./user/app/src/app/page.tsx [Client Component Browser]
+    ./user/app/src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./user/app/src/app/page.tsx [Client Component SSR]
+    ./user/app/src/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+2026-02-14T20:27:03.357Z [console][error] ./user/app/src/app/page.tsx:8:1
+Module not found: Can't resolve '@/components/projects'
+   6 | import { Hero } from "@/components/hero";
+   7 | import { About } from "@/components/about";
+>  8 | import { Projects } from "@/components/projects";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   9 | import { Skills } from "@/components/skills";
+  10 | import { Contact } from "@/components/contact";
+  11 | import { Footer } from "@/components/footer";
+
+Import map: aliased to relative './src/components/projects' inside of [project]/user/app
+
+Import traces:
+  Client Component Browser:
+    ./user/app/src/app/page.tsx [Client Component Browser]
+    ./user/app/src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./user/app/src/app/page.tsx [Client Component SSR]
+    ./user/app/src/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+2026-02-14T20:27:03.357Z [console][error] ./user/app/src/app/page.tsx:9:1
+Module not found: Can't resolve '@/components/skills'
+   7 | import { About } from "@/components/about";
+   8 | import { Projects } from "@/components/projects";
+>  9 | import { Skills } from "@/components/skills";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  10 | import { Contact } from "@/components/contact";
+  11 | import { Footer } from "@/components/footer";
+  12 |
+
+Import map: aliased to relative './src/components/skills' inside of [project]/user/app
+
+Import traces:
+  Client Component Browser:
+    ./user/app/src/app/page.tsx [Client Component Browser]
+    ./user/app/src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./user/app/src/app/page.tsx [Client Component SSR]
+    ./user/app/src/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+2026-02-14T20:39:33.557Z [console][warn] Please ensure that the container has a non-static position, like 'relative', 'fixed', or 'absolute' to ensure scroll offset is calculated correctly.
