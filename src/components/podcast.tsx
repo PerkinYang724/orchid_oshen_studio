@@ -1,19 +1,27 @@
 "use client";
 
 import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import { Youtube, Music2 } from "lucide-react";
 
-// ─── Update this when you release a new episode ─────────────────────────────
-// Get Spotify episode ID: open the episode on Spotify → Share → Copy link →
-// e.g. https://open.spotify.com/episode/4abc123... → use "4abc123..." as spotifyEpisodeId
-const latestEpisode = {
+type LatestEpisodeData = {
+  title: string;
+  description: string;
+  duration: string;
+  spotifyEpisodeId: string;
+  spotifyUrl?: string;
+  imageUrl?: string;
+  youtubeUrl?: string;
+};
+
+// Fallback when API is not configured or fails (e.g. no Spotify env vars)
+const fallbackLatestEpisode: LatestEpisodeData = {
   title: "What Makes Us Still Human?",
   description:
     "A deep exploration of identity, purpose, and connection in the age of AI. What parts of us remain untouched?",
   duration: "42 min",
-  spotifyEpisodeId: "7K8kDxxSPCBB5HGxvuCRS3?si=cff57b95e3e647d7", // e.g. "4gTQ1g+JKXYZ" — paste your latest episode ID so visitors can play here
-  youtubeUrl: "https://youtu.be/jq3PUmDQivk?si=PRFqzxZCEWAZ6Bhr", // optional: direct link to this episode on YouTube
+  spotifyEpisodeId: "7K8kDxxSPCBB5HGxvuCRS3",
+  youtubeUrl: "https://youtu.be/jq3PUmDQivk?si=PRFqzxZCEWAZ6Bhr",
 };
 
 // YouTube thumbnail: https://img.youtube.com/vi/VIDEO_ID/maxresdefault.jpg
@@ -45,6 +53,28 @@ const episodes = [
 export function Podcast() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
+  const [latestEpisode, setLatestEpisode] = useState<LatestEpisodeData | null>(null);
+
+  useEffect(() => {
+    let cancelled = false;
+    fetch("/api/podcast/latest")
+      .then((res) => (res.ok ? res.json() : Promise.reject(res)))
+      .then((data: LatestEpisodeData) => {
+        if (!cancelled && data?.title && data?.spotifyEpisodeId) {
+          // Embed only needs the ID part (no ?si=...)
+          const cleanId = data.spotifyEpisodeId.split("?")[0];
+          setLatestEpisode({ ...data, spotifyEpisodeId: cleanId });
+        }
+      })
+      .catch(() => {
+        if (!cancelled) setLatestEpisode(fallbackLatestEpisode);
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  const displayLatest = latestEpisode ?? fallbackLatestEpisode;
 
   return (
     <section id="podcast" className="relative py-32 sm:py-40 px-6">
@@ -109,16 +139,16 @@ export function Podcast() {
                   Latest Episode
                 </span>
                 <h3 className="text-2xl sm:text-3xl font-bold tracking-tight text-white/90 mb-2">
-                  {latestEpisode.title}
+                  {displayLatest.title}
                 </h3>
                 <p className="text-white/35 text-sm leading-relaxed max-w-lg">
-                  {latestEpisode.description}
+                  {displayLatest.description}
                 </p>
-                {(latestEpisode.youtubeUrl || latestEpisode.spotifyEpisodeId) && (
+                {(displayLatest.youtubeUrl || displayLatest.spotifyEpisodeId) && (
                   <div className="flex flex-wrap gap-3 mt-4">
-                    {latestEpisode.youtubeUrl && (
+                    {displayLatest.youtubeUrl && (
                       <a
-                        href={latestEpisode.youtubeUrl}
+                        href={displayLatest.youtubeUrl}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="inline-flex items-center gap-2 text-[13px] text-white/50 hover:text-white transition-colors"
@@ -127,9 +157,9 @@ export function Podcast() {
                         Watch on YouTube
                       </a>
                     )}
-                    {latestEpisode.spotifyEpisodeId && (
+                    {displayLatest.spotifyEpisodeId && (
                       <a
-                        href={`https://open.spotify.com/episode/${latestEpisode.spotifyEpisodeId}`}
+                        href={displayLatest.spotifyUrl ?? `https://open.spotify.com/episode/${displayLatest.spotifyEpisodeId}`}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="inline-flex items-center gap-2 text-[13px] text-white/50 hover:text-white transition-colors"
@@ -143,12 +173,12 @@ export function Podcast() {
               </div>
             </div>
 
-            {/* In-page player: visitors can listen without leaving. Set spotifyEpisodeId above. */}
-            {latestEpisode.spotifyEpisodeId ? (
+            {/* In-page player: auto-filled from Spotify when env is set, else fallback. */}
+            {displayLatest.spotifyEpisodeId ? (
               <div className="rounded-2xl overflow-hidden border border-white/[0.08] bg-black/20">
                 <iframe
-                  title={`Play: ${latestEpisode.title}`}
-                  src={`https://open.spotify.com/embed/episode/${latestEpisode.spotifyEpisodeId}?theme=0`}
+                  title={`Play: ${displayLatest.title}`}
+                  src={`https://open.spotify.com/embed/episode/${displayLatest.spotifyEpisodeId}?theme=0`}
                   width="100%"
                   height="232"
                   allowFullScreen
@@ -159,9 +189,9 @@ export function Podcast() {
               </div>
             ) : (
               <p className="text-[13px] text-white/30">
-                Add <code className="text-white/50 px-1 rounded bg-white/10">spotifyEpisodeId</code> to{" "}
-                <code className="text-white/50 px-1 rounded bg-white/10">latestEpisode</code> at the top of{" "}
-                <code className="text-white/50 px-1 rounded bg-white/10">podcast.tsx</code> to show a playable player here.
+                Set <code className="text-white/50 px-1 rounded bg-white/10">SPOTIFY_CLIENT_ID</code>,{" "}
+                <code className="text-white/50 px-1 rounded bg-white/10">SPOTIFY_CLIENT_SECRET</code>, and{" "}
+                <code className="text-white/50 px-1 rounded bg-white/10">SPOTIFY_SHOW_ID</code> in your env to show the latest episode here automatically.
               </p>
             )}
           </div>

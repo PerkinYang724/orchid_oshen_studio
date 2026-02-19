@@ -35,6 +35,23 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
 
+### Podcast: latest episode from Spotify
+
+The **Latest Episode** block in the Podcast section is filled automatically from Spotify when these env vars are set:
+
+| Variable | Required | Description |
+|----------|----------|-------------|
+| `SPOTIFY_CLIENT_ID` | Yes | From [Spotify for Developers](https://developer.spotify.com/dashboard) → your app |
+| `SPOTIFY_CLIENT_SECRET` | Yes | Same app → Client Secret |
+| `SPOTIFY_SHOW_ID` | Yes | Your show ID from the show URL (e.g. `2JdDo1zeJ2fyO5wxxS7ikN`) |
+| `LATEST_EPISODE_YOUTUBE_URL` | No | Set to the YouTube URL of the latest episode to show "Watch on YouTube" for it |
+
+After you release a new episode on Spotify, the site will show it as the latest (title, description, duration, embed, Spotify link) without redeploying. Update `LATEST_EPISODE_YOUTUBE_URL` when you publish the same episode on YouTube so that link stays in sync.
+
+Copy `.env.example` to `.env.local` and fill in the values.
+
+---
+
 ### If you see: `ENOENT ... /vercel/path0/vercel/path0/.next/routes-manifest.json`
 
 This is caused by a **wrong Root Directory** in Vercel. Fix it:
