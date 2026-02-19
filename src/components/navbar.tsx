@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useScroll, useMotionValueEvent } from "framer-motion";
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 const navItems = [
   { label: "Projects", href: "#projects" },
@@ -10,12 +10,18 @@ const navItems = [
   { label: "Contact", href: "#contact" },
 ];
 
+const THROTTLE_MS = 120;
+
 export function Navbar() {
   const [hidden, setHidden] = useState(false);
   const [atTop, setAtTop] = useState(true);
   const { scrollY } = useScroll();
+  const lastUpdate = useRef(0);
 
   useMotionValueEvent(scrollY, "change", (latest) => {
+    const now = Date.now();
+    if (now - lastUpdate.current < THROTTLE_MS) return;
+    lastUpdate.current = now;
     const previous = scrollY.getPrevious() ?? 0;
     setHidden(latest > previous && latest > 150);
     setAtTop(latest < 10);

@@ -76,11 +76,11 @@ body {
 }
 
 .glass-card {
-  background: rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(40px) saturate(120%);
-  -webkit-backdrop-filter: blur(40px) saturate(120%);
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(20px) saturate(120%);
+  -webkit-backdrop-filter: blur(20px) saturate(120%);
   border: 1px solid rgba(255, 255, 255, 0.06);
-  transition: all 0.5s cubic-bezier(0.25, 0.4, 0, 1);
+  transition: background 0.25s, border-color 0.25s, box-shadow 0.25s, transform 0.25s;
 }
 
 .glass-card:hover {
@@ -91,9 +91,9 @@ body {
 }
 
 .glass-nav {
-  background: rgba(5, 5, 7, 0.8);
-  backdrop-filter: saturate(180%) blur(20px);
-  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  background: rgba(5, 5, 7, 0.85);
+  backdrop-filter: saturate(150%) blur(12px);
+  -webkit-backdrop-filter: saturate(150%) blur(12px);
 }
 
 /* ── Gradient Text ── */

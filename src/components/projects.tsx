@@ -52,9 +52,9 @@ export function Projects() {
     <section id="projects" className="relative py-32 sm:py-40 px-6">
       <div ref={ref} className="max-w-6xl mx-auto">
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 24 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, ease: [0.25, 0.4, 0, 1] }}
+          transition={{ duration: 0.4, ease: "easeOut" }}
           className="mb-16 sm:mb-20"
         >
           <p className="text-[13px] font-medium tracking-[0.25em] uppercase text-white/25 mb-4">
@@ -126,9 +126,9 @@ function ProjectCard({
       initial={{ opacity: 0, y: 40 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{
-        duration: 0.7,
-        delay: index * 0.08,
-        ease: [0.25, 0.4, 0, 1],
+        duration: 0.35,
+        delay: index * 0.04,
+        ease: "easeOut",
       }}
       className={wrapperClass}
     >
