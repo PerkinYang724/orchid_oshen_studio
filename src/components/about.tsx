@@ -44,22 +44,26 @@ export function About() {
             className="lg:col-span-3 space-y-6"
           >
             <p className="text-white/45 leading-[1.8] text-base">
-              I&apos;m a tech founder, cinematic creator, and systems thinker.
-              My work sits at the intersection of artificial intelligence,
-              automation, and storytelling &mdash; building tools and content
-              that help people reclaim their time, clarity, and creativity.
+              I&apos;m a tech founder, cinematic creator, and systems thinker
+              &mdash; but really, I&apos;m obsessed with one idea: that the best
+              technology should feel like freedom.
             </p>
             <p className="text-white/45 leading-[1.8] text-base">
               Through Oshen Studio, I design AI-powered systems for creators and
-              businesses. Through Still Human, I explore what it means to stay
-              connected to our humanity as technology accelerates. Every project
-              I build starts with one question: does this give time back?
+              businesses. The work is rooted in minimalism &mdash; reduce
+              complexity to reveal clarity, automate the repetitive to amplify
+              the meaningful.
             </p>
             <p className="text-white/45 leading-[1.8] text-base">
-              My approach draws from minimalism and intentionality. Reduce
-              complexity to reveal clarity. Automate the repetitive to amplify
-              the meaningful. Build systems that serve humans, not the other way
-              around.
+              Through Still Human, my podcast, I explore the other side of that
+              equation. Because building smarter systems is only worthwhile if we
+              stay connected to what makes us human in the process. Each episode
+              is a conversation about creativity, intentionality, and living with
+              purpose as the world accelerates around us.
+            </p>
+            <p className="text-white/45 leading-[1.8] text-base">
+              My north star hasn&apos;t changed: does this give time back? If
+              yes, I build it. If not, I cut it.
             </p>
           </motion.div>
 

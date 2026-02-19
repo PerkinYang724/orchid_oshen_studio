@@ -30,7 +30,7 @@ export function Hero() {
           matter. Technology should return us to ourselves.
         </p>
 
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 flex-wrap">
           <a
             href="#projects"
             className="group relative px-8 py-3.5 rounded-full bg-white text-[#050507] text-sm font-semibold hover:bg-white/90 transition-colors duration-200"
@@ -42,6 +42,12 @@ export function Hero() {
             className="px-8 py-3.5 rounded-full text-sm font-medium text-white/60 hover:text-white border border-white/[0.1] hover:border-white/[0.2] hover:bg-white/[0.04] transition-colors duration-200"
           >
             Listen to Podcast
+          </a>
+          <a
+            href="#projects"
+            className="px-8 py-3.5 rounded-full text-sm font-medium text-white/60 hover:text-white border border-white/[0.1] hover:border-white/[0.2] hover:bg-white/[0.04] transition-colors duration-200"
+          >
+            Read my article
           </a>
         </div>
       </motion.div>

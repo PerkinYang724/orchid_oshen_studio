@@ -5,9 +5,9 @@ import { useRef } from "react";
 import { ArrowUpRight } from "lucide-react";
 
 const socialLinks = [
-  { label: "Email", href: "mailto:hello@oshenstudio.com" },
-  { label: "LinkedIn", href: "#" },
-  { label: "Instagram", href: "#" },
+  { label: "Email", href: "mailto:p@oshenstudio.com" },
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/perkin0909/" },
+  { label: "Instagram", href: "https://www.instagram.com/oshen_studio/" },
 ];
 
 export function Contact() {
@@ -64,7 +64,7 @@ export function Contact() {
               className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-14"
             >
               <a
-                href="mailto:hello@oshenstudio.com"
+                href="mailto:p@oshenstudio.com"
                 className="group inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-white text-[#050507] text-sm font-semibold hover:bg-white/90 transition-all duration-300"
               >
                 Get in Touch
