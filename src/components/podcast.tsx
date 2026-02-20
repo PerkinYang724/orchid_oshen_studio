@@ -41,13 +41,6 @@ const episodes = [
     duration: "31 min",
     youtubeVideoId: "GkyO4MgQW1k", // paste video ID for thumbnail
   },
-  {
-    number: "03",
-    title: "Creativity After AI",
-    description: "What happens to art when machines can create?",
-    duration: "45 min",
-    youtubeVideoId: "",
-  },
 ];
 
 export function Podcast() {
@@ -141,7 +134,7 @@ export function Podcast() {
                 <h3 className="text-2xl sm:text-3xl font-bold tracking-tight text-white/90 mb-2">
                   {displayLatest.title}
                 </h3>
-                <p className="text-white/35 text-sm leading-relaxed max-w-lg">
+                <p className="text-white/35 text-sm leading-relaxed max-w-lg line-clamp-2">
                   {displayLatest.description}
                 </p>
                 {(displayLatest.youtubeUrl || displayLatest.spotifyEpisodeId) && (

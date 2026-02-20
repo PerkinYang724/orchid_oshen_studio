@@ -1,18 +1,36 @@
 "use client";
 
-import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
+import { AnimatePresence, motion, useInView } from "framer-motion";
+import Image from "next/image";
+import { useRef, useState } from "react";
 
 const timeline = [
-  { year: "2026", label: "Launched Still Human Podcast" },
-  { year: "2025", label: "Founded Oshen Studio" },
-  { year: "2025", label: "VP of AI Collaborate" },
-  { year: "2024", label: "Vibe Code my first app" },
+  {
+    year: "2026",
+    label: "Launched Still Human Podcast",
+    image: "/journey/stillhumanpodcast.png",
+  },
+  {
+    year: "2025",
+    label: "Founded Oshen Studio",
+    image: "/journey/oshenstudio.jpg",
+  },
+  {
+    year: "2025",
+    label: "VP of AI Collaborate",
+    image: "/journey/aicollaborate.jpg",
+  },
+  {
+    year: "2024",
+    label: "Vibe Code my first app",
+    image: "/journey/vibe-code.jpg",
+  },
 ];
 
 export function About() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   return (
     <section id="about" className="relative py-32 sm:py-40 px-6">
@@ -79,19 +97,44 @@ export function About() {
             className="lg:col-span-2"
           >
             <div className="glass rounded-3xl p-8 noise relative overflow-hidden">
+              <AnimatePresence>
+                {hoveredIndex !== null && (
+                  <motion.div
+                    key={hoveredIndex}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.4, ease: "easeOut" }}
+                    className="absolute inset-0 z-0"
+                  >
+                    <Image
+                      src={timeline[hoveredIndex].image}
+                      alt={timeline[hoveredIndex].label}
+                      fill
+                      className="object-cover blur-[2px]"
+                    />
+                    <div className="absolute inset-0 bg-black/30" />
+                  </motion.div>
+                )}
+              </AnimatePresence>
               <div className="relative z-10">
                 <h3 className="text-sm font-semibold text-white/50 mb-8 tracking-wide">
                   Journey
                 </h3>
                 <div className="space-y-6">
                   {timeline.map((item, i) => (
-                    <div key={i} className="flex items-start gap-4">
-                      <span className="text-[13px] font-mono text-white/20 mt-0.5 w-10 flex-shrink-0">
+                    <div
+                      key={i}
+                      className="flex items-start gap-4 cursor-pointer group"
+                      onMouseEnter={() => setHoveredIndex(i)}
+                      onMouseLeave={() => setHoveredIndex(null)}
+                    >
+                      <span className="text-[13px] font-mono text-white/20 mt-0.5 w-10 flex-shrink-0 transition-colors duration-300 group-hover:text-white/60">
                         {item.year}
                       </span>
                       <div className="flex items-start gap-3">
-                        <div className="w-1.5 h-1.5 rounded-full bg-blue-400/40 mt-1.5 flex-shrink-0" />
-                        <span className="text-sm text-white/50 leading-relaxed">
+                        <div className="w-1.5 h-1.5 rounded-full bg-blue-400/40 mt-1.5 flex-shrink-0 transition-colors duration-300 group-hover:bg-blue-400/80" />
+                        <span className="text-sm text-white/50 leading-relaxed transition-colors duration-300 group-hover:text-white/90">
                           {item.label}
                         </span>
                       </div>
