@@ -15,11 +15,11 @@ type LatestEpisodeData = {
 };
 
 // Fallback when API is not configured or fails (e.g. no Spotify env vars)
+// Kept in sync with the latest episode in the gallery (episode 3)
 const fallbackLatestEpisode: LatestEpisodeData = {
-  title: "What Makes Us Still Human?",
-  description:
-    "A deep exploration of identity, purpose, and connection in the age of AI. What parts of us remain untouched?",
-  duration: "42 min",
+  title: "Episode 3",
+  description: "Latest conversation from the Still Human Podcast.",
+  duration: "—",
   spotifyEpisodeId: "7K8kDxxSPCBB5HGxvuCRS3",
   youtubeUrl: "https://youtu.be/1jBZ1yflBgA?si=vq9p84cBjuiviZj3",
 };
