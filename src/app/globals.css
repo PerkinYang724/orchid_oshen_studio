@@ -212,6 +212,17 @@ body {
   transition: box-shadow 0.4s cubic-bezier(0.25, 0.4, 0, 1);
 }
 
+/* ── Podcast gallery: infinite scroll left ── */
+@keyframes scroll-left {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll-left {
+  animation: scroll-left 45s linear infinite;
+}
+
 /* ── Reduced motion ── */
 @media (prefers-reduced-motion: reduce) {
   *,

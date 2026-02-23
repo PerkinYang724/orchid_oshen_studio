@@ -21,7 +21,7 @@ const fallbackLatestEpisode: LatestEpisodeData = {
     "A deep exploration of identity, purpose, and connection in the age of AI. What parts of us remain untouched?",
   duration: "42 min",
   spotifyEpisodeId: "7K8kDxxSPCBB5HGxvuCRS3",
-  youtubeUrl: "https://youtu.be/jq3PUmDQivk?si=PRFqzxZCEWAZ6Bhr",
+  youtubeUrl: "https://youtu.be/1jBZ1yflBgA?si=vq9p84cBjuiviZj3",
 };
 
 // YouTube thumbnail: https://img.youtube.com/vi/VIDEO_ID/maxresdefault.jpg
@@ -41,12 +41,83 @@ const episodes = [
     duration: "31 min",
     youtubeVideoId: "GkyO4MgQW1k", // paste video ID for thumbnail
   },
+  {
+    number: "03",
+    title: "Episode 3",
+    description: "Latest conversation from the Still Human Podcast.",
+    duration: "—",
+    youtubeVideoId: "1jBZ1yflBgA",
+  },
 ];
+
+type EpisodeItem = (typeof episodes)[number];
+
+function EpisodeCard({
+  ep,
+  inView,
+}: {
+  ep: EpisodeItem;
+  inView: boolean;
+}) {
+  const Wrapper = ep.youtubeVideoId ? "a" : "div";
+  const wrapperProps =
+    ep.youtubeVideoId
+      ? {
+          href: `https://www.youtube.com/watch?v=${ep.youtubeVideoId}`,
+          target: "_blank" as const,
+          rel: "noopener noreferrer",
+        }
+      : {};
+  return (
+    <Wrapper
+      {...wrapperProps}
+      className="block flex-1 min-w-[200px] max-w-[360px] rounded-2xl overflow-hidden border border-white/[0.08] bg-white/[0.03] cursor-pointer group relative aspect-[16/10] min-h-[180px] flex-shrink-0"
+    >
+      <div className="absolute inset-0 transition-transform duration-500 group-hover:scale-105">
+        {ep.youtubeVideoId ? (
+          <img
+            src={`https://img.youtube.com/vi/${ep.youtubeVideoId}/maxresdefault.jpg`}
+            alt={`Episode ${ep.number}: ${ep.title}`}
+            className="h-full w-full object-cover"
+            loading="lazy"
+            onError={(e) => {
+              (e.target as HTMLImageElement).src = `https://img.youtube.com/vi/${ep.youtubeVideoId}/hqdefault.jpg`;
+            }}
+          />
+        ) : (
+          <div className="h-full w-full bg-gradient-to-br from-purple-500/20 via-blue-500/10 to-transparent" />
+        )}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-60 group-hover:opacity-0 transition-opacity duration-400" />
+      </div>
+      <span className="absolute top-3 left-3 z-10 text-[11px] font-mono text-white/90 bg-black/40 backdrop-blur-sm px-2 py-1 rounded">
+        EP {ep.number}
+      </span>
+      <div className="absolute inset-0 z-10 flex flex-col justify-end p-5 bg-gradient-to-t from-black/95 via-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+        <h4 className="text-base font-semibold text-white mb-2 tracking-tight line-clamp-2">
+          {ep.title}
+        </h4>
+        <p className="text-[13px] text-white/70 leading-relaxed line-clamp-4 mb-2">
+          {ep.description}
+        </p>
+        <div className="flex items-center justify-between mt-auto">
+          <span className="text-[11px] text-white/50 font-mono">{ep.duration}</span>
+          {ep.youtubeVideoId && (
+            <span className="inline-flex items-center gap-1.5 text-[12px] text-white/80 group-hover:text-white">
+              <Youtube className="w-3.5 h-3.5 text-[#FF0000]" />
+              Watch
+            </span>
+          )}
+        </div>
+      </div>
+    </Wrapper>
+  );
+}
 
 export function Podcast() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
   const [latestEpisode, setLatestEpisode] = useState<LatestEpisodeData | null>(null);
+  const [isGalleryHovered, setIsGalleryHovered] = useState(false);
 
   useEffect(() => {
     let cancelled = false;
@@ -190,75 +261,31 @@ export function Podcast() {
           </div>
         </motion.div>
 
-        {/* Episode list: thumbnail by default, hover shows full description */}
-        <div className="grid sm:grid-cols-3 gap-4">
-          {episodes.map((ep, i) => {
-            const Wrapper = ep.youtubeVideoId ? motion.a : motion.div;
-            const wrapperProps = ep.youtubeVideoId
-              ? {
-                  href: `https://www.youtube.com/watch?v=${ep.youtubeVideoId}`,
-                  target: "_blank" as const,
-                  rel: "noopener noreferrer",
-                }
-              : {};
-            return (
-              <Wrapper
-                key={ep.number}
-                {...wrapperProps}
-                initial={{ opacity: 0, y: 30 }}
-                animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{
-                  duration: 0.6,
-                  delay: 0.3 + i * 0.1,
-                  ease: [0.25, 0.4, 0, 1],
-                }}
-                className="block rounded-2xl overflow-hidden border border-white/[0.08] bg-white/[0.03] cursor-pointer group relative aspect-[16/10] min-h-[180px]"
-              >
-                {/* Default: YouTube thumbnail (or gradient placeholder) */}
-                <div className="absolute inset-0 transition-transform duration-500 group-hover:scale-105">
-                  {ep.youtubeVideoId ? (
-                    <img
-                      src={`https://img.youtube.com/vi/${ep.youtubeVideoId}/maxresdefault.jpg`}
-                      alt={`Episode ${ep.number}: ${ep.title}`}
-                      className="h-full w-full object-cover"
-                      loading="lazy"
-                      onError={(e) => {
-                        (e.target as HTMLImageElement).src = `https://img.youtube.com/vi/${ep.youtubeVideoId}/hqdefault.jpg`;
-                      }}
-                    />
-                  ) : (
-                    <div className="h-full w-full bg-gradient-to-br from-purple-500/20 via-blue-500/10 to-transparent" />
-                  )}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-60 group-hover:opacity-0 transition-opacity duration-400" />
-                </div>
-
-                {/* EP badge – always visible on thumbnail */}
-                <span className="absolute top-3 left-3 z-10 text-[11px] font-mono text-white/90 bg-black/40 backdrop-blur-sm px-2 py-1 rounded">
-                  EP {ep.number}
-                </span>
-
-                {/* Hover overlay: full description */}
-                <div className="absolute inset-0 z-10 flex flex-col justify-end p-5 bg-gradient-to-t from-black/95 via-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <h4 className="text-base font-semibold text-white mb-2 tracking-tight line-clamp-2">
-                    {ep.title}
-                  </h4>
-                  <p className="text-[13px] text-white/70 leading-relaxed line-clamp-4 mb-2">
-                    {ep.description}
-                  </p>
-                  <div className="flex items-center justify-between mt-auto">
-                    <span className="text-[11px] text-white/50 font-mono">{ep.duration}</span>
-                    {ep.youtubeVideoId && (
-                      <span className="inline-flex items-center gap-1.5 text-[12px] text-white/80 group-hover:text-white">
-                        <Youtube className="w-3.5 h-3.5 text-[#FF0000]" />
-                        Watch
-                      </span>
-                    )}
-                  </div>
-                </div>
-              </Wrapper>
-            );
-          })}
-        </div>
+        {/* Episode gallery: infinite scroll left; pause on hover and show card text */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, delay: 0.3, ease: [0.25, 0.4, 0, 1] }}
+          className="w-full overflow-hidden"
+        >
+          <div
+            className="flex w-[200%] animate-scroll-left"
+            style={{ animationPlayState: isGalleryHovered ? "paused" : "running" }}
+            onMouseEnter={() => setIsGalleryHovered(true)}
+            onMouseLeave={() => setIsGalleryHovered(false)}
+          >
+            <div className="flex gap-4 flex-shrink-0 w-1/2 pr-2">
+              {episodes.map((ep, i) => (
+                <EpisodeCard key={`a-${ep.number}`} ep={ep} inView={inView} />
+              ))}
+            </div>
+            <div className="flex gap-4 flex-shrink-0 w-1/2 pr-2">
+              {episodes.map((ep, i) => (
+                <EpisodeCard key={`b-${ep.number}`} ep={ep} inView={inView} />
+              ))}
+            </div>
+          </div>
+        </motion.div>
       </div>
     </section>
   );
