@@ -55,9 +55,11 @@ type EpisodeItem = (typeof episodes)[number];
 function EpisodeCard({
   ep,
   inView,
+  mobile = false,
 }: {
   ep: EpisodeItem;
   inView: boolean;
+  mobile?: boolean;
 }) {
   const Wrapper = ep.youtubeVideoId ? "a" : "div";
   const wrapperProps =
@@ -71,7 +73,11 @@ function EpisodeCard({
   return (
     <Wrapper
       {...wrapperProps}
-      className="block flex-1 min-w-[200px] max-w-[360px] rounded-2xl overflow-hidden border border-white/[0.08] bg-white/[0.03] cursor-pointer group relative aspect-[16/10] min-h-[180px] flex-shrink-0"
+      className={`block rounded-2xl overflow-hidden border border-white/[0.08] bg-white/[0.03] cursor-pointer group relative aspect-[16/10] min-h-[160px] ${
+        mobile
+          ? "w-full flex-shrink-0"
+          : "flex-1 min-w-[200px] max-w-[360px] min-h-[180px] flex-shrink-0"
+      }`}
     >
       <div className="absolute inset-0 transition-transform duration-500 group-hover:scale-105">
         {ep.youtubeVideoId ? (
@@ -87,12 +93,12 @@ function EpisodeCard({
         ) : (
           <div className="h-full w-full bg-gradient-to-br from-purple-500/20 via-blue-500/10 to-transparent" />
         )}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-60 group-hover:opacity-0 transition-opacity duration-400" />
+        <div className={`absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent transition-opacity duration-400 ${mobile ? "opacity-80" : "opacity-60 group-hover:opacity-0"}`} />
       </div>
       <span className="absolute top-3 left-3 z-10 text-[11px] font-mono text-white/90 bg-black/40 backdrop-blur-sm px-2 py-1 rounded">
         EP {ep.number}
       </span>
-      <div className="absolute inset-0 z-10 flex flex-col justify-end p-5 bg-gradient-to-t from-black/95 via-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+      <div className={`absolute inset-0 z-10 flex flex-col justify-end p-5 bg-gradient-to-t from-black/95 via-black/60 to-transparent transition-opacity duration-300 ${mobile ? "opacity-100" : "opacity-0 group-hover:opacity-100"}`}>
         <h4 className="text-base font-semibold text-white mb-2 tracking-tight line-clamp-2">
           {ep.title}
         </h4>
@@ -141,19 +147,19 @@ export function Podcast() {
   const displayLatest = latestEpisode ?? fallbackLatestEpisode;
 
   return (
-    <section id="podcast" className="relative py-32 sm:py-40 px-6">
+    <section id="podcast" className="relative py-20 sm:py-32 md:py-40 px-4 sm:px-6 overflow-x-hidden">
       {/* Ambient glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-purple-500/[0.04] rounded-full blur-[120px] pointer-events-none" />
 
-      <div ref={ref} className="max-w-6xl mx-auto">
+      <div ref={ref} className="max-w-6xl mx-auto px-1 sm:px-0">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, ease: [0.25, 0.4, 0, 1] }}
-          className="mb-16 sm:mb-20"
+          className="mb-10 sm:mb-16 md:mb-20"
         >
-          <p className="text-[13px] font-medium tracking-[0.25em] uppercase text-white/25 mb-4">
+          <p className="text-[13px] font-medium tracking-[0.25em] uppercase text-white/25 mb-3 sm:mb-4">
             Podcast
           </p>
           <h2 className="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight max-w-2xl">
@@ -193,7 +199,7 @@ export function Podcast() {
           initial={{ opacity: 0, y: 40 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.15, ease: [0.25, 0.4, 0, 1] }}
-          className="glass-strong rounded-3xl p-8 sm:p-12 noise relative overflow-hidden mb-8"
+          className="glass-strong rounded-3xl p-5 sm:p-8 md:p-12 noise relative overflow-hidden mb-6 md:mb-8"
         >
           <div className="absolute top-0 right-0 w-[300px] h-[300px] bg-gradient-to-bl from-purple-500/[0.08] to-transparent rounded-full blur-[80px] pointer-events-none" />
           <div className="relative z-10">
@@ -261,12 +267,25 @@ export function Podcast() {
           </div>
         </motion.div>
 
-        {/* Episode gallery: infinite scroll left; pause on hover and show card text */}
+        {/* Episode gallery: on mobile = vertical stack (no horizontal scroll); on md+ = infinite scroll left */}
+        {/* Mobile: single column, no scroll, with cushion */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.5, delay: 0.25, ease: [0.25, 0.4, 0, 1] }}
+          className="md:hidden w-full space-y-4"
+        >
+          {episodes.map((ep, i) => (
+            <EpisodeCard key={ep.number} ep={ep} inView={inView} mobile />
+          ))}
+        </motion.div>
+
+        {/* Desktop: infinite scroll gallery */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.3, ease: [0.25, 0.4, 0, 1] }}
-          className="w-full overflow-hidden"
+          className="hidden md:block w-full overflow-hidden"
         >
           <div
             className="flex w-[200%] animate-scroll-left"
@@ -275,12 +294,12 @@ export function Podcast() {
             onMouseLeave={() => setIsGalleryHovered(false)}
           >
             <div className="flex gap-4 flex-shrink-0 w-1/2 pr-2">
-              {episodes.map((ep, i) => (
+              {episodes.map((ep) => (
                 <EpisodeCard key={`a-${ep.number}`} ep={ep} inView={inView} />
               ))}
             </div>
             <div className="flex gap-4 flex-shrink-0 w-1/2 pr-2">
-              {episodes.map((ep, i) => (
+              {episodes.map((ep) => (
                 <EpisodeCard key={`b-${ep.number}`} ep={ep} inView={inView} />
               ))}
             </div>
