@@ -47,6 +47,14 @@ export const metadata: Metadata = {
     title: "Oshen Studio — AI Automation & Storytelling | Perkin",
     description:
       "Perkin builds AI-powered automation systems and explores the intersection of technology and humanity through the Still Human Podcast.",
+    images: [
+      {
+        url: `${siteUrl}/opengraph-image`,
+        width: 1200,
+        height: 630,
+        alt: "Oshen Studio — AI Automation & Storytelling",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
@@ -54,6 +62,7 @@ export const metadata: Metadata = {
     description:
       "Perkin builds AI-powered automation systems and explores the intersection of technology and humanity through the Still Human Podcast.",
     creator: "@oshen_studio",
+    images: [`${siteUrl}/opengraph-image`],
   },
   alternates: {
     canonical: siteUrl,
