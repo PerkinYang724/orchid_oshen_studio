@@ -1,8 +1,8 @@
 "use client";
 
 const socialLinks = [
-  { label: "LinkedIn", href: "#" },
-  { label: "Instagram", href: "#" },
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/perkin0909/" },
+  { label: "Instagram", href: "https://www.instagram.com/oshen_studio/" },
   { label: "Email", href: "mailto:hello@oshenstudio.com" },
 ];
 
@@ -24,6 +24,8 @@ export function Footer() {
             <a
               key={link.label}
               href={link.href}
+              target={link.href.startsWith("http") ? "_blank" : undefined}
+              rel={link.href.startsWith("http") ? "noopener noreferrer" : undefined}
               className="text-xs text-white/25 hover:text-white/50 transition-colors duration-300"
             >
               {link.label}

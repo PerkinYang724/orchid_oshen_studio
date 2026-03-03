@@ -31,7 +31,7 @@ const projects = [
     tag: "Community",
     gradient: "from-orange-500/15 via-amber-500/10 to-transparent",
     accent: "bg-orange-400",
-    href: "https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://www.scuaiclub.com/&ved=2ahUKEwiI1L6ekeGSAxVgFjQIHff5EeQQFnoECA0QAQ&usg=AOvVaw3V52hj8ubYOsqwXiRb10zl",
+    href: "https://www.scuaiclub.com/",
   },
   {
     title: "Automation Systems",
