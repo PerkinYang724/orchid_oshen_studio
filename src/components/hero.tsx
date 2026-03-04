@@ -8,12 +8,7 @@ export function Hero() {
       {/* Light ambient glow — reduced blur for performance */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[60%] w-[600px] h-[350px] bg-gradient-to-b from-blue-500/[0.05] via-cyan-500/[0.02] to-transparent rounded-full blur-[60px] pointer-events-none" />
 
-      <m.div
-        initial={{ opacity: 0, y: 16 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.35, ease: "easeOut" }}
-        className="relative z-10 max-w-4xl text-center"
-      >
+      <div className="relative z-10 max-w-4xl text-center animate-fade-in">
         <p className="text-[13px] font-medium tracking-[0.25em] uppercase text-white/30 mb-8">
           AI &middot; Automation &middot; Storytelling
         </p>
@@ -50,7 +45,7 @@ export function Hero() {
             Read my article
           </a>
         </div>
-      </m.div>
+      </div>
 
       {/* Scroll indicator — CSS-only animation */}
       <div className="absolute bottom-10 flex flex-col items-center gap-2 opacity-60">

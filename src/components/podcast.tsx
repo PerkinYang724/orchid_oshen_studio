@@ -2,7 +2,7 @@
 
 import { m, useInView } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
-import { Youtube, Music2 } from "lucide-react";
+import { Youtube, Music2, Play } from "lucide-react";
 
 type LatestEpisodeData = {
   title: string;
@@ -118,6 +118,35 @@ function EpisodeCard({
         </div>
       </div>
     </Wrapper>
+  );
+}
+
+function SpotifyFacade({ episodeId, title }: { episodeId: string; title: string }) {
+  const [loaded, setLoaded] = useState(false);
+  return (
+    <div className="rounded-2xl overflow-hidden border border-white/[0.08] bg-black/20" style={{ height: 232 }}>
+      {loaded ? (
+        <iframe
+          title={`Play: ${title}`}
+          src={`https://open.spotify.com/embed/episode/${episodeId}?theme=0`}
+          width="100%"
+          height="232"
+          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+          className="border-0"
+        />
+      ) : (
+        <button
+          onClick={() => setLoaded(true)}
+          className="w-full h-full flex items-center justify-center gap-3 text-white/40 hover:text-white/70 transition-colors group"
+          aria-label="Load Spotify player"
+        >
+          <div className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center group-hover:border-white/25 group-hover:bg-white/[0.04] transition-all">
+            <Play className="w-4 h-4 text-[#1DB954]" />
+          </div>
+          <span className="text-sm font-medium">Click to load Spotify player</span>
+        </button>
+      )}
+    </div>
   );
 }
 
@@ -245,20 +274,9 @@ export function Podcast() {
               </div>
             </div>
 
-            {/* In-page player: auto-filled from Spotify when env is set, else fallback. */}
+            {/* In-page player: loads only on click to avoid Spotify JS blocking page load */}
             {displayLatest.spotifyEpisodeId ? (
-              <div className="rounded-2xl overflow-hidden border border-white/[0.08] bg-black/20">
-                <iframe
-                  title={`Play: ${displayLatest.title}`}
-                  src={`https://open.spotify.com/embed/episode/${displayLatest.spotifyEpisodeId}?theme=0`}
-                  width="100%"
-                  height="232"
-                  allowFullScreen
-                  allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                  loading="lazy"
-                  className="border-0"
-                />
-              </div>
+              <SpotifyFacade episodeId={displayLatest.spotifyEpisodeId} title={displayLatest.title} />
             ) : (
               <p className="text-[13px] text-white/30">
                 Set <code className="text-white/50 px-1 rounded bg-white/10">SPOTIFY_CLIENT_ID</code>,{" "}
