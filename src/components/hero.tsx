@@ -1,14 +1,10 @@
-"use client";
-
-import { m } from "framer-motion";
-
 export function Hero() {
   return (
     <section className="relative min-h-screen flex flex-col items-center justify-center px-6 pt-14 overflow-hidden">
-      {/* Light ambient glow — reduced blur for performance */}
+      {/* Light ambient glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[60%] w-[600px] h-[350px] bg-gradient-to-b from-blue-500/[0.05] via-cyan-500/[0.02] to-transparent rounded-full blur-[60px] pointer-events-none" />
 
-      <div className="relative z-10 max-w-4xl text-center animate-fade-in">
+      <div className="relative z-10 max-w-4xl text-center">
         <p className="text-[13px] font-medium tracking-[0.25em] uppercase text-white/30 mb-8">
           AI &middot; Automation &middot; Storytelling
         </p>
@@ -47,7 +43,7 @@ export function Hero() {
         </div>
       </div>
 
-      {/* Scroll indicator — CSS-only animation */}
+      {/* Scroll indicator */}
       <div className="absolute bottom-10 flex flex-col items-center gap-2 opacity-60">
         <span className="text-[10px] uppercase tracking-[0.3em] text-white/20">
           Scroll

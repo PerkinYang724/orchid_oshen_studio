@@ -1,5 +1,3 @@
-"use client";
-
 const socialLinks = [
   { label: "LinkedIn", href: "https://www.linkedin.com/in/perkin0909/" },
   { label: "Instagram", href: "https://www.instagram.com/oshen_studio/" },
