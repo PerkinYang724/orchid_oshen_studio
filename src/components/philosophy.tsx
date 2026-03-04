@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useInView } from "framer-motion";
+import { m, useInView } from "framer-motion";
 import { useRef } from "react";
 
 export function Philosophy() {
@@ -13,7 +13,7 @@ export function Philosophy() {
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[300px] bg-blue-500/[0.04] rounded-full blur-[100px] pointer-events-none" />
 
       <div ref={ref} className="max-w-3xl mx-auto text-center">
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 1, ease: [0.25, 0.4, 0, 1] }}
@@ -21,9 +21,9 @@ export function Philosophy() {
           <p className="text-[13px] font-medium tracking-[0.25em] uppercase text-white/20 mb-10">
             Philosophy
           </p>
-        </motion.div>
+        </m.div>
 
-        <motion.blockquote
+        <m.blockquote
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 1, delay: 0.15, ease: [0.25, 0.4, 0, 1] }}
@@ -39,9 +39,9 @@ export function Philosophy() {
             <br />
             to ourselves.
           </p>
-        </motion.blockquote>
+        </m.blockquote>
 
-        <motion.div
+        <m.div
           initial={{ opacity: 0 }}
           animate={inView ? { opacity: 1 } : {}}
           transition={{ duration: 1, delay: 0.5 }}

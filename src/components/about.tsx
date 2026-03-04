@@ -1,6 +1,6 @@
 "use client";
 
-import { AnimatePresence, motion, useInView } from "framer-motion";
+import { AnimatePresence, m, useInView } from "framer-motion";
 import Image from "next/image";
 import { useRef, useState } from "react";
 
@@ -35,7 +35,7 @@ export function About() {
   return (
     <section id="about" className="relative py-32 sm:py-40 px-6">
       <div ref={ref} className="max-w-6xl mx-auto">
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 40 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, ease: [0.25, 0.4, 0, 1] }}
@@ -47,11 +47,11 @@ export function About() {
             Building at the edge of{" "}
             <span className="gradient-text">AI and humanity.</span>
           </h2>
-        </motion.div>
+        </m.div>
 
         <div className="grid lg:grid-cols-5 gap-16 mt-16">
           {/* Narrative */}
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 40 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{
@@ -83,10 +83,10 @@ export function About() {
               My north star hasn&apos;t changed: does this give time back? If
               yes, I build it. If not, I cut it.
             </p>
-          </motion.div>
+          </m.div>
 
           {/* Timeline */}
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 40 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{
@@ -99,7 +99,7 @@ export function About() {
             <div className="glass rounded-3xl p-8 noise relative overflow-hidden">
               <AnimatePresence>
                 {hoveredIndex !== null && (
-                  <motion.div
+                  <m.div
                     key={hoveredIndex}
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
@@ -114,7 +114,7 @@ export function About() {
                       className="object-cover blur-[2px]"
                     />
                     <div className="absolute inset-0 bg-black/30" />
-                  </motion.div>
+                  </m.div>
                 )}
               </AnimatePresence>
               <div className="relative z-10">
@@ -143,7 +143,7 @@ export function About() {
                 </div>
               </div>
             </div>
-          </motion.div>
+          </m.div>
         </div>
       </div>
     </section>

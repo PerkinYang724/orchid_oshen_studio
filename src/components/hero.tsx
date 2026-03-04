@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 
 export function Hero() {
   return (
@@ -8,7 +8,7 @@ export function Hero() {
       {/* Light ambient glow — reduced blur for performance */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[60%] w-[600px] h-[350px] bg-gradient-to-b from-blue-500/[0.05] via-cyan-500/[0.02] to-transparent rounded-full blur-[60px] pointer-events-none" />
 
-      <motion.div
+      <m.div
         initial={{ opacity: 0, y: 16 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.35, ease: "easeOut" }}
@@ -50,7 +50,7 @@ export function Hero() {
             Read my article
           </a>
         </div>
-      </motion.div>
+      </m.div>
 
       {/* Scroll indicator — CSS-only animation */}
       <div className="absolute bottom-10 flex flex-col items-center gap-2 opacity-60">

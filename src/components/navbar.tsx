@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useScroll, useMotionValueEvent } from "framer-motion";
+import { m, useScroll, useMotionValueEvent } from "framer-motion";
 import { useState, useRef } from "react";
 
 const navItems = [
@@ -29,7 +29,7 @@ export function Navbar() {
   });
 
   return (
-    <motion.nav
+    <m.nav
       variants={{
         visible: { y: 0 },
         hidden: { y: "-100%" },
@@ -67,6 +67,6 @@ export function Navbar() {
           Let&apos;s Connect
         </a>
       </div>
-    </motion.nav>
+    </m.nav>
   );
 }

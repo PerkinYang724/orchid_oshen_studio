@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useInView } from "framer-motion";
+import { m, useInView } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
 import { Youtube, Music2 } from "lucide-react";
 
@@ -85,6 +85,8 @@ function EpisodeCard({
             src={`https://img.youtube.com/vi/${ep.youtubeVideoId}/maxresdefault.jpg`}
             alt={`Episode ${ep.number}: ${ep.title}`}
             className="h-full w-full object-cover"
+            width={1280}
+            height={720}
             loading="lazy"
             onError={(e) => {
               (e.target as HTMLImageElement).src = `https://img.youtube.com/vi/${ep.youtubeVideoId}/hqdefault.jpg`;
@@ -153,7 +155,7 @@ export function Podcast() {
 
       <div ref={ref} className="max-w-6xl mx-auto px-1 sm:px-0">
         {/* Header */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 40 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, ease: [0.25, 0.4, 0, 1] }}
@@ -192,10 +194,10 @@ export function Podcast() {
               Watch on YouTube
             </a>
           </div>
-        </motion.div>
+        </m.div>
 
         {/* Latest episode – update `latestEpisode` at top of file to change title/description and embed */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 40 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.15, ease: [0.25, 0.4, 0, 1] }}
@@ -265,11 +267,11 @@ export function Podcast() {
               </p>
             )}
           </div>
-        </motion.div>
+        </m.div>
 
         {/* Episode gallery: on mobile = vertical stack (no horizontal scroll); on md+ = infinite scroll left */}
         {/* Mobile: single column, no scroll, with cushion */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5, delay: 0.25, ease: [0.25, 0.4, 0, 1] }}
@@ -278,10 +280,10 @@ export function Podcast() {
           {episodes.map((ep, i) => (
             <EpisodeCard key={ep.number} ep={ep} inView={inView} mobile />
           ))}
-        </motion.div>
+        </m.div>
 
         {/* Desktop: infinite scroll gallery */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.3, ease: [0.25, 0.4, 0, 1] }}
@@ -304,7 +306,7 @@ export function Podcast() {
               ))}
             </div>
           </div>
-        </motion.div>
+        </m.div>
       </div>
     </section>
   );

@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useInView } from "framer-motion";
+import { m, useInView } from "framer-motion";
 import { useRef } from "react";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
@@ -51,7 +51,7 @@ export function Projects() {
   return (
     <section id="projects" className="relative py-32 sm:py-40 px-6">
       <div ref={ref} className="max-w-6xl mx-auto">
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 24 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.4, ease: "easeOut" }}
@@ -64,7 +64,7 @@ export function Projects() {
             Featured{" "}
             <span className="gradient-text">Projects</span>
           </h2>
-        </motion.div>
+        </m.div>
 
         <div className="grid md:grid-cols-2 gap-5 pb-12">
           {projects.map((project, i) => (
@@ -121,7 +121,7 @@ function ProjectCard({
   const wrapperClass = index === 0 ? "md:col-span-2" : "";
 
   return (
-    <motion.div
+    <m.div
       ref={ref}
       initial={{ opacity: 0, y: 40 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -150,6 +150,6 @@ function ProjectCard({
       ) : (
         cardContent
       )}
-    </motion.div>
+    </m.div>
   );
 }
