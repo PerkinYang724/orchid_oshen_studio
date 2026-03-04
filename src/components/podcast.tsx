@@ -2,7 +2,7 @@
 
 import { m, useInView } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
-import { Youtube, Music2, Play } from "lucide-react";
+import { Youtube, Music2 } from "lucide-react";
 
 type LatestEpisodeData = {
   title: string;
@@ -15,13 +15,13 @@ type LatestEpisodeData = {
 };
 
 // Fallback when API is not configured or fails (e.g. no Spotify env vars)
-// Kept in sync with the latest episode in the gallery (episode 3)
+// Kept in sync with the latest episode in the gallery (episode 4)
 const fallbackLatestEpisode: LatestEpisodeData = {
-  title: "Episode 3",
-  description: "Latest conversation from the Still Human Podcast.",
+  title: "Who Are You Without AI? | A Deep Dive into Hypersonics and Human Originality with Bailley Georgieva",
+  description: "In this episode, I sit down with Bailley Georgieva, a brilliant Junior Aerospace Engineering student at Rutgers and a Hypersonic Research Affiliate at MIT. Bailley operates at the bleeding edge of technology, simulating Mach 10+ flight physics using restricted NASA code. From evaluating startup fixes at the Defense Innovation Unit (DIU) to developing algorithmic trading software at just 18, Bailley's resume is as explosive as the physics she studies.",
   duration: "—",
-  spotifyEpisodeId: "7K8kDxxSPCBB5HGxvuCRS3",
-  youtubeUrl: "https://youtu.be/1jBZ1yflBgA?si=vq9p84cBjuiviZj3",
+  spotifyEpisodeId: "3x8Z8e5XNkGKRAYV85u4Sz",
+  youtubeUrl: "https://youtu.be/m3QzlKlb9uc",
 };
 
 // YouTube thumbnail: https://img.youtube.com/vi/VIDEO_ID/maxresdefault.jpg
@@ -47,6 +47,13 @@ const episodes = [
     description: "Latest conversation from the Still Human Podcast.",
     duration: "—",
     youtubeVideoId: "1jBZ1yflBgA",
+  },
+  {
+    number: "04",
+    title: "Who Are You Without AI? | A Deep Dive into Hypersonics and Human Originality with Bailley Georgieva",
+    description: "In this episode, I sit down with Bailley Georgieva, a brilliant Junior Aerospace Engineering student at Rutgers and a Hypersonic Research Affiliate at MIT. Bailley operates at the bleeding edge of technology, simulating Mach 10+ flight physics using restricted NASA code. From evaluating startup fixes at the Defense Innovation Unit (DIU) to developing algorithmic trading software at just 18, Bailley's resume is as explosive as the physics she studies.",
+    duration: "—",
+    youtubeVideoId: "m3QzlKlb9uc",
   },
 ];
 
@@ -122,30 +129,16 @@ function EpisodeCard({
 }
 
 function SpotifyFacade({ episodeId, title }: { episodeId: string; title: string }) {
-  const [loaded, setLoaded] = useState(false);
   return (
     <div className="rounded-2xl overflow-hidden border border-white/[0.08] bg-black/20" style={{ height: 232 }}>
-      {loaded ? (
-        <iframe
-          title={`Play: ${title}`}
-          src={`https://open.spotify.com/embed/episode/${episodeId}?theme=0`}
-          width="100%"
-          height="232"
-          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-          className="border-0"
-        />
-      ) : (
-        <button
-          onClick={() => setLoaded(true)}
-          className="w-full h-full flex items-center justify-center gap-3 text-white/40 hover:text-white/70 transition-colors group"
-          aria-label="Load Spotify player"
-        >
-          <div className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center group-hover:border-white/25 group-hover:bg-white/[0.04] transition-all">
-            <Play className="w-4 h-4 text-[#1DB954]" />
-          </div>
-          <span className="text-sm font-medium">Click to load Spotify player</span>
-        </button>
-      )}
+      <iframe
+        title={`Play: ${title}`}
+        src={`https://open.spotify.com/embed/episode/${episodeId}?theme=0`}
+        width="100%"
+        height="232"
+        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+        className="border-0"
+      />
     </div>
   );
 }
