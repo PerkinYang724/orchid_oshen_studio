@@ -87,10 +87,10 @@ function EpisodeCard({
   return (
     <Wrapper
       {...wrapperProps}
-      className={`block rounded-2xl overflow-hidden border border-white/[0.08] bg-white/[0.03] cursor-pointer group relative aspect-[16/10] min-h-[160px] ${
+      className={`block rounded-2xl overflow-hidden border border-white/[0.08] bg-white/[0.03] cursor-pointer group relative aspect-video ${
         mobile
           ? "w-full flex-shrink-0"
-          : "flex-1 min-w-[200px] max-w-[360px] min-h-[180px] flex-shrink-0"
+          : "w-80 flex-shrink-0 mr-4"
       }`}
     >
       <div className="absolute inset-0 transition-transform duration-500 group-hover:scale-105">
@@ -308,21 +308,14 @@ export function Podcast() {
           className="hidden md:block w-full overflow-hidden"
         >
           <div
-            className="flex w-[200%] animate-scroll-left"
-            style={{ animationPlayState: isGalleryHovered ? "paused" : "running" }}
+            className="flex animate-scroll-left"
+            style={{ width: "max-content", animationPlayState: isGalleryHovered ? "paused" : "running" }}
             onMouseEnter={() => setIsGalleryHovered(true)}
             onMouseLeave={() => setIsGalleryHovered(false)}
           >
-            <div className="flex gap-4 flex-shrink-0 w-1/2 pr-2">
-              {episodes.map((ep) => (
-                <EpisodeCard key={`a-${ep.number}`} ep={ep} inView={inView} />
-              ))}
-            </div>
-            <div className="flex gap-4 flex-shrink-0 w-1/2 pr-2">
-              {episodes.map((ep) => (
-                <EpisodeCard key={`b-${ep.number}`} ep={ep} inView={inView} />
-              ))}
-            </div>
+            {[...episodes, ...episodes].map((ep, i) => (
+              <EpisodeCard key={i} ep={ep} inView={inView} />
+            ))}
           </div>
         </m.div>
       </div>
