@@ -17,11 +17,11 @@ type LatestEpisodeData = {
 // Fallback when API is not configured or fails (e.g. no Spotify env vars)
 // Kept in sync with the latest episode in the gallery (episode 4)
 const fallbackLatestEpisode: LatestEpisodeData = {
-  title: "Who Are You Without AI? | A Deep Dive into Hypersonics and Human Originality with Bailley Georgieva",
-  description: "In this episode, I sit down with Bailley Georgieva, a brilliant Junior Aerospace Engineering student at Rutgers and a Hypersonic Research Affiliate at MIT. Bailley operates at the bleeding edge of technology, simulating Mach 10+ flight physics using restricted NASA code. From evaluating startup fixes at the Defense Innovation Unit (DIU) to developing algorithmic trading software at just 18, Bailley's resume is as explosive as the physics she studies.",
-  duration: "—",
-  spotifyEpisodeId: "3x8Z8e5XNkGKRAYV85u4Sz",
-  youtubeUrl: "https://youtu.be/m3QzlKlb9uc",
+  title: "Andrey Marey: The Fake Dopamine Trap, Rapid Execution, and Setting Boundaries with AI | Still Human",
+  description: "This episode features a conversation with 20-year-old serial founder Andrey Marey from Santa Clara University. The discussion explores how to \"build fast without losing your humanity,\" covering topics including resilience developed through recovery from knee surgeries, psychology of goal-setting, and why Marey avoids using AI for personal communications. Key subjects include disconnecting from technology to foster original thinking, the importance of sales skills for technical founders, why he discontinued successful projects early, and perspectives on how human creators will succeed in an AI-driven world.",
+  duration: "44 min",
+  spotifyEpisodeId: "6B5TSbkxKZv4KnQvMKnVc9",
+  youtubeUrl: "https://www.youtube.com/watch?v=ZWhkF8q3-g0",
 };
 
 // YouTube thumbnail: https://img.youtube.com/vi/VIDEO_ID/maxresdefault.jpg
@@ -54,6 +54,13 @@ const episodes = [
     description: "In this episode, I sit down with Bailley Georgieva, a brilliant Junior Aerospace Engineering student at Rutgers and a Hypersonic Research Affiliate at MIT. Bailley operates at the bleeding edge of technology, simulating Mach 10+ flight physics using restricted NASA code. From evaluating startup fixes at the Defense Innovation Unit (DIU) to developing algorithmic trading software at just 18, Bailley's resume is as explosive as the physics she studies.",
     duration: "—",
     youtubeVideoId: "m3QzlKlb9uc",
+  },
+  {
+    number: "05",
+    title: "Andrey Marey: The Fake Dopamine Trap, Rapid Execution, and Setting Boundaries with AI",
+    description: "A conversation with 20-year-old serial founder Andrey Marey from Santa Clara University. Exploring how to build fast without losing your humanity — covering resilience, the psychology of goal-setting, and why Marey avoids using AI for personal communications.",
+    duration: "44 min",
+    youtubeVideoId: "ZWhkF8q3-g0",
   },
 ];
 
