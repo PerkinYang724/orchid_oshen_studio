@@ -254,3 +254,113 @@ body {
 nextjs-portal {
   display: none !important;
 }
+
+/* ── Episode show notes prose ── */
+.episode-prose h1 {
+  font-size: 1.875rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: rgba(245, 245, 247, 0.92);
+  margin-bottom: 1.25rem;
+  line-height: 1.25;
+}
+.episode-prose h2 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: rgba(245, 245, 247, 0.85);
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+.episode-prose h3 {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: rgba(245, 245, 247, 0.6);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+.episode-prose p {
+  font-size: 0.9375rem;
+  color: rgba(245, 245, 247, 0.55);
+  line-height: 1.75;
+  margin-bottom: 1rem;
+}
+.episode-prose a {
+  color: #6ac4ff;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.2s;
+}
+.episode-prose a:hover {
+  color: #2997ff;
+}
+.episode-prose ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 1rem;
+}
+.episode-prose ul li {
+  font-size: 0.9375rem;
+  color: rgba(245, 245, 247, 0.55);
+  line-height: 1.7;
+  padding-left: 1.25rem;
+  position: relative;
+  margin-bottom: 0.5rem;
+}
+.episode-prose ul li::before {
+  content: "—";
+  position: absolute;
+  left: 0;
+  color: rgba(245, 245, 247, 0.2);
+  font-size: 0.8rem;
+}
+.episode-prose ol {
+  list-style: decimal;
+  padding-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+.episode-prose ol li {
+  font-size: 0.9375rem;
+  color: rgba(245, 245, 247, 0.55);
+  line-height: 1.7;
+  margin-bottom: 0.5rem;
+}
+.episode-prose blockquote {
+  border-left: 2px solid rgba(41, 151, 255, 0.4);
+  padding: 0.75rem 0 0.75rem 1.25rem;
+  margin: 1.75rem 0;
+  background: rgba(41, 151, 255, 0.03);
+  border-radius: 0 0.5rem 0.5rem 0;
+}
+.episode-prose blockquote p {
+  font-size: 1rem;
+  color: rgba(245, 245, 247, 0.75);
+  font-style: italic;
+  line-height: 1.65;
+  margin-bottom: 0.25rem;
+}
+.episode-prose code {
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 0.8125rem;
+  color: rgba(245, 245, 247, 0.7);
+  background: rgba(255, 255, 255, 0.07);
+  padding: 0.15em 0.45em;
+  border-radius: 0.3rem;
+}
+.episode-prose strong {
+  font-weight: 600;
+  color: rgba(245, 245, 247, 0.75);
+}
+.episode-prose em {
+  color: rgba(245, 245, 247, 0.45);
+  font-style: italic;
+}
+.episode-prose hr {
+  border: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  margin: 2.5rem 0;
+}

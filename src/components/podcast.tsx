@@ -2,7 +2,7 @@
 
 import { m, useInView } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
-import { Youtube, Music2 } from "lucide-react";
+import { Youtube, Music2, List } from "lucide-react";
 
 type LatestEpisodeData = {
   title: string;
@@ -43,9 +43,9 @@ const episodes = [
   },
   {
     number: "03",
-    title: "Episode 3",
-    description: "Latest conversation from the Still Human Podcast.",
-    duration: "—",
+    title: "The Y-Combinator Effect: How a High-Stakes Environment Shapes Success",
+    description: "Krish Jajoo — CS major at Santa Clara University and leader of AI Collaborate — on growing up in Silicon Valley's pressure cooker, why the best future leaders need both technical mastery and emotional intelligence, and whether AI will make learning to code obsolete.",
+    duration: "25 min",
     youtubeVideoId: "1jBZ1yflBgA",
   },
   {
@@ -221,6 +221,13 @@ export function Podcast() {
             >
               <Youtube className="w-4 h-4 text-[#FF0000]" aria-hidden />
               Watch on YouTube
+            </a>
+            <a
+              href="/episode"
+              className="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full border border-white/[0.12] bg-white/[0.04] hover:bg-white/[0.08] hover:border-white/[0.2] text-white/80 hover:text-white transition-all duration-300 text-sm font-medium"
+            >
+              <List className="w-4 h-4" aria-hidden />
+              All Episodes
             </a>
           </div>
         </m.div>
