@@ -1,19 +1,19 @@
 ---
 slug: "college-entrepreneur-sean-wu-nvidia-wrestling"
 number: "01"
-title: "College Entrepreneur Sean Wu on Wrestling, Nvidia & the Art of Being Cooked"
+title: "College Entrepreneur Builds AI Startup After Winning Nvidia | Sean Wu | Still Human Podcast"
 guest: "Sean Wu"
 duration: "46 min"
 youtubeId: "jq3PUmDQivk"
 description: "A conversation with Varsity Wrestling Champion Sean Wu about his journey from high school wrestling to winning at Nvidia, and the art of staying sharp when everything feels overwhelming."
-metaTitle: "College Entrepreneur Sean Wu on Wrestling, Nvidia & AI Pressure | Still Human Podcast"
+metaTitle: "College Entrepreneur Sean Wu on AI Startups | Still Human Podcast"
 metaDescription: "College entrepreneur Sean Wu went from varsity wrestling champion to winning at Nvidia. He talks discipline, AI pressure, and the art of being cooked — Still Human Podcast."
 primaryKeyword: "college entrepreneur"
 secondaryKeywords: "student founder AI, AI startup podcast, still human podcast, podcasts on AI, will AI take over"
 publishDate: ""
 ---
 
-# College Entrepreneur Sean Wu on Wrestling, Nvidia & the Art of Being Cooked
+# College Entrepreneur Builds AI Startup After Winning Nvidia | Sean Wu | Still Human Podcast
 
 College entrepreneur Sean Wu didn't find his edge in a startup accelerator or a coding bootcamp — he found it on a wrestling mat, in a room where there is nowhere to hide and no one to blame. Sean is a varsity wrestling champion who went on to win a competitive Nvidia challenge, and in this 46-minute conversation with Perkin, he breaks down what high-contact sport actually teaches you about building in tech, and why the feeling of being completely overwhelmed might be the most useful signal you're ignoring.
 

@@ -15,13 +15,13 @@ type LatestEpisodeData = {
 };
 
 // Fallback when API is not configured or fails (e.g. no Spotify env vars)
-// Kept in sync with the latest episode in the gallery (episode 4)
+// Kept in sync with the latest episode in the gallery (episode 6)
 const fallbackLatestEpisode: LatestEpisodeData = {
-  title: "Andrey Marey: The Fake Dopamine Trap, Rapid Execution, and Setting Boundaries with AI | Still Human",
-  description: "This episode features a conversation with 20-year-old serial founder Andrey Marey from Santa Clara University. The discussion explores how to \"build fast without losing your humanity,\" covering topics including resilience developed through recovery from knee surgeries, psychology of goal-setting, and why Marey avoids using AI for personal communications. Key subjects include disconnecting from technology to foster original thinking, the importance of sales skills for technical founders, why he discontinued successful projects early, and perspectives on how human creators will succeed in an AI-driven world.",
-  duration: "44 min",
-  spotifyEpisodeId: "6B5TSbkxKZv4KnQvMKnVc9",
-  youtubeUrl: "https://www.youtube.com/watch?v=ZWhkF8q3-g0",
+  title: "Lilian Krengel: Space Traffic Management AI and Earth's Invisible Crisis | Still Human",
+  description: "19-year-old Santa Clara freshman Lilian Krengel founded OrbitGuard AI — a real-time satellite collision prediction system — after 13 years of gymnastics, a stint arguing NATO AI policy in debate at 16, and a winter night crying, questioning whether engineering was right for her at all.",
+  duration: "55 min",
+  spotifyEpisodeId: "7xRi6S3deMo1PYP9LLTeJ0",
+  youtubeUrl: "https://www.youtube.com/watch?v=I3lR2WbpVy8",
 };
 
 // YouTube thumbnail: https://img.youtube.com/vi/VIDEO_ID/maxresdefault.jpg
@@ -29,7 +29,7 @@ const fallbackLatestEpisode: LatestEpisodeData = {
 const episodes = [
   {
     number: "01",
-    title: "From Varsity Wrestling To Winning At Nvidia, The Art of Being Cooked",
+    title: "College Entrepreneur Builds AI Startup After Winning Nvidia | Sean Wu | Still Human Podcast",
     description: "A conversation with Varsity Wrestling Champion, Sean Wu, about his journey from high school wrestling to winning at Nvidia, and the art of being cooked.",
     duration: "46 min",
     youtubeVideoId: "jq3PUmDQivk", // from youtu.be/jq3PUmDQivk
@@ -61,6 +61,13 @@ const episodes = [
     description: "A conversation with 20-year-old serial founder Andrey Marey from Santa Clara University. Exploring how to build fast without losing your humanity — covering resilience, the psychology of goal-setting, and why Marey avoids using AI for personal communications.",
     duration: "44 min",
     youtubeVideoId: "ZWhkF8q3-g0",
+  },
+  {
+    number: "06",
+    title: "Lilian Krengel: Space Traffic Management AI and Earth's Invisible Crisis",
+    description: "Earth's orbit is becoming a traffic jam. Nobody built the traffic lights yet — until Lilian Krengel did. At 19, she founded OrbitGuard AI: a real-time satellite collision prediction system built from a dorm room, after 13 years of gymnastics and arguing NATO AI policy in debate at 16.",
+    duration: "55 min",
+    youtubeVideoId: "I3lR2WbpVy8",
   },
 ];
 
