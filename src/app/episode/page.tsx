@@ -1,16 +1,22 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowUpRight, Clock, Youtube } from "lucide-react";
+import { ArrowUpRight, Clock, Music2 } from "lucide-react";
 import { getAllEpisodes } from "@/lib/episodes";
+import { getSpotifyShowEpisodes, buildEpisodeImagesArray } from "@/lib/spotify";
 
 export const metadata: Metadata = {
-  title: "Episodes — Still Human Podcast | Oshen Studio",
+  title: "Episodes — Still Human Podcast",
   description:
     "Every episode of Still Human Podcast — honest conversations with builders, creators, and founders about AI, startups, and what it means to stay human.",
 };
 
-export default function EpisodesPage() {
+export default async function EpisodesPage() {
   const episodes = getAllEpisodes();
+  const spotifyEpisodes = await getSpotifyShowEpisodes();
+  const episodeImages = buildEpisodeImagesArray(
+    episodes.map((ep) => ep.title),
+    spotifyEpisodes
+  );
 
   return (
     <div className="relative min-h-screen bg-[#050507]">
@@ -30,7 +36,7 @@ export default function EpisodesPage() {
             href="/"
             className="text-[13px] font-medium text-white/30 hover:text-white/60 transition-colors mb-8 inline-block"
           >
-            ← Oshen Studio
+            ← Still Human
           </a>
           <p className="text-[13px] font-medium tracking-[0.25em] uppercase text-white/25 mb-4">
             Still Human Podcast
@@ -46,56 +52,60 @@ export default function EpisodesPage() {
 
         {/* Episode list */}
         <div className="flex flex-col gap-4">
-          {episodes.map((ep) => (
-            <Link
-              key={ep.slug}
-              href={`/episode/${ep.slug}`}
-              className="group glass-card rounded-2xl overflow-hidden flex flex-col sm:flex-row gap-0 noise"
-            >
-              {/* Thumbnail */}
-              <div className="relative w-full sm:w-48 sm:flex-shrink-0 aspect-video sm:aspect-auto">
-                <img
-                  src={`https://img.youtube.com/vi/${ep.youtubeId}/mqdefault.jpg`}
-                  alt={`Episode ${ep.number}: ${ep.guest}`}
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent to-black/30" />
-                <span className="absolute top-3 left-3 text-[11px] font-mono text-white/90 bg-black/50 backdrop-blur-sm px-2 py-1 rounded">
-                  EP {ep.number}
-                </span>
-              </div>
+          {episodes.map((ep) => {
+            const epIndex = parseInt(ep.number, 10) - 1;
+            const thumbnailSrc = `https://img.youtube.com/vi/${ep.youtubeId}/maxresdefault.jpg`;
 
-              {/* Content */}
-              <div className="flex flex-1 items-start justify-between gap-4 p-6 sm:p-7">
-                <div className="flex-1 min-w-0">
-                  <p className="text-[12px] font-medium text-white/30 mb-2 tracking-wide">
-                    {ep.guest}
-                  </p>
-                  <h2 className="text-lg sm:text-xl font-bold text-white/85 group-hover:text-white transition-colors mb-3 leading-snug line-clamp-2">
-                    {ep.title}
-                  </h2>
-                  <p className="text-sm text-white/35 leading-relaxed group-hover:text-white/50 transition-colors line-clamp-2">
-                    {ep.description}
-                  </p>
-                  <div className="flex items-center gap-4 mt-4">
-                    {ep.duration !== "—" && (
-                      <span className="inline-flex items-center gap-1.5 text-[12px] text-white/30 font-mono">
-                        <Clock className="w-3 h-3" />
-                        {ep.duration}
+            return (
+              <Link
+                key={ep.slug}
+                href={`/episode/${ep.slug}`}
+                className="group glass-card rounded-2xl overflow-hidden flex flex-col sm:flex-row gap-0 noise"
+              >
+                {/* Square Spotify thumbnail */}
+                <div className="relative w-full aspect-video sm:w-48 sm:aspect-video flex-shrink-0">
+                  <img
+                    src={thumbnailSrc}
+                    alt={`Episode ${ep.number}: ${ep.guest}`}
+                    className="w-full h-full object-cover"
+                  />
+                  <span className="absolute top-2 left-2 text-[11px] font-mono text-white/90 bg-black/50 backdrop-blur-sm px-2 py-1 rounded">
+                    EP {ep.number}
+                  </span>
+                </div>
+
+                {/* Content */}
+                <div className="flex flex-1 items-start justify-between gap-4 p-6 sm:p-7">
+                  <div className="flex-1 min-w-0">
+                    <p className="text-[12px] font-medium text-white/30 mb-2 tracking-wide">
+                      {ep.guest}
+                    </p>
+                    <h2 className="text-lg sm:text-xl font-bold text-white/85 group-hover:text-white transition-colors mb-3 leading-snug line-clamp-2">
+                      {ep.title}
+                    </h2>
+                    <p className="text-sm text-white/35 leading-relaxed group-hover:text-white/50 transition-colors line-clamp-2">
+                      {ep.description}
+                    </p>
+                    <div className="flex items-center gap-4 mt-4">
+                      {ep.duration !== "—" && (
+                        <span className="inline-flex items-center gap-1.5 text-[12px] text-white/30 font-mono">
+                          <Clock className="w-3 h-3" />
+                          {ep.duration}
+                        </span>
+                      )}
+                      <span className="inline-flex items-center gap-1.5 text-[12px] text-white/30">
+                        <Music2 className="w-3 h-3 text-[#1DB954]/70" />
+                        Spotify
                       </span>
-                    )}
-                    <span className="inline-flex items-center gap-1.5 text-[12px] text-white/30">
-                      <Youtube className="w-3 h-3 text-[#FF0000]/60" />
-                      YouTube
-                    </span>
+                    </div>
+                  </div>
+                  <div className="w-9 h-9 rounded-full border border-white/[0.08] flex items-center justify-center flex-shrink-0 group-hover:bg-white/[0.06] group-hover:border-white/[0.2] transition-all duration-300 mt-1">
+                    <ArrowUpRight className="w-3.5 h-3.5 text-white/30 group-hover:text-white/70 transition-colors" />
                   </div>
                 </div>
-                <div className="w-9 h-9 rounded-full border border-white/[0.08] flex items-center justify-center flex-shrink-0 group-hover:bg-white/[0.06] group-hover:border-white/[0.2] transition-all duration-300 mt-1">
-                  <ArrowUpRight className="w-3.5 h-3.5 text-white/30 group-hover:text-white/70 transition-colors" />
-                </div>
-              </div>
-            </Link>
-          ))}
+              </Link>
+            );
+          })}
         </div>
 
         {/* CTA */}
@@ -104,13 +114,13 @@ export default function EpisodesPage() {
             New episodes every two weeks
           </p>
           <a
-            href="https://youtube.com/@Oshen.studio"
+            href="https://open.spotify.com/show/2JdDo1zeJ2fyO5wxxS7ikN"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-sm font-medium text-white/70 hover:text-white border border-white/[0.1] hover:border-white/[0.25] hover:bg-white/[0.05] transition-all duration-300"
           >
-            <Youtube className="w-4 h-4 text-[#FF0000]" />
-            Subscribe on YouTube
+            <Music2 className="w-4 h-4 text-[#1DB954]" />
+            Listen on Spotify
             <ArrowUpRight className="w-3.5 h-3.5" />
           </a>
         </div>

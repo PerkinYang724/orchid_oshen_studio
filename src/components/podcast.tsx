@@ -77,10 +77,12 @@ function EpisodeCard({
   ep,
   inView,
   mobile = false,
+  spotifyImageUrl,
 }: {
   ep: EpisodeItem;
   inView: boolean;
   mobile?: boolean;
+  spotifyImageUrl?: string;
 }) {
   const Wrapper = ep.youtubeVideoId ? "a" : "div";
   const wrapperProps =
@@ -91,27 +93,29 @@ function EpisodeCard({
           rel: "noopener noreferrer",
         }
       : {};
+
+  const thumbnailSrc = spotifyImageUrl || (ep.youtubeVideoId
+    ? `https://img.youtube.com/vi/${ep.youtubeVideoId}/maxresdefault.jpg`
+    : null);
+
   return (
     <Wrapper
       {...wrapperProps}
       className={`block rounded-2xl overflow-hidden border border-white/[0.08] bg-white/[0.03] cursor-pointer group relative aspect-video ${
         mobile
           ? "w-full flex-shrink-0"
-          : "w-80 flex-shrink-0 mr-4"
+          : "w-60 flex-shrink-0 mr-4"
       }`}
     >
       <div className="absolute inset-0 transition-transform duration-500 group-hover:scale-105">
-        {ep.youtubeVideoId ? (
+        {thumbnailSrc ? (
           <img
-            src={`https://img.youtube.com/vi/${ep.youtubeVideoId}/maxresdefault.jpg`}
+            src={thumbnailSrc}
             alt={`Episode ${ep.number}: ${ep.title}`}
             className="h-full w-full object-cover"
-            width={1280}
-            height={720}
+            width={640}
+            height={640}
             loading="lazy"
-            onError={(e) => {
-              (e.target as HTMLImageElement).src = `https://img.youtube.com/vi/${ep.youtubeVideoId}/hqdefault.jpg`;
-            }}
           />
         ) : (
           <div className="h-full w-full bg-gradient-to-br from-purple-500/20 via-blue-500/10 to-transparent" />
@@ -125,7 +129,7 @@ function EpisodeCard({
         <h4 className="text-base font-semibold text-white mb-2 tracking-tight line-clamp-2">
           {ep.title}
         </h4>
-        <p className="text-[13px] text-white/70 leading-relaxed line-clamp-4 mb-2">
+        <p className="text-[13px] text-white/70 leading-relaxed line-clamp-3 mb-2">
           {ep.description}
         </p>
         <div className="flex items-center justify-between mt-auto">
@@ -157,7 +161,7 @@ function SpotifyFacade({ episodeId, title }: { episodeId: string; title: string 
   );
 }
 
-export function Podcast() {
+export function Podcast({ episodeImages = [] }: { episodeImages?: string[] }) {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
   const [latestEpisode, setLatestEpisode] = useState<LatestEpisodeData | null>(null);
@@ -310,7 +314,13 @@ export function Podcast() {
           className="md:hidden w-full space-y-4"
         >
           {episodes.map((ep, i) => (
-            <EpisodeCard key={ep.number} ep={ep} inView={inView} mobile />
+            <EpisodeCard
+              key={ep.number}
+              ep={ep}
+              inView={inView}
+              mobile
+              spotifyImageUrl={episodeImages[parseInt(ep.number, 10) - 1]}
+            />
           ))}
         </m.div>
 
@@ -328,7 +338,12 @@ export function Podcast() {
             onMouseLeave={() => setIsGalleryHovered(false)}
           >
             {[...episodes, ...episodes].map((ep, i) => (
-              <EpisodeCard key={i} ep={ep} inView={inView} />
+              <EpisodeCard
+                key={i}
+                ep={ep}
+                inView={inView}
+                spotifyImageUrl={episodeImages[parseInt(ep.number, 10) - 1]}
+              />
             ))}
           </div>
         </m.div>
