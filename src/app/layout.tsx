@@ -65,6 +65,17 @@ export const metadata: Metadata = {
     creator: "@oshen_studio",
     images: [`${siteUrl}/opengraph-image`],
   },
+  icons: {
+    icon: [
+      { url: "/favicon.ico" },
+      { url: "/favicon-32.png?v=2", sizes: "32x32", type: "image/png" },
+      { url: "/favicon-16.png?v=2", sizes: "16x16", type: "image/png" },
+    ],
+    apple: [
+      { url: "/icon-180.png?v=2", sizes: "180x180", type: "image/png" },
+    ],
+  },
+  manifest: "/manifest.json",
   alternates: {
     canonical: siteUrl,
   },
