@@ -1,6 +1,15 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { ArrowUpRight, Clock, Music2 } from "lucide-react";
+import { ArrowUpRight, Clock, Music2, Cpu, Rocket, User, FlaskConical, Brain, Telescope } from "lucide-react";
+
+const TOPIC_ICONS: Record<string, React.ElementType> = {
+  "ai-technology": Cpu,
+  "entrepreneurship": Rocket,
+  "identity-humanity": User,
+  "science-engineering": FlaskConical,
+  "mental-resilience": Brain,
+  "space-future": Telescope,
+};
 import { TOPICS, getTopicBySlug, getTopicStyle } from "@/lib/topics";
 import { getAllEpisodes } from "@/lib/episodes";
 import { getSpotifyShowEpisodes, buildEpisodeImagesArray } from "@/lib/spotify";
@@ -70,7 +79,9 @@ export default async function TopicPage({ params }: Props) {
 
         {/* Header */}
         <div className="mb-14">
-          <span className="text-4xl mb-4 block">{topic.icon}</span>
+          <div className={`w-10 h-10 rounded-xl flex items-center justify-center ${style.badge} border mb-4`}>
+            {(() => { const Icon = TOPIC_ICONS[topic.slug] ?? Cpu; return <Icon className={`w-5 h-5 ${style.badge.split(" ")[0]}`} />; })()}
+          </div>
           <span className={`text-[11px] font-medium px-3 py-1 rounded-full border ${style.badge} mb-4 inline-block`}>
             {filtered.length} {filtered.length === 1 ? "episode" : "episodes"}
           </span>

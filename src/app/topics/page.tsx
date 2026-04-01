@@ -1,5 +1,14 @@
 import type { Metadata } from "next";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Cpu, Rocket, User, FlaskConical, Brain, Telescope } from "lucide-react";
+
+const TOPIC_ICONS: Record<string, React.ElementType> = {
+  "ai-technology": Cpu,
+  "entrepreneurship": Rocket,
+  "identity-humanity": User,
+  "science-engineering": FlaskConical,
+  "mental-resilience": Brain,
+  "space-future": Telescope,
+};
 import { TOPICS, getTopicStyle } from "@/lib/topics";
 import { getAllEpisodes } from "@/lib/episodes";
 
@@ -64,7 +73,9 @@ export default function TopicsPage() {
               >
                 <div className="relative z-10">
                   <div className="flex items-start justify-between mb-5">
-                    <span className="text-3xl leading-none">{topic.icon}</span>
+                    <div className={`w-9 h-9 rounded-lg flex items-center justify-center ${style.badge} border`}>
+                      {(() => { const Icon = TOPIC_ICONS[topic.slug] ?? Cpu; return <Icon className={`w-4 h-4 ${style.badge.split(" ")[0]}`} />; })()}
+                    </div>
                     <ArrowUpRight className="w-4 h-4 text-white/20 group-hover:text-white/50 transition-colors mt-1" />
                   </div>
 
