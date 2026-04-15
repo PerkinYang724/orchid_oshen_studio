@@ -84,15 +84,13 @@ export default async function EpisodePage({ params }: Props) {
 
         {/* Episode header: cover art + info */}
         <div className="flex items-start gap-6 mb-6">
-          {coverImageUrl && (
-            <div className="w-28 h-28 sm:w-36 sm:h-36 rounded-2xl overflow-hidden border border-white/[0.08] flex-shrink-0 shadow-2xl">
-              <img
-                src={coverImageUrl}
-                alt={`${episode.title} cover`}
-                className="w-full h-full object-cover"
-              />
-            </div>
-          )}
+          <div className="w-28 h-28 sm:w-36 sm:h-36 rounded-2xl overflow-hidden border border-white/[0.08] flex-shrink-0 shadow-2xl">
+            <img
+              src={coverImageUrl || `https://img.youtube.com/vi/${episode.youtubeId}/maxresdefault.jpg`}
+              alt={`${episode.title} cover`}
+              className="w-full h-full object-cover"
+            />
+          </div>
           <div className="flex-1 min-w-0 pt-1">
             <p className="text-[11px] font-mono text-white/25 tracking-widest uppercase mb-3">
               Episode {episode.number} · {episode.guest}
@@ -182,11 +180,11 @@ export default async function EpisodePage({ params }: Props) {
                     href={`/episode/${ep.slug}`}
                     className="group glass-card rounded-xl overflow-hidden flex gap-0 noise"
                   >
-                    <div className="relative w-20 h-20 sm:w-24 sm:h-24 flex-shrink-0">
+                    <div className="relative w-20 sm:w-24 aspect-square flex-shrink-0">
                       <img
                         src={img}
                         alt={ep.title}
-                        className="w-full h-full object-cover"
+                        className="absolute inset-0 w-full h-full object-cover"
                         loading="lazy"
                       />
                       <span className="absolute top-1.5 left-1.5 text-[9px] font-mono text-white/90 bg-black/50 px-1.5 py-0.5 rounded">

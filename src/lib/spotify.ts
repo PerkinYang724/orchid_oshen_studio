@@ -92,41 +92,57 @@ function titleWords(title: string): Set<string> {
   );
 }
 
-/**
- * Given a local episode title and the full list of Spotify episodes,
- * returns the Spotify episode whose title shares the most words with the local title.
- */
-function matchEpisode(
-  localTitle: string,
-  spotifyEps: SpotifyEpisodeInfo[]
-): SpotifyEpisodeInfo | undefined {
+/** Score how well two titles match, normalised by total unique words. */
+function titleMatchScore(localTitle: string, spotifyTitle: string): number {
   const local = titleWords(localTitle);
-  let best: SpotifyEpisodeInfo | undefined;
-  let bestScore = 0;
+  const remote = titleWords(spotifyTitle);
+  if (local.size === 0 || remote.size === 0) return 0;
 
-  for (const ep of spotifyEps) {
-    const remote = titleWords(ep.title);
-    let score = 0;
-    for (const word of local) {
-      if (remote.has(word)) score++;
-    }
-    if (score > bestScore) {
-      bestScore = score;
-      best = ep;
-    }
+  let shared = 0;
+  for (const word of local) {
+    if (remote.has(word)) shared++;
   }
 
-  return bestScore > 0 ? best : undefined;
+  // Normalise by the smaller set so short titles with full overlap score high
+  return shared / Math.min(local.size, remote.size);
 }
 
 /**
  * Given an ordered list of local episode titles (index 0 = episode 01) and
  * the raw Spotify episodes list, returns a string[] of cover image URLs
- * matched by title similarity. Falls back to "" when no match is found.
+ * matched by title similarity. Each Spotify episode is matched at most once
+ * to prevent duplicate assignments.
  */
 export function buildEpisodeImagesArray(
   localTitles: string[],
   spotifyEps: SpotifyEpisodeInfo[]
 ): string[] {
-  return localTitles.map((title) => matchEpisode(title, spotifyEps)?.imageUrl ?? "");
+  // Build all candidate matches with scores
+  const candidates: { localIdx: number; spotIdx: number; score: number }[] = [];
+
+  for (let li = 0; li < localTitles.length; li++) {
+    for (let si = 0; si < spotifyEps.length; si++) {
+      const score = titleMatchScore(localTitles[li], spotifyEps[si].title);
+      if (score > 0) {
+        candidates.push({ localIdx: li, spotIdx: si, score });
+      }
+    }
+  }
+
+  // Sort by score descending — best matches first
+  candidates.sort((a, b) => b.score - a.score);
+
+  const result: string[] = new Array(localTitles.length).fill("");
+  const usedLocal = new Set<number>();
+  const usedSpotify = new Set<number>();
+
+  for (const { localIdx, spotIdx, score } of candidates) {
+    if (usedLocal.has(localIdx) || usedSpotify.has(spotIdx)) continue;
+    if (score < 0.15) break; // minimum threshold
+    result[localIdx] = spotifyEps[spotIdx].imageUrl;
+    usedLocal.add(localIdx);
+    usedSpotify.add(spotIdx);
+  }
+
+  return result;
 }

@@ -108,11 +108,11 @@ export default async function TopicPage({ params }: Props) {
                 className="group glass-card rounded-2xl overflow-hidden flex flex-col sm:flex-row gap-0 noise"
               >
                 {/* Square thumbnail */}
-                <div className="relative w-full aspect-video sm:w-48 sm:aspect-video flex-shrink-0">
+                <div className="relative w-full aspect-square sm:w-48 sm:aspect-square flex-shrink-0">
                   <img
                     src={imgSrc}
                     alt={`EP ${ep.number}: ${ep.guest}`}
-                    className="w-full h-full object-cover"
+                    className="absolute inset-0 w-full h-full object-cover"
                   />
                   <span className="absolute top-2 left-2 text-[11px] font-mono text-white/90 bg-black/50 backdrop-blur-sm px-2 py-1 rounded">
                     EP {ep.number}
