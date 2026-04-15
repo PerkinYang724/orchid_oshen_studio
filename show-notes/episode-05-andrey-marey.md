@@ -11,6 +11,7 @@ metaDescription: "AI and relationships: 20-year-old founder Andrey Marey on why 
 primaryKeyword: "AI and relationships"
 secondaryKeywords: "will AI take over, student founder AI, human connection AI, college entrepreneur, AI replacing jobs"
 publishDate: ""
+topics: ["entrepreneurship", "mental-resilience", "identity-humanity"]
 ---
 
 # AI and Relationships: Andrey Marey on the Fake Dopamine Trap & Rapid Execution

@@ -15,7 +15,10 @@ type Props = {
 export function RecentEpisodes({ episodes, topics }: Props) {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
-  const topicMap = Object.fromEntries(topics.map((t) => [t.slug, t]));
+  const topicMap = useMemo(
+    () => Object.fromEntries(topics.map((t) => [t.slug, t])),
+    [topics]
+  );
 
   const [query, setQuery] = useState("");
   const [activeTopic, setActiveTopic] = useState<string | null>(null);
@@ -170,12 +173,16 @@ export function RecentEpisodes({ episodes, topics }: Props) {
                         {epTopics.map((slug) => {
                           const style = getTopicStyle(slug);
                           return (
-                            <span
+                            <button
                               key={slug}
-                              className={`text-[10px] font-medium px-2 py-0.5 rounded-full border ${style.badge} truncate`}
+                              onClick={(e) => {
+                                e.preventDefault();
+                                setActiveTopic(activeTopic === slug ? null : slug);
+                              }}
+                              className={`text-[10px] font-medium px-2 py-0.5 rounded-full border truncate cursor-pointer transition-opacity hover:opacity-80 ${style.badge}`}
                             >
                               {topicMap[slug]?.name ?? slug}
-                            </span>
+                            </button>
                           );
                         })}
                       </div>

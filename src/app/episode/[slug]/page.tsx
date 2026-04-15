@@ -2,7 +2,9 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { Youtube, ArrowUpRight, Clock, Music2 } from "lucide-react";
-import { getAllSlugs, getEpisodeBySlug } from "@/lib/episodes";
+import { getAllSlugs, getEpisodeBySlug, getAllEpisodes } from "@/lib/episodes";
+import { getSpotifyShowEpisodes, buildEpisodeImagesArray } from "@/lib/spotify";
+import { getTopicBySlug, getTopicStyle } from "@/lib/topics";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -30,15 +32,35 @@ export default async function EpisodePage({ params }: Props) {
   const episode = getEpisodeBySlug(slug);
   if (!episode) notFound();
 
+  const allEpisodes = getAllEpisodes();
+  const spotifyEpisodes = await getSpotifyShowEpisodes();
+  const episodeImages = buildEpisodeImagesArray(
+    allEpisodes.map((ep) => ep.title),
+    spotifyEpisodes
+  );
+
+  const epIndex = parseInt(episode.number, 10) - 1;
+  const coverImageUrl = episodeImages[epIndex] ?? "";
+
+  // Related episodes: same topics, excluding current
+  const episodeTopics = episode.topics ?? [];
+  const related = allEpisodes
+    .filter(
+      (ep) =>
+        ep.slug !== episode.slug &&
+        (ep.topics ?? []).some((t) => episodeTopics.includes(t))
+    )
+    .slice(-3)
+    .reverse();
+
   return (
     <div className="relative min-h-screen bg-[#050507]">
-      {/* Background */}
       <div
         className="fixed inset-0 pointer-events-none z-0"
         aria-hidden
         style={{
           background:
-            "radial-gradient(ellipse 80% 50% at 50% 0%, rgba(41,151,255,0.06) 0%, transparent 50%), #050507",
+            "radial-gradient(ellipse 80% 50% at 50% 0%, rgba(41,151,255,0.05) 0%, transparent 50%), #050507",
         }}
       />
 
@@ -49,7 +71,7 @@ export default async function EpisodePage({ params }: Props) {
             href="/"
             className="text-[13px] font-medium text-white/30 hover:text-white/60 transition-colors"
           >
-            ← Oshen Studio
+            ← Still Human
           </Link>
           <span className="text-white/15">·</span>
           <Link
@@ -60,31 +82,52 @@ export default async function EpisodePage({ params }: Props) {
           </Link>
         </div>
 
-        {/* Episode badge */}
-        <p className="text-[12px] font-mono text-white/25 tracking-widest uppercase mb-4">
-          Episode {episode.number} · {episode.guest}
-        </p>
+        {/* Episode header: cover art + info */}
+        <div className="flex items-start gap-6 mb-6">
+          {coverImageUrl && (
+            <div className="w-28 h-28 sm:w-36 sm:h-36 rounded-2xl overflow-hidden border border-white/[0.08] flex-shrink-0 shadow-2xl">
+              <img
+                src={coverImageUrl}
+                alt={`${episode.title} cover`}
+                className="w-full h-full object-cover"
+              />
+            </div>
+          )}
+          <div className="flex-1 min-w-0 pt-1">
+            <p className="text-[11px] font-mono text-white/25 tracking-widest uppercase mb-3">
+              Episode {episode.number} · {episode.guest}
+            </p>
+            <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-white leading-tight">
+              {episode.title}
+            </h1>
+          </div>
+        </div>
 
-        {/* Title */}
-        <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-white leading-tight mb-6">
-          {episode.title}
-        </h1>
-
-        {/* Meta row */}
-        <div className="flex flex-wrap items-center gap-4 mb-10">
+        {/* Meta + topic tags */}
+        <div className="flex flex-wrap items-center gap-3 mb-10">
           {episode.duration !== "—" && (
-            <span className="inline-flex items-center gap-1.5 text-[13px] text-white/30 font-mono">
+            <span className="inline-flex items-center gap-1.5 text-[12px] text-white/30 font-mono">
               <Clock className="w-3.5 h-3.5" />
               {episode.duration}
             </span>
           )}
-          {episode.publishDate && (
-            <span className="text-[13px] text-white/25">{episode.publishDate}</span>
-          )}
+          {episodeTopics.map((topicSlug) => {
+            const topic = getTopicBySlug(topicSlug);
+            const style = getTopicStyle(topicSlug);
+            return (
+              <a
+                key={topicSlug}
+                href={`/topics/${topicSlug}`}
+                className={`text-[11px] font-medium px-2.5 py-1 rounded-full border transition-opacity hover:opacity-80 ${style.badge}`}
+              >
+                {topic?.name ?? topicSlug}
+              </a>
+            );
+          })}
         </div>
 
         {/* YouTube embed */}
-        <div className="relative w-full aspect-video rounded-2xl overflow-hidden border border-white/[0.08] mb-6">
+        <div className="relative w-full aspect-video rounded-2xl overflow-hidden border border-white/[0.08] mb-5">
           <iframe
             src={`https://www.youtube.com/embed/${episode.youtubeId}`}
             title={episode.title}
@@ -94,8 +137,8 @@ export default async function EpisodePage({ params }: Props) {
           />
         </div>
 
-        {/* Platform badges */}
-        <div className="flex flex-wrap gap-3 mb-14">
+        {/* Platform links */}
+        <div className="flex flex-wrap gap-3 mb-16">
           <a
             href={`https://www.youtube.com/watch?v=${episode.youtubeId}`}
             target="_blank"
@@ -116,24 +159,69 @@ export default async function EpisodePage({ params }: Props) {
           </a>
         </div>
 
-        {/* Show notes content */}
+        {/* Show notes */}
         <article
           className="episode-prose"
           dangerouslySetInnerHTML={{ __html: episode.contentHtml }}
         />
 
+        {/* Related episodes */}
+        {related.length > 0 && (
+          <div className="mt-16 pt-14 border-t border-white/[0.06]">
+            <p className="text-[11px] font-medium tracking-[0.3em] uppercase text-white/20 mb-3">
+              Keep Listening
+            </p>
+            <h3 className="text-2xl font-bold text-white mb-8">Related Episodes</h3>
+            <div className="flex flex-col gap-4">
+              {related.map((ep) => {
+                const idx = parseInt(ep.number, 10) - 1;
+                const img = episodeImages[idx] || `https://img.youtube.com/vi/${ep.youtubeId}/mqdefault.jpg`;
+                return (
+                  <Link
+                    key={ep.slug}
+                    href={`/episode/${ep.slug}`}
+                    className="group glass-card rounded-xl overflow-hidden flex gap-0 noise"
+                  >
+                    <div className="relative w-20 h-20 sm:w-24 sm:h-24 flex-shrink-0">
+                      <img
+                        src={img}
+                        alt={ep.title}
+                        className="w-full h-full object-cover"
+                        loading="lazy"
+                      />
+                      <span className="absolute top-1.5 left-1.5 text-[9px] font-mono text-white/90 bg-black/50 px-1.5 py-0.5 rounded">
+                        {ep.number}
+                      </span>
+                    </div>
+                    <div className="flex flex-1 items-center justify-between px-4 py-3 gap-3">
+                      <div className="min-w-0">
+                        <p className="text-[11px] text-white/30 mb-1">{ep.guest}</p>
+                        <p className="text-sm font-semibold text-white/75 group-hover:text-white transition-colors line-clamp-2 leading-snug">
+                          {ep.title}
+                        </p>
+                      </div>
+                      <ArrowUpRight className="w-4 h-4 text-white/25 group-hover:text-white/60 transition-colors flex-shrink-0" />
+                    </div>
+                  </Link>
+                );
+              })}
+            </div>
+          </div>
+        )}
+
         {/* Newsletter CTA */}
-        <div className="mt-16 glass-strong rounded-3xl p-8 sm:p-10 noise relative overflow-hidden">
+        <div className="mt-14 glass-strong rounded-3xl p-8 sm:p-10 noise relative overflow-hidden">
           <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-bl from-blue-500/[0.06] to-transparent rounded-full blur-[60px] pointer-events-none" />
           <div className="relative z-10">
-            <p className="text-[11px] font-medium tracking-wider uppercase text-white/25 mb-3">
-              Still Human Newsletter
+            <p className="text-[11px] font-medium tracking-wider uppercase text-white/20 mb-3">
+              Never miss an episode
             </p>
             <h3 className="text-xl sm:text-2xl font-bold text-white/90 mb-2">
-              Get the Still Human Newsletter
+              Stay Human
             </h3>
-            <p className="text-white/40 text-sm leading-relaxed mb-6 max-w-sm">
-              Bi-weekly insights on AI, startups, and staying human — straight to your inbox.
+            <p className="text-white/35 text-sm leading-relaxed mb-6 max-w-sm">
+              New episodes every two weeks. Subscribe on Substack for show notes
+              delivered straight to your inbox.
             </p>
             <a
               href="https://substack.com/@perkin0909"
@@ -147,7 +235,6 @@ export default async function EpisodePage({ params }: Props) {
           </div>
         </div>
 
-        {/* Back to all episodes */}
         <div className="mt-10 text-center">
           <Link
             href="/episode"

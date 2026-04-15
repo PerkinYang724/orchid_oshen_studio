@@ -11,6 +11,7 @@ metaDescription: "AI human connection explored with Krish Jajoo — Silicon Vall
 primaryKeyword: "AI human connection"
 secondaryKeywords: "will AI take over, student founder AI, AI replacing jobs, still human podcast, college entrepreneur"
 publishDate: ""
+topics: ["ai-technology", "entrepreneurship", "identity-humanity"]
 ---
 
 # AI Human Connection: Krish Jajoo on the Y-Combinator Effect & Emotional Intelligence

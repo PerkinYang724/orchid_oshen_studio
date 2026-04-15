@@ -18,6 +18,7 @@ export type EpisodeMeta = {
   primaryKeyword: string;
   secondaryKeywords: string;
   publishDate: string;
+  topics?: string[];
 };
 
 export type Episode = EpisodeMeta & {

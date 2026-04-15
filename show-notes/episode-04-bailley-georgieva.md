@@ -11,6 +11,7 @@ metaDescription: "What is human connection when AI can replicate most of it? MIT
 primaryKeyword: "what is human connection"
 secondaryKeywords: "AI human connection, will AI take over, AI ethics podcast, still human podcast, human connection AI"
 publishDate: ""
+topics: ["science-engineering", "identity-humanity", "space-future"]
 ---
 
 # What Is Human Connection in the Age of AI? Bailley Georgieva on Originality & Hypersonics

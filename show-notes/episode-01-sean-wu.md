@@ -11,6 +11,7 @@ metaDescription: "College entrepreneur Sean Wu went from varsity wrestling champ
 primaryKeyword: "college entrepreneur"
 secondaryKeywords: "student founder AI, AI startup podcast, still human podcast, podcasts on AI, will AI take over"
 publishDate: ""
+topics: ["entrepreneurship", "mental-resilience", "ai-technology"]
 ---
 
 # College Entrepreneur Builds AI Startup After Winning Nvidia | Sean Wu | Still Human Podcast

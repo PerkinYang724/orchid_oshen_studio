@@ -11,6 +11,7 @@ metaDescription: "19-year-old Lilian Krengel built OrbitGuard AI to predict sate
 primaryKeyword: "space traffic management AI"
 secondaryKeywords: "satellite collision prevention, AI in space, student founder AI, OrbitGuard AI, space debris"
 publishDate: ""
+topics: ["space-future", "ai-technology", "science-engineering"]
 ---
 
 # Space Traffic Management AI: Lilian Krengel on OrbitGuard and Earth's Invisible Crisis

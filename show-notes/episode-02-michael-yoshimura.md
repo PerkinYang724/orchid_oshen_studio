@@ -11,6 +11,7 @@ metaDescription: "AI replacing jobs is the wrong question, says bioengineer Mich
 primaryKeyword: "AI replacing jobs"
 secondaryKeywords: "is AI taking over, AI human connection, AI startup podcast, still human podcast, college entrepreneur"
 publishDate: ""
+topics: ["ai-technology", "identity-humanity", "science-engineering"]
 ---
 
 # AI Replacing Jobs? Michael Yoshimura on Execution Culture & the Future of Biotech
