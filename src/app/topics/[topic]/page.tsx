@@ -97,8 +97,10 @@ export default async function TopicPage({ params }: Props) {
         <div className="flex flex-col gap-4">
           {filtered.reverse().map((ep) => {
             const epIndex = parseInt(ep.number, 10) - 1;
+            const spotifyImg = episodeImages[epIndex];
+            const hasSpotify = !!spotifyImg;
             const imgSrc =
-              episodeImages[epIndex] ||
+              spotifyImg ||
               `https://img.youtube.com/vi/${ep.youtubeId}/mqdefault.jpg`;
 
             return (
@@ -107,8 +109,8 @@ export default async function TopicPage({ params }: Props) {
                 href={`/episode/${ep.slug}`}
                 className="group glass-card rounded-2xl overflow-hidden flex flex-col sm:flex-row gap-0 noise"
               >
-                {/* Square thumbnail */}
-                <div className="relative w-full aspect-square sm:w-48 sm:aspect-square flex-shrink-0">
+                {/* Thumbnail: square for Spotify covers, 16:9 for YouTube */}
+                <div className={`relative w-full ${hasSpotify ? "aspect-square sm:w-48 sm:aspect-square" : "aspect-video sm:w-48 sm:aspect-video"} flex-shrink-0`}>
                   <img
                     src={imgSrc}
                     alt={`EP ${ep.number}: ${ep.guest}`}

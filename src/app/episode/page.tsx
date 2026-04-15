@@ -54,7 +54,9 @@ export default async function EpisodesPage() {
         <div className="flex flex-col gap-4">
           {episodes.map((ep) => {
             const epIndex = parseInt(ep.number, 10) - 1;
-            const thumbnailSrc = `https://img.youtube.com/vi/${ep.youtubeId}/maxresdefault.jpg`;
+            const spotifyImg = episodeImages[epIndex];
+            const hasSpotify = !!spotifyImg;
+            const thumbnailSrc = spotifyImg || `https://img.youtube.com/vi/${ep.youtubeId}/maxresdefault.jpg`;
 
             return (
               <Link
@@ -62,8 +64,8 @@ export default async function EpisodesPage() {
                 href={`/episode/${ep.slug}`}
                 className="group glass-card rounded-2xl overflow-hidden flex flex-col sm:flex-row gap-0 noise"
               >
-                {/* Square Spotify thumbnail */}
-                <div className="relative w-full aspect-video sm:w-48 sm:aspect-video flex-shrink-0">
+                {/* Spotify cover = square, YouTube = 16:9 */}
+                <div className={`relative w-full ${hasSpotify ? "aspect-square sm:w-48 sm:aspect-square" : "aspect-video sm:w-48 sm:aspect-video"} flex-shrink-0`}>
                   <img
                     src={thumbnailSrc}
                     alt={`Episode ${ep.number}: ${ep.guest}`}
