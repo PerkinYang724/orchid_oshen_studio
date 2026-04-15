@@ -31,8 +31,8 @@ export default async function Home() {
       .some((w) => sp.title.toLowerCase().includes(w))
   );
 
-  // All episodes except the latest, newest first
-  const recentEpisodes = allEpisodes.slice(0, -1).reverse();
+  // All episodes, newest first
+  const recentEpisodes = [...allEpisodes].reverse();
 
   // Episode counts per topic
   const episodeCounts: Record<string, number> = {};
