@@ -19,11 +19,11 @@ const siteUrl =
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Oshen Studio — AI Automation & Storytelling | Perkin",
+    default: "Still Human — Who Are You Without AI?",
     template: "%s | Oshen Studio",
   },
   description:
-    "Perkin builds AI-powered automation systems and explores the intersection of technology and humanity through the Still Human Podcast. Automation, AI, and intentional storytelling for creators and businesses.",
+    "A podcast exploring identity, creativity, and what it means to be human at the intersection of AI. Hosted by Perkin Yang.",
   keywords: [
     "AI automation",
     "AI systems builder",
@@ -45,9 +45,9 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: siteUrl,
     siteName: "Oshen Studio",
-    title: "Oshen Studio — AI Automation & Storytelling | Perkin",
+    title: "Still Human — Who Are You Without AI?",
     description:
-      "Perkin builds AI-powered automation systems and explores the intersection of technology and humanity through the Still Human Podcast.",
+      "A podcast exploring identity, creativity, and what it means to be human at the intersection of AI. Hosted by Perkin Yang.",
     images: [
       {
         url: `${siteUrl}/opengraph-image`,
@@ -59,9 +59,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Oshen Studio — AI Automation & Storytelling | Perkin",
+    title: "Still Human — Who Are You Without AI?",
     description:
-      "Perkin builds AI-powered automation systems and explores the intersection of technology and humanity through the Still Human Podcast.",
+      "A podcast exploring identity, creativity, and what it means to be human at the intersection of AI. Hosted by Perkin Yang.",
     creator: "@oshen_studio",
     images: [`${siteUrl}/opengraph-image`],
   },
