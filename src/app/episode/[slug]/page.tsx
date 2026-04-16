@@ -24,6 +24,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description: episode.metaDescription,
       images: [`https://img.youtube.com/vi/${episode.youtubeId}/maxresdefault.jpg`],
     },
+    twitter: {
+      card: "summary_large_image",
+      title: episode.metaTitle,
+      description: episode.metaDescription,
+      images: [`https://img.youtube.com/vi/${episode.youtubeId}/maxresdefault.jpg`],
+    },
   };
 }
 

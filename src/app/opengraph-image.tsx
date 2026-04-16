@@ -2,7 +2,7 @@ import { ImageResponse } from "next/og";
 import { readFile } from "fs/promises";
 import { join } from "path";
 
-export const alt = "Oshen Studio — AI Automation & Storytelling";
+export const alt = "Still Human — Who Are You Without AI?";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -54,7 +54,7 @@ export default async function OGImage() {
             marginBottom: "32px",
           }}
         >
-          AI · Automation · Storytelling
+          A Podcast by Perkin Yang
         </div>
 
         {/* Main title */}
@@ -76,7 +76,7 @@ export default async function OGImage() {
               letterSpacing: "-0.04em",
             }}
           >
-            Oshen Studio
+            Still Human
           </div>
         </div>
 
@@ -92,7 +92,7 @@ export default async function OGImage() {
             marginBottom: "56px",
           }}
         >
-          Building systems that give time back.
+          Who Are You Without AI?
         </div>
 
         {/* Bottom URL pill */}

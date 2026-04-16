@@ -25,18 +25,18 @@ export const metadata: Metadata = {
   description:
     "A podcast exploring identity, creativity, and what it means to be human at the intersection of AI. Hosted by Perkin Yang.",
   keywords: [
-    "AI automation",
-    "AI systems builder",
-    "automation workflows",
-    "n8n automation",
     "Still Human Podcast",
+    "AI podcast",
+    "identity and AI",
+    "creativity podcast",
+    "what it means to be human",
     "AI and humanity",
+    "Perkin Yang",
     "Oshen Studio",
     "future of work",
     "AI storytelling",
-    "student entrepreneur AI",
-    "Supabase automation",
-    "AI for creators",
+    "human in the age of AI",
+    "AI conversations",
   ],
   authors: [{ name: "Perkin", url: siteUrl }],
   creator: "Perkin",
@@ -53,7 +53,7 @@ export const metadata: Metadata = {
         url: `${siteUrl}/opengraph-image`,
         width: 1200,
         height: 630,
-        alt: "Oshen Studio — AI Automation & Storytelling",
+        alt: "Still Human — Who Are You Without AI?",
       },
     ],
   },
@@ -112,7 +112,7 @@ const jsonLd = {
       url: siteUrl,
       name: "Oshen Studio",
       description:
-        "AI-powered automation systems and storytelling for creators and businesses.",
+        "A podcast exploring identity, creativity, and what it means to be human at the intersection of AI. Hosted by Perkin Yang.",
       publisher: { "@id": `${siteUrl}/#person` },
     },
     {
@@ -120,7 +120,7 @@ const jsonLd = {
       name: "Still Human Podcast",
       url: "https://open.spotify.com/show/2JdDo1zeJ2fyO5wxxS7ikN",
       description:
-        "Exploring the intersection of AI and humanity. Conversations about staying human in an accelerating world.",
+        "A podcast exploring identity, creativity, and what it means to be human at the intersection of AI. Hosted by Perkin Yang.",
       author: { "@id": `${siteUrl}/#person` },
     },
   ],
@@ -134,6 +134,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <head>
+        <link rel="alternate" type="application/rss+xml" title="Still Human — Blog" href="https://perkin0909.substack.com/feed" />
         <link rel="preconnect" href="https://img.youtube.com" />
         <link rel="preconnect" href="https://open.spotify.com" />
         <link rel="dns-prefetch" href="https://img.youtube.com" />
