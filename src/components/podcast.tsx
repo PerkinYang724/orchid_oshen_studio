@@ -51,8 +51,8 @@ const episodes = [
   },
   {
     number: "04",
-    title: "Who Are You Without AI? | A Deep Dive into Hypersonics and Human Originality with Bailley Georgieva",
-    description: "In this episode, I sit down with Bailley Georgieva, a brilliant Junior Aerospace Engineering student at Rutgers and a Hypersonic Research Affiliate at MIT. Bailley operates at the bleeding edge of technology, simulating Mach 10+ flight physics using restricted NASA code. From evaluating startup fixes at the Defense Innovation Unit (DIU) to developing algorithmic trading software at just 18, Bailley's resume is as explosive as the physics she studies.",
+    title: "AI Is the Ultimate People Pleaser: Bailley Georgieva on Hypersonics, Critical Thinking, and What Stays Human at Mach 10",
+    description: "Bailley Georgieva is 21 — a Rutgers junior, MIT hypersonic research affiliate working with NASA LAURA, and a former Defense Innovation Unit fellow. She joins Perkin to explain why she calls AI \"the ultimate people pleaser,\" why she trained her own ChatGPT to answer only in code and TXT files, and what stays human at Mach 10.",
     duration: "—",
     youtubeVideoId: "m3QzlKlb9uc",
   },

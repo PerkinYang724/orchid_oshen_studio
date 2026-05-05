@@ -1,6 +1,6 @@
 // Bump THUMB_VERSION whenever YouTube thumbnails are updated, so browsers
 // and social-media OG caches re-fetch instead of serving the old image.
-const THUMB_VERSION = 3;
+const THUMB_VERSION = 4;
 
 type ThumbQuality = "maxres" | "mq";
 

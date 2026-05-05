@@ -42,7 +42,7 @@ Relevant to this episode:
 
 You might also enjoy:
 
-- *What Is Human Connection? Bailley Georgieva on AI & Originality* — [oshenstudio.com/episode/what-is-human-connection-bailley-georgieva-ai](https://oshenstudio.com/episode/what-is-human-connection-bailley-georgieva-ai)
+- *AI Is the Ultimate People Pleaser — Bailley Georgieva on Hypersonics & Critical Thinking* — [oshenstudio.com/episode/ai-people-pleaser-bailley-georgieva-hypersonics](https://oshenstudio.com/episode/ai-people-pleaser-bailley-georgieva-hypersonics)
 - *Why AI Can't Reason Over Time — Michael Iwashima on BCIs, Biosensors & Building From Nothing* — [oshenstudio.com/episode/brain-computer-interfaces-michael-iwashima-ai-limits](https://oshenstudio.com/episode/brain-computer-interfaces-michael-iwashima-ai-limits)
 - *Execution Culture — Sean Wu on Raising $2M for Robotics & the Sim-to-Real Gap* — [oshenstudio.com/episode/execution-culture-sean-wu-synphony-robotics](https://oshenstudio.com/episode/execution-culture-sean-wu-synphony-robotics)
 

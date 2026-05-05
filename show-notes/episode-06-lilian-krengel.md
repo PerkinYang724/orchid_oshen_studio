@@ -42,7 +42,7 @@ Relevant to this episode:
 
 You might also enjoy:
 
-- *What Is Human Connection? Bailley Georgieva on AI & Originality* — [oshenstudio.com/episode/what-is-human-connection-bailley-georgieva-ai](https://oshenstudio.com/episode/what-is-human-connection-bailley-georgieva-ai)
+- *AI Is the Ultimate People Pleaser — Bailley Georgieva on Hypersonics & Critical Thinking* — [oshenstudio.com/episode/ai-people-pleaser-bailley-georgieva-hypersonics](https://oshenstudio.com/episode/ai-people-pleaser-bailley-georgieva-hypersonics)
 - *Execution Culture — Sean Wu on Raising $2M for Robotics & the Sim-to-Real Gap* — [oshenstudio.com/episode/execution-culture-sean-wu-synphony-robotics](https://oshenstudio.com/episode/execution-culture-sean-wu-synphony-robotics)
 - *Build Before You're Ready — Andrey Marey on High-Agency, Discipline & Refusing AI With Friends* — [oshenstudio.com/episode/high-agency-andrey-marey-student-founder](https://oshenstudio.com/episode/high-agency-andrey-marey-student-founder)
 

@@ -69,7 +69,7 @@ Founders navigating scale, consciousness, and the human cost of building:
 
 - *Execution Culture — Sean Wu on Raising $2M for Robotics & the Sim-to-Real Gap* — [oshenstudio.com/episode/execution-culture-sean-wu-synphony-robotics](https://oshenstudio.com/episode/execution-culture-sean-wu-synphony-robotics)
 - *We Are the Product — Krish Jajoo on Social Media, Silicon Valley Pressure & Human Connection* — [oshenstudio.com/episode/ai-human-connection-krish-jajoo-ycombinator-effect](https://oshenstudio.com/episode/ai-human-connection-krish-jajoo-ycombinator-effect)
-- *What Is Human Connection? Bailley Georgieva on AI & Originality* — [oshenstudio.com/episode/what-is-human-connection-bailley-georgieva-ai](https://oshenstudio.com/episode/what-is-human-connection-bailley-georgieva-ai)
+- *AI Is the Ultimate People Pleaser — Bailley Georgieva on Hypersonics & Critical Thinking* — [oshenstudio.com/episode/ai-people-pleaser-bailley-georgieva-hypersonics](https://oshenstudio.com/episode/ai-people-pleaser-bailley-georgieva-hypersonics)
 - *Build Before You're Ready — Andrey Marey on High-Agency, Discipline & Refusing AI With Friends* — [oshenstudio.com/episode/high-agency-andrey-marey-student-founder](https://oshenstudio.com/episode/high-agency-andrey-marey-student-founder)
 
 ### People Mentioned

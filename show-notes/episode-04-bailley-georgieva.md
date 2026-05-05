@@ -1,26 +1,28 @@
 ---
-slug: "what-is-human-connection-bailley-georgieva-ai"
+slug: "ai-people-pleaser-bailley-georgieva-hypersonics"
 number: "04"
-title: "Who Are You Without AI? A Deep Dive into Hypersonics and Human Originality with Bailley Georgieva"
+title: "AI Is the Ultimate People Pleaser: Bailley Georgieva on Hypersonics, Critical Thinking, and What Stays Human at Mach 10"
 guest: "Bailley Georgieva"
 duration: "—"
 youtubeId: "m3QzlKlb9uc"
-description: "Bailley Georgieva simulates Mach 10+ flight physics at MIT and evaluated startup fixes at the Defense Innovation Unit. She has a specific, grounded answer to what it means to stay original in a world that defaults to AI."
-metaTitle: "What Is Human Connection? Bailley Georgieva on AI & Originality | Still Human Podcast"
-metaDescription: "What is human connection when AI can replicate most of it? MIT hypersonics researcher Bailley Georgieva has a specific answer. Still Human Podcast with Perkin."
-primaryKeyword: "what is human connection"
-secondaryKeywords: "AI human connection, will AI take over, AI ethics podcast, still human podcast, human connection AI"
+description: "A 21-year-old hypersonic researcher on why AI is the ultimate people pleaser, the cost of complacency, and what stays human at Mach 10."
+metaTitle: "AI Is the Ultimate People Pleaser: Bailley Georgieva on Hypersonics & Critical Thinking | Still Human"
+metaDescription: "A 21-year-old hypersonic researcher on why AI is the ultimate people pleaser, the cost of complacency, and what stays human at Mach 10."
+primaryKeyword: "AI critical thinking"
+secondaryKeywords: "AI people pleaser, hypersonic research undergraduate, fact checking AI, MIT Hypersonics, NASA LAURA, Defense Innovation Unit, women in engineering, women in defense, Mach 10 simulation, CFD research, Pentagon fellow, originality in the age of AI"
 publishDate: ""
 topics: ["science-engineering", "identity-humanity", "space-future"]
 ---
 
-# What Is Human Connection in the Age of AI? Bailley Georgieva on Originality & Hypersonics
+# AI Is the Ultimate People Pleaser: Bailley Georgieva on Hypersonics, Critical Thinking, and What Stays Human at Mach 10
 
-What is human connection when AI can approximate most of what we say, think, and create? Bailley Georgieva spends her days simulating Mach 10+ flight physics using restricted NASA code as a Hypersonic Research Affiliate at MIT — and she's thought harder about this question than almost anyone. In this conversation with Perkin, she makes the case that originality isn't a soft skill or a vibe. It's a discipline. And in a world that defaults to AI-generated everything, it might be the most important one you have.
+Bailley Georgieva is twenty-one. She's a Rutgers junior, a hypersonic research affiliate at MIT working with NASA LAURA, a former Defense Innovation Unit fellow, and somehow still finds time to rock climb. Her path started with a fifth-grade YouTube conspiracy theory about a meteor hitting Earth and a grandfather who flew planes for the Bulgarian Parliament. There's an F-18 tattooed on her arm. There is, as she says, no backing out.
+
+In this Still Human conversation, Bailley draws a line that almost no one in tech is drawing right now. **She does not trust AI with her work.** Not because she's scared of it. Because she's used it. She calls AI "the ultimate people pleaser" — a tool that will skew numbers, hallucinate justifications, and tell you what you want to hear because that's what it's designed to do. In hypersonic research, where simulating Mach 10 wrong could mean a vehicle disintegrates in a wind tunnel, she'd rather fail a hundred times by hand than dig through AI output to find the lie.
 
 ## Show Notes
 
-Bailley Georgieva is a Junior Aerospace Engineering student at Rutgers University and a Hypersonic Research Affiliate at MIT, where she works with restricted NASA code to simulate aerodynamic behavior at speeds above Mach 10. She also evaluated startup solutions for real defense applications at the Defense Innovation Unit and built algorithmic trading software before she turned 19. For the Still Human audience, Bailley is significant not just because of what she's accomplished, but because of how she thinks about it — she operates at the edge of what's technically possible and still asks the most human questions about what it all means.
+Bailley Georgieva is a 21-year-old junior in Aerospace Engineering at Rutgers University and a Hypersonic Research Affiliate at MIT, where she works with NASA LAURA to simulate aerodynamic behavior at speeds above Mach 10. She's a former Defense Innovation Unit fellow, sits across the table from defense startup founders telling them their math doesn't show up, and has trained her own ChatGPT to respond only in code and TXT files — a deliberate choice to remove the human element from a tool she calls "the ultimate people pleaser." Her origin story runs through a fifth-grade YouTube conspiracy about a meteor hitting Earth, a grandfather who flew for the Bulgarian Parliament, and an F-18 tattooed on her arm. For the Still Human audience, Bailley is the guest who reframes critical thinking as the load-bearing skill of the AI era — and shows what it costs to actually do it.
 
 ### Articles & Research
 
@@ -28,21 +30,27 @@ No external research was cited in this episode.
 
 ### Tools & Resources
 
-- **NASA hypersonic simulation code (restricted)** — Research-grade computational software for modeling aerodynamic behavior at extreme speeds; the core tool of Bailley's MIT research and a central reference point in the episode's discussion of working with high-stakes systems
-- **Defense Innovation Unit (DIU)** — US Department of Defense program that connects commercial startups with defense challenges; where Bailley evaluated startup technology fixes at undergraduate level
-- **Algorithmic trading platforms** — Automated systems for executing trades based on coded rules and market conditions; Bailley built one independently at 18, referenced in the episode as an early experience with automation
-- **MIT AeroAstro Department** — MIT's Department of Aeronautics and Astronautics; the research environment behind Bailley's hypersonic affiliation
+Relevant to this episode:
+
+- **NASA LAURA** — The hypersonic CFD code Bailley works with at MIT to simulate Mach 10+ aerodynamic behavior
+- **Defense Innovation Unit (DIU)** — The DoD's commercial-tech adoption arm; Bailley evaluated startup solutions for real defense problems as a fellow
+- **MIT AeroAstro Department** — The research environment behind Bailley's hypersonic affiliation
+- **CFD (computational fluid dynamics)** — The simulation discipline at the core of her research; the field where AI hallucination is most expensive
+- **Trained-narrow ChatGPT** — Bailley's own setup: an instance trained to respond only in code and TXT files, stripping the conversational/affirming layer she doesn't trust
 
 ### Related Still Human Episodes
 
 You might also enjoy:
 
+- *Zentrepreneurship — Toby Corey on BrandCapsule and Trust in AI* — Toby's poem prompt and his conversation about AI and human originality, referenced in this episode — [oshenstudio.com/episode/zentrepreneurship-toby-corey-brandcapsule-ai-trust](https://oshenstudio.com/episode/zentrepreneurship-toby-corey-brandcapsule-ai-trust)
 - *Why AI Can't Reason Over Time — Michael Iwashima on BCIs, Biosensors & Building From Nothing* — [oshenstudio.com/episode/brain-computer-interfaces-michael-iwashima-ai-limits](https://oshenstudio.com/episode/brain-computer-interfaces-michael-iwashima-ai-limits)
 - *Build Before You're Ready — Andrey Marey on High-Agency, Discipline & Refusing AI With Friends* — [oshenstudio.com/episode/high-agency-andrey-marey-student-founder](https://oshenstudio.com/episode/high-agency-andrey-marey-student-founder)
 
 ### People Mentioned
 
-No additional people were cited by name in this episode beyond the host and guest.
+- **Toby Corey** — Still Human episode 7 guest; Bailley responds to his poem prompt and the line *"don't keep your soft heart locked inside a glass cage"* stays with her
+- **Bailley's grandfather** — Flew planes for the Bulgarian Parliament; the voice she still hears telling her to keep going
+- **WALL-E** — The Pixar film referenced as a parallel for what modern users risk becoming
 
 ---
 
@@ -50,57 +58,59 @@ No additional people were cited by name in this episode beyond the host and gues
 
 *Timestamps are approximate — click to jump directly on YouTube.*
 
-- `[00:00:00]` — Bailley Georgieva intro: Rutgers, MIT, and the work she does
-- `[00:04:00]` — What hypersonic research actually involves — Mach 10+ explained simply
-- `[00:09:30]` — Working with restricted NASA code: what that access changes
-- `[00:14:30]` — The Defense Innovation Unit: evaluating startup fixes for defense problems
-- `[00:20:00]` — Building algorithmic trading software at 18 — and what she learned
-- `[00:25:30]` — Who are you without AI? The question at the center of the episode
-- `[00:31:00]` — What human originality actually requires in a world of AI defaults
-- `[00:35:30]` — How Bailley decides what AI is and isn't allowed to touch in her work
-- `[00:39:00]` — The still human moment: what she noticed when she stopped reaching for AI first
-- `[00:43:00]` — What this means for students and young builders right now
-- `[00:46:00]` — Where to find Bailley and closing
+- `[00:00:00]` — Bailley Georgieva intro: 21, Rutgers junior, MIT hypersonics, ex-DIU fellow
+- `[00:04:00]` — The fifth-grade YouTube meteor conspiracy that started it all
+- `[00:08:00]` — Her grandfather, the Bulgarian Parliament, and the F-18 tattoo
+- `[00:13:00]` — What hypersonic research actually involves: NASA LAURA, Mach 10, CFD
+- `[00:18:30]` — "AI is the ultimate people pleaser": skewed numbers, hallucinated justifications
+- `[00:23:00]` — Why she'd rather fail a hundred times by hand than dig through AI output
+- `[00:27:30]` — The personal anxiety moment that made her remove the human element from ChatGPT
+- `[00:31:00]` — Training her own AI to respond only in code and TXT files
+- `[00:34:30]` — Lawrenceville School: rejected, waitlisted, rejected off the waitlist — and her grandfather's voice
+- `[00:39:00]` — At 21, telling defense startup founders their math doesn't show up
+- `[00:43:00]` — The WALL-E parallel: what modern users risk becoming
+- `[00:46:00]` — Toby Corey's poem prompt and the "soft heart locked inside a glass cage" line
+- `[00:50:00]` — When AI output becomes Bible: "the human race has collapsed"
+- `[00:53:00]` — Where to find Bailley and closing
 
 ---
 
-## Quotes From This Episode
+## Key Takeaways
 
-> "If you can't tell me what you think without first asking AI what to think, that's worth paying attention to. That's not a productivity problem. That's an identity problem."
-> — Bailley Georgieva
-
-> "Mach 10 is a physics problem. The reason we study it is a human problem. Those are different questions and they require different kinds of thinking. AI is good at the first one."
-> — Bailley Georgieva
-
-> "I built the trading software because I wanted to understand something — not because I wanted the outcome. That distinction matters more than most people realize."
-> — Bailley Georgieva
-
-*Note: Quotes are reconstructed from episode descriptions. Verify against the recording before publishing.*
+- **AI is the ultimate people pleaser.** It will skew numbers, hallucinate justifications, and tell you what you want to hear because that's what its training rewards. In high-stakes work, that's not a feature — it's the failure mode.
+- **The cost of complacency is the whole point.** When AI output becomes Bible, the human race has collapsed. Bailley treats critical thinking as load-bearing, not optional.
+- **Strip the affirming layer.** Bailley trained her own ChatGPT to respond only in code and TXT files — a deliberate choice to remove the conversational, agreeable element she doesn't trust.
+- **Failing by hand beats digging for the AI lie.** In hypersonics, a wrong simulation means a vehicle disintegrates in a wind tunnel. The fail-by-hand path is faster than auditing AI output for the place it confidently lied.
+- **Rejection is data, not a verdict.** Rejected from Lawrenceville School, then waitlisted, then rejected off the waitlist. Her grandfather's voice still tells her to keep going. The rejection didn't define the trajectory — the response did.
+- **At 21, you can be the room's fact-checker.** Bailley sits across from defense startup founders and tells them when the math doesn't show up. The age is the angle, not the obstacle.
+- **Watch out for the WALL-E future.** Bailley sees the parallel in modern users — comfortable, served, and slowly losing the muscle. The fix is friction you choose on purpose.
 
 ---
 
 ## In This Episode
 
-- **What human connection actually means when AI can replicate its surface** — Bailley's answer is practical: originality is the thing AI cannot produce, only approximate, and most people are quietly letting it atrophy
-- **Hypersonic research explained for non-engineers** — What it means to simulate Mach 10+ flight, why it matters beyond aerospace, and what working with restricted government systems teaches you about the gap between public AI and what's actually possible
-- **The Defense Innovation Unit experience** — What evaluating startup solutions for real defense problems at undergraduate level taught Bailley about the distance between what founders pitch and what actually works under pressure
-- **Building algorithmic trading at 18** — An early experiment with automation that shaped how she thinks about what machines optimize for and what they miss
-- **Who are you without AI? — the real question** — Bailley treats it as a diagnostic. The answer tells you whether you're developing your own thinking or just curating outputs
-- **What originality requires in practice** — Not inspiration. A specific discipline of not defaulting to the tool first, and what that looks like in a technical research environment
-- **What this conversation says about staying human** — Bailley is one of the most technically capable people to come on Still Human. Her answer to the show's central question: the technology doesn't decide what's human. You do, by what you protect from it
+- **"AI is the ultimate people pleaser"** — Bailley's working frame for why she doesn't trust AI with research-grade work, and what AI is actually optimized for
+- **Hypersonic research, in plain terms** — Mach 10+ aerodynamic simulation with NASA LAURA at MIT, and why CFD is where AI hallucination is most expensive
+- **The trained-narrow ChatGPT** — How and why Bailley restricted her own AI to code and TXT files, and the personal anxiety moment behind the decision
+- **The Defense Innovation Unit experience** — What it's like at 21 to tell defense startup founders their math doesn't add up
+- **Origin story: meteor conspiracies, Bulgarian Parliament, F-18s** — The unconventional path that ended in hypersonics
+- **Lawrenceville rejection, waitlist, rejection** — How her grandfather's voice carried her past three "no"s in a row
+- **Toby Corey's poem prompt** — Bailley's honest response, and why the "soft heart locked inside a glass cage" line stayed with her
+- **The WALL-E parallel** — Why she sees that movie's premise in current AI usage patterns
+- **"The day humanity treats AI output as Bible..."** — Her articulation of the actual failure mode, and what stays human at Mach 10
 
 ---
 
 ## About Bailley Georgieva
 
-Bailley Georgieva is a Junior Aerospace Engineering student at Rutgers University and a Hypersonic Research Affiliate at MIT, where she uses restricted NASA code to simulate the physics of flight at speeds exceeding Mach 10 — work that places her inside some of the most restricted computational environments available to an undergraduate researcher. Before that, she built algorithmic trading software at 18 and went on to evaluate commercial startup solutions at the Defense Innovation Unit, the DoD's technology adoption arm. Her background spans theoretical physics, financial systems, and defense technology — a range that would be unusual for someone twice her age. For the Still Human audience, what makes Bailley significant is not just the resume but the way she thinks about it: she's deeply technical and still asking the most human questions about what it all costs and what it's for.
+Bailley Georgieva is a 21-year-old junior in Aerospace Engineering at Rutgers and a Hypersonic Research Affiliate at MIT, where she works with NASA LAURA to simulate flight at Mach 10 and above. She is a former Defense Innovation Unit fellow, evaluating commercial startups for real defense applications at undergraduate level. Her path started with a fifth-grade YouTube conspiracy about a meteor hitting Earth and a grandfather who flew for the Bulgarian Parliament; she has an F-18 tattooed on her arm. Her position on AI in research is firm and specific: she calls it "the ultimate people pleaser" and trains her own ChatGPT to respond only in code and TXT files, stripping the conversational layer she doesn't trust. For the Still Human audience, Bailley is the guest who turns critical thinking back into a load-bearing skill — the kind that decides whether a vehicle disintegrates in a wind tunnel, and the kind that decides whether the human race quietly collapses into agreement with a confident chatbot.
 
 ---
 
 ## Connect With Bailley Georgieva
 
 - Watch the episode: [youtube.com/watch?v=m3QzlKlb9uc](https://www.youtube.com/watch?v=m3QzlKlb9uc)
-- *Add Bailley's Instagram, LinkedIn, or personal website here*
+- *Add Bailley's LinkedIn, Instagram, or other socials here*
 
 ---
 
@@ -108,8 +118,8 @@ Bailley Georgieva is a Junior Aerospace Engineering student at Rutgers Universit
 
 Still Human Podcast is a biweekly show by Oshen Studio, hosted by Perkin — exploring what it means to stay human in the age of AI. Real conversations with builders, creators, founders, and thinkers doing it in real life.
 
-- 📺 YouTube: [youtube.com/@Oshen.studio](https://youtube.com/@Oshen.studio)
-- 📸 Instagram: [instagram.com/perkin0909](https://instagram.com/perkin0909)
-- 🎧 Listen everywhere: Search **Still Human Podcast** on Spotify, Apple Podcasts, or wherever you listen
+- YouTube: [youtube.com/@Oshen.studio](https://youtube.com/@Oshen.studio)
+- Instagram: [instagram.com/perkin0909](https://instagram.com/perkin0909)
+- Listen everywhere: Search **Still Human Podcast** on Spotify, Apple Podcasts, or wherever you listen
 
 New episodes drop every two weeks. Subscribe so you never miss a conversation.
