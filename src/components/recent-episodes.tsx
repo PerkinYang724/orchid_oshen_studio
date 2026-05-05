@@ -6,6 +6,7 @@ import { Clock, ArrowUpRight, Search, X } from "lucide-react";
 import type { EpisodeMeta } from "@/lib/episodes";
 import type { Topic } from "@/lib/topics";
 import { getTopicStyle } from "@/lib/topics";
+import { youtubeThumb } from "@/lib/youtube";
 
 type Props = {
   episodes: EpisodeMeta[];
@@ -134,7 +135,7 @@ export function RecentEpisodes({ episodes, topics }: Props) {
         {filtered.length > 0 ? (
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {filtered.map((ep, i) => {
-              const imgSrc = `https://img.youtube.com/vi/${ep.youtubeId}/maxresdefault.jpg`;
+              const imgSrc = youtubeThumb(ep.youtubeId);
               const epTopics = (ep.topics ?? []).slice(0, 2);
 
               return (

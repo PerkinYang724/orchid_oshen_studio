@@ -13,6 +13,7 @@ const TOPIC_ICONS: Record<string, React.ElementType> = {
 import { TOPICS, getTopicBySlug, getTopicStyle } from "@/lib/topics";
 import { getAllEpisodes } from "@/lib/episodes";
 import { getSpotifyShowEpisodes, buildEpisodeImagesArray } from "@/lib/spotify";
+import { youtubeThumb } from "@/lib/youtube";
 
 type Props = { params: Promise<{ topic: string }> };
 
@@ -99,9 +100,7 @@ export default async function TopicPage({ params }: Props) {
             const epIndex = parseInt(ep.number, 10) - 1;
             const spotifyImg = episodeImages[epIndex];
             const hasSpotify = !!spotifyImg;
-            const imgSrc =
-              spotifyImg ||
-              `https://img.youtube.com/vi/${ep.youtubeId}/mqdefault.jpg`;
+            const imgSrc = spotifyImg || youtubeThumb(ep.youtubeId, "mq");
 
             return (
               <a

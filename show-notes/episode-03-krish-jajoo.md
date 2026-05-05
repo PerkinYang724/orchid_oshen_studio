@@ -36,8 +36,8 @@ No external research was cited in this episode.
 
 You might also enjoy:
 
-- *College Entrepreneur Sean Wu on Wrestling, Nvidia & Pressure* — Another conversation about high-stakes environments and what they actually build in you — [oshenstudio.com/episode/college-entrepreneur-sean-wu-nvidia-wrestling](https://oshenstudio.com/episode/college-entrepreneur-sean-wu-nvidia-wrestling)
-- *AI and Relationships — Andrey Marey on Where the Line Is* — Andrey's take on what AI should never replace in a human life — [oshenstudio.com/episode/ai-and-relationships-andrey-marey-fake-dopamine-trap](https://oshenstudio.com/episode/ai-and-relationships-andrey-marey-fake-dopamine-trap)
+- *Execution Culture — Sean Wu on Raising $2M for Robotics & the Sim-to-Real Gap* — Another conversation about high-stakes environments and what they actually build in you — [oshenstudio.com/episode/execution-culture-sean-wu-synphony-robotics](https://oshenstudio.com/episode/execution-culture-sean-wu-synphony-robotics)
+- *Build Before You're Ready — Andrey Marey on High-Agency, Discipline & Refusing AI With Friends* — Andrey's high-agency framework and the line he won't let AI cross — [oshenstudio.com/episode/high-agency-andrey-marey-student-founder](https://oshenstudio.com/episode/high-agency-andrey-marey-student-founder)
 
 ### People Mentioned
 

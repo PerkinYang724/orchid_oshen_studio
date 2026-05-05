@@ -3,6 +3,7 @@
 import { m, useInView } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
 import { Youtube, Music2, List } from "lucide-react";
+import { youtubeThumb } from "@/lib/youtube";
 
 type LatestEpisodeData = {
   title: string;
@@ -17,8 +18,8 @@ type LatestEpisodeData = {
 // Fallback when API is not configured or fails (e.g. no Spotify env vars)
 // Kept in sync with the latest episode in the gallery (episode 6)
 const fallbackLatestEpisode: LatestEpisodeData = {
-  title: "Lilian Krengel: Space Traffic Management AI and Earth's Invisible Crisis | Still Human",
-  description: "19-year-old Santa Clara freshman Lilian Krengel founded OrbitGuard AI — a real-time satellite collision prediction system — after 13 years of gymnastics, a stint arguing NATO AI policy in debate at 16, and a winter night crying, questioning whether engineering was right for her at all.",
+  title: "Building Traffic Lights for Space: Lilian Krengel on AI, Orbital Congestion, and Student Founding | Still Human",
+  description: "A Santa Clara sophomore on building AI traffic lights for space, the Kessler Effect, and what it means when someone copies your startup in a weekend.",
   duration: "55 min",
   spotifyEpisodeId: "7xRi6S3deMo1PYP9LLTeJ0",
   youtubeUrl: "https://www.youtube.com/watch?v=I3lR2WbpVy8",
@@ -29,15 +30,15 @@ const fallbackLatestEpisode: LatestEpisodeData = {
 const episodes = [
   {
     number: "01",
-    title: "College Entrepreneur Builds AI Startup After Winning Nvidia | Sean Wu | Still Human Podcast",
-    description: "A conversation with Varsity Wrestling Champion, Sean Wu, about his journey from high school wrestling to winning at Nvidia, and the art of being cooked.",
+    title: "Sean Wu: Execution Culture, Raising $2M for Robotics, and Why Most Students Never Ship",
+    description: "Sean Wu is a Santa Clara junior who raised over $2M for Synphony — a robotics startup tackling the sim-to-real gap — while finishing his degree. He joins Perkin to talk execution culture, the wrestling lesson behind founder loneliness, the NVIDIA hackathon that turned into a venture-backed company, and his honest answer on when to pivot vs. push through.",
     duration: "46 min",
     youtubeVideoId: "jq3PUmDQivk", // from youtu.be/jq3PUmDQivk
   },
   {
     number: "02",
-    title: "Still Human? The Bioengineer Building the Technology of Tomorrow",
-    description: "I wasted all my time. Michael Yoshimura didn't hold back. From a career-ending injury to the front lines of the AI revolution, Michael is rewriting the rules of human capability. He joins Perkins to discuss the \"Execution Culture\" gap and why most people's \"great ideas\" fail within two weeks. If you think AI is just about ChatGPT, you’re missing the bigger picture of 3D-printed healthcare and automated agriculture.",
+    title: "Michael Iwashima: Why AI Can't Reason Over Time, Brain-Computer Interfaces, and Building From Nothing",
+    description: "A career-ending soccer injury sent Michael Iwashima toward engineering. Now he's building brain-computer interfaces that let people with paralysis play Space Invaders, 3D-printable biosensors for AI in agriculture, and a mold-detection startup. He joins Perkin to talk about why current AI still can't reason over time, why community building is the most underrated skill in an AI-saturated world, and what accessibility tech teaches you about human capability.",
     duration: "31 min",
     youtubeVideoId: "GkyO4MgQW1k", // paste video ID for thumbnail
   },
@@ -57,15 +58,15 @@ const episodes = [
   },
   {
     number: "05",
-    title: "Andrey Marey: The Fake Dopamine Trap, Rapid Execution, and Setting Boundaries with AI",
-    description: "A conversation with 20-year-old serial founder Andrey Marey from Santa Clara University. Exploring how to build fast without losing your humanity — covering resilience, the psychology of goal-setting, and why Marey avoids using AI for personal communications.",
+    title: "Build Before You're Ready: Andrey Marey on High-Agency, Discipline, and Refusing to Use AI With Friends",
+    description: "Andrey Marey is 20 and a serial founder — NVIDIA hackathon win, fraud detection in London, three shipped startups, and a stint at Finland's FR8 hacker hotel. He joins Perkin to break down what high-agency actually means, why discipline beats motivation, the framework that runs his career — ideas matter, execution more, distribution most — and the one line he refuses to ever let AI cross.",
     duration: "44 min",
     youtubeVideoId: "ZWhkF8q3-g0",
   },
   {
     number: "06",
-    title: "Lilian Krengel: Space Traffic Management AI and Earth's Invisible Crisis",
-    description: "Earth's orbit is becoming a traffic jam. Nobody built the traffic lights yet — until Lilian Krengel did. At 19, she founded OrbitGuard AI: a real-time satellite collision prediction system built from a dorm room, after 13 years of gymnastics and arguing NATO AI policy in debate at 16.",
+    title: "Building Traffic Lights for Space: Lilian Krengel on AI, Orbital Congestion, and Student Founding",
+    description: "Lilian Krengel is 19 and the founder of OrbitGuard AI — air traffic control, but for space. She joins Perkin to talk about why she didn't try to build a rocket, the Kessler Effect, the Stanford team that nearly cloned her startup in a weekend, and what it teaches you about execution speed in the AI era.",
     duration: "55 min",
     youtubeVideoId: "I3lR2WbpVy8",
   },
@@ -95,7 +96,7 @@ function EpisodeCard({
       : {};
 
   const thumbnailSrc = spotifyImageUrl || (ep.youtubeVideoId
-    ? `https://img.youtube.com/vi/${ep.youtubeVideoId}/maxresdefault.jpg`
+    ? youtubeThumb(ep.youtubeVideoId)
     : null);
 
   return (

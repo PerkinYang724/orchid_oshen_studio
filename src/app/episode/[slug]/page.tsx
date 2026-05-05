@@ -5,6 +5,7 @@ import { Youtube, ArrowUpRight, Clock, Music2 } from "lucide-react";
 import { getAllSlugs, getEpisodeBySlug, getAllEpisodes } from "@/lib/episodes";
 import { getSpotifyShowEpisodes, buildEpisodeImagesArray } from "@/lib/spotify";
 import { getTopicBySlug, getTopicStyle } from "@/lib/topics";
+import { youtubeThumb } from "@/lib/youtube";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -22,13 +23,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     openGraph: {
       title: episode.metaTitle,
       description: episode.metaDescription,
-      images: [`https://img.youtube.com/vi/${episode.youtubeId}/maxresdefault.jpg`],
+      images: [youtubeThumb(episode.youtubeId)],
     },
     twitter: {
       card: "summary_large_image",
       title: episode.metaTitle,
       description: episode.metaDescription,
-      images: [`https://img.youtube.com/vi/${episode.youtubeId}/maxresdefault.jpg`],
+      images: [youtubeThumb(episode.youtubeId)],
     },
   };
 }
@@ -101,7 +102,7 @@ export default async function EpisodePage({ params }: Props) {
           ) : (
             <div className="w-28 sm:w-36 aspect-video rounded-2xl overflow-hidden border border-white/[0.08] flex-shrink-0 shadow-2xl">
               <img
-                src={`https://img.youtube.com/vi/${episode.youtubeId}/maxresdefault.jpg`}
+                src={youtubeThumb(episode.youtubeId)}
                 alt={`${episode.title} cover`}
                 className="w-full h-full object-cover"
               />
@@ -191,7 +192,7 @@ export default async function EpisodePage({ params }: Props) {
                 const idx = parseInt(ep.number, 10) - 1;
                 const spotifyImg = episodeImages[idx];
                 const hasSpotify = !!spotifyImg;
-                const img = spotifyImg || `https://img.youtube.com/vi/${ep.youtubeId}/mqdefault.jpg`;
+                const img = spotifyImg || youtubeThumb(ep.youtubeId, "mq");
                 return (
                   <Link
                     key={ep.slug}

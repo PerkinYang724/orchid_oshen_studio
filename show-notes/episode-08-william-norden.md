@@ -82,10 +82,10 @@ No external research was cited in this episode.
 
 Builders thinking from first principles about AI, engineering, and what to actually understand:
 
-- *Sean Wu: From Stanford Research to AI That Gives Time Back* — [oshenstudio.com/episode/sean-wu-stanford-ai-gives-time-back](https://oshenstudio.com/episode/sean-wu-stanford-ai-gives-time-back)
-- *Lilian Krengel: Space Traffic Management AI and Earth's Invisible Crisis* — [oshenstudio.com/episode/space-traffic-management-ai-lilian-krengel-orbitguard](https://oshenstudio.com/episode/space-traffic-management-ai-lilian-krengel-orbitguard)
+- *Execution Culture — Sean Wu on Raising $2M for Robotics & the Sim-to-Real Gap* — [oshenstudio.com/episode/execution-culture-sean-wu-synphony-robotics](https://oshenstudio.com/episode/execution-culture-sean-wu-synphony-robotics)
+- *Building Traffic Lights for Space — Lilian Krengel on AI, Orbital Congestion & Student Founding* — [oshenstudio.com/episode/space-traffic-management-ai-lilian-krengel-orbitguard](https://oshenstudio.com/episode/space-traffic-management-ai-lilian-krengel-orbitguard)
 - *Toby Corey: Zentrepreneurship and Building Trust in AI* — [oshenstudio.com/episode/zentrepreneurship-toby-corey-brandcapsule-ai-trust](https://oshenstudio.com/episode/zentrepreneurship-toby-corey-brandcapsule-ai-trust)
-- *AI and Relationships: Andrey Marey on the Fake Dopamine Trap* — [oshenstudio.com/episode/ai-and-relationships-andrey-marey-fake-dopamine-trap](https://oshenstudio.com/episode/ai-and-relationships-andrey-marey-fake-dopamine-trap)
+- *Build Before You're Ready — Andrey Marey on High-Agency, Discipline & Refusing AI With Friends* — [oshenstudio.com/episode/high-agency-andrey-marey-student-founder](https://oshenstudio.com/episode/high-agency-andrey-marey-student-founder)
 
 ---
 

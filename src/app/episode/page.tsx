@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ArrowUpRight, Clock, Music2 } from "lucide-react";
 import { getAllEpisodes } from "@/lib/episodes";
 import { getSpotifyShowEpisodes, buildEpisodeImagesArray } from "@/lib/spotify";
+import { youtubeThumb } from "@/lib/youtube";
 
 export const metadata: Metadata = {
   title: "Episodes — Still Human Podcast",
@@ -56,7 +57,7 @@ export default async function EpisodesPage() {
             const epIndex = parseInt(ep.number, 10) - 1;
             const spotifyImg = episodeImages[epIndex];
             const hasSpotify = !!spotifyImg;
-            const thumbnailSrc = spotifyImg || `https://img.youtube.com/vi/${ep.youtubeId}/maxresdefault.jpg`;
+            const thumbnailSrc = spotifyImg || youtubeThumb(ep.youtubeId);
 
             return (
               <Link

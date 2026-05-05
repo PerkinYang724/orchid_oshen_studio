@@ -4,6 +4,7 @@ import { m } from "framer-motion";
 import { Youtube, Music2, Clock, ArrowRight } from "lucide-react";
 import type { EpisodeMeta } from "@/lib/episodes";
 import { getTopicStyle, getTopicBySlug } from "@/lib/topics";
+import { youtubeThumb } from "@/lib/youtube";
 
 type Props = {
   episode: EpisodeMeta;
@@ -56,7 +57,7 @@ export function PodcastHero({ episode, spotifyImageUrl, spotifyEpisodeUrl }: Pro
             <a href={`/episode/${episode.slug}`} className="group flex-shrink-0">
               <div className="relative aspect-video rounded-2xl overflow-hidden border border-white/[0.08] shadow-[0_32px_64px_rgba(0,0,0,0.5)]">
                 <img
-                  src={`https://img.youtube.com/vi/${episode.youtubeId}/maxresdefault.jpg`}
+                  src={youtubeThumb(episode.youtubeId)}
                   alt={episode.title}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />

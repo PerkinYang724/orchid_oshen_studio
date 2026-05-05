@@ -67,10 +67,10 @@ No external research was cited in this episode.
 
 Founders navigating scale, consciousness, and the human cost of building:
 
-- *Sean Wu: From Stanford Research to AI That Gives Time Back* — [oshenstudio.com/episode/sean-wu-stanford-ai-gives-time-back](https://oshenstudio.com/episode/sean-wu-stanford-ai-gives-time-back)
+- *Execution Culture — Sean Wu on Raising $2M for Robotics & the Sim-to-Real Gap* — [oshenstudio.com/episode/execution-culture-sean-wu-synphony-robotics](https://oshenstudio.com/episode/execution-culture-sean-wu-synphony-robotics)
 - *Krish Jajoo: Turning Failure into a Startup Thesis* — [oshenstudio.com/episode/krish-jajoo-turning-failure-into-startup-thesis](https://oshenstudio.com/episode/krish-jajoo-turning-failure-into-startup-thesis)
 - *What Is Human Connection? Bailley Georgieva on AI & Originality* — [oshenstudio.com/episode/what-is-human-connection-bailley-georgieva-ai](https://oshenstudio.com/episode/what-is-human-connection-bailley-georgieva-ai)
-- *AI and Relationships: Andrey Marey on the Fake Dopamine Trap* — [oshenstudio.com/episode/ai-and-relationships-andrey-marey-fake-dopamine-trap](https://oshenstudio.com/episode/ai-and-relationships-andrey-marey-fake-dopamine-trap)
+- *Build Before You're Ready — Andrey Marey on High-Agency, Discipline & Refusing AI With Friends* — [oshenstudio.com/episode/high-agency-andrey-marey-student-founder](https://oshenstudio.com/episode/high-agency-andrey-marey-student-founder)
 
 ### People Mentioned
 

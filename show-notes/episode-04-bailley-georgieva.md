@@ -37,8 +37,8 @@ No external research was cited in this episode.
 
 You might also enjoy:
 
-- *AI Replacing Jobs? Michael Yoshimura on Biotech & Execution Culture* — [oshenstudio.com/episode/ai-replacing-jobs-michael-yoshimura-biotech](https://oshenstudio.com/episode/ai-replacing-jobs-michael-yoshimura-biotech)
-- *AI and Relationships — Andrey Marey on Where the Line Is* — [oshenstudio.com/episode/ai-and-relationships-andrey-marey-fake-dopamine-trap](https://oshenstudio.com/episode/ai-and-relationships-andrey-marey-fake-dopamine-trap)
+- *Why AI Can't Reason Over Time — Michael Iwashima on BCIs, Biosensors & Building From Nothing* — [oshenstudio.com/episode/brain-computer-interfaces-michael-iwashima-ai-limits](https://oshenstudio.com/episode/brain-computer-interfaces-michael-iwashima-ai-limits)
+- *Build Before You're Ready — Andrey Marey on High-Agency, Discipline & Refusing AI With Friends* — [oshenstudio.com/episode/high-agency-andrey-marey-student-founder](https://oshenstudio.com/episode/high-agency-andrey-marey-student-founder)
 
 ### People Mentioned
 

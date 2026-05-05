@@ -1,26 +1,28 @@
 ---
-slug: "ai-and-relationships-andrey-marey-fake-dopamine-trap"
+slug: "high-agency-andrey-marey-student-founder"
 number: "05"
-title: "Andrey Marey: The Fake Dopamine Trap, Rapid Execution, and Setting Boundaries with AI"
+title: "Build Before You're Ready: Andrey Marey on High-Agency, Discipline, and Refusing to Use AI With Friends"
 guest: "Andrey Marey"
 duration: "44 min"
 youtubeId: "ZWhkF8q3-g0"
-description: "20-year-old serial founder Andrey Marey on building fast without losing your humanity — the fake dopamine trap of small goals, why he refuses to use AI for personal communication, and the moment he almost quit everything."
-metaTitle: "AI and Relationships: Andrey Marey on the Fake Dopamine Trap | Still Human Podcast"
-metaDescription: "AI and relationships: 20-year-old founder Andrey Marey on why he refuses to use AI for personal communication, fake dopamine traps, and building without losing yourself."
-primaryKeyword: "AI and relationships"
-secondaryKeywords: "will AI take over, student founder AI, human connection AI, college entrepreneur, AI replacing jobs"
+description: "A 20-year-old serial founder on high-agency, why discipline beats motivation, and the one thing he refuses to ever let AI touch — covering NVIDIA, Vivora, FR8 Finland, and the framework that runs his career."
+metaTitle: "Build Before You're Ready: Andrey Marey on High-Agency & Discipline | Still Human"
+metaDescription: "A 20-year-old serial founder on high-agency, why discipline beats motivation, and the one thing he refuses to ever let AI touch."
+primaryKeyword: "high-agency mindset for student founders"
+secondaryKeywords: "discipline over motivation, AI in personal relationships, execution and distribution founder advice, negative feedback loop entrepreneurship, Bionic Reader project, NVIDIA hackathon winner, FR8 Finland hacker hotel, Vivora NotebookLM competitor, engineering-led sales, building before you're ready"
 publishDate: ""
 topics: ["entrepreneurship", "mental-resilience", "identity-humanity"]
 ---
 
-# AI and Relationships: Andrey Marey on the Fake Dopamine Trap & Rapid Execution
+# Build Before You're Ready: Andrey Marey on High-Agency, Discipline, and Refusing to Use AI With Friends
 
-AI and relationships sit at opposite ends of most builders' minds — Andrey Marey is one of the few people who has thought carefully about why they have to. Andrey is a 20-year-old serial founder, math and CS dual-major at Santa Clara University, and Nvidia hackathon winner who walked away from a project the day it hit 5,000 users. In this 44-minute conversation with Perkin, he makes the case that the most dangerous thing AI does to a builder isn't automate their workflow — it's quietly replace the parts of their life that require them to be a person.
+Andrey Marey has been building since before most people his age finished a college essay. By twenty he had built fraud detection systems in London, won an NVIDIA hackathon, lived in a hacker hotel in Finland, and shipped three different startups. He's a junior at Santa Clara studying math and computer science, but he calls himself something more specific. **High-agency.**
+
+In this Still Human conversation, Andrey breaks down what that actually means. It's not motivation. Motivation is a dopamine spark that fires and dies. Discipline is the thirty-second pause before the scroll, where you catch yourself and choose something else. He talks about training that pause for months. He talks about setting impossible goals on purpose because your brain operates differently when the bar is real. And he talks about the line he refuses to cross: he will never use AI to text his friends, his family, or a partner. The moment you outsource emotional intelligence to a machine, he says, you've granted someone else access to your life.
 
 ## Show Notes
 
-Andrey Marey is a serial founder and dual-degree student in mathematics and computer science at Santa Clara University. He won an Nvidia hackathon, built products with real traction, and has twice made the deliberate decision to walk away from something that was working. Two knee surgeries during a period of competitive athletic training forced a stillness that reshaped how he thinks about goals, time, and what he actually wants to build. His position on AI is specific: use it aggressively for technical work, and keep it entirely out of your personal life and relationships. For the Still Human audience, Andrey is the guest who challenges you to examine not just how you use AI, but what you are protecting from it — and whether you've made that decision consciously.
+Andrey Marey is a 20-year-old junior at Santa Clara University studying math and computer science, and a serial founder with a track record that runs through fraud detection work in London, an NVIDIA hackathon win, a stint at the FR8 hacker hotel in Finland, and three shipped startups including Vivora (a NotebookLM competitor) and a Bionic Reader project. He left Vivora before it raised funding and left FR8 early — both decisions he describes honestly rather than dressed up. His framework for choosing what to build is short: ideas matter, execution matters more, distribution matters most. His framework for how to build is shorter: discipline over motivation, and never automate the parts of your life that require you to be a person. For the Still Human audience, Andrey is the guest who turns "high-agency" from a Twitter slogan into a working operating system.
 
 ### Articles & Research
 
@@ -28,17 +30,21 @@ No external research was cited in this episode.
 
 ### Tools & Resources
 
-- **Nvidia Developer Program / Hackathon** — Competitive AI development challenge where Andrey won; referenced as a formative experience in how he thinks about building fast under pressure
-- **Y Combinator culture** — Andrey references YC's builder ethos as a cultural backdrop and occasional foil — the environment that shaped his understanding of execution, and one he has a complicated relationship with
-- **Cursor / AI coding tools** — AI-powered development environments that accelerate technical work; part of Andrey's discussion of where AI is genuinely useful and where he draws a hard line
+Relevant to this episode:
+
+- **Vivora (NotebookLM competitor)** — One of Andrey's startups, referenced as the project he chose to leave before it raised funding
+- **Bionic Reader project** — Earlier project where Andrey explored reading-acceleration technology
+- **FR8 (Finland)** — The "hacker hotel" Andrey lived in; he describes leaving early as being "too early" rather than dressing it up
+- **NVIDIA hackathons / developer programs** — The competitive AI environment where Andrey won; part of the early track record that shaped his execution-first instincts
+- **Engineering-led sales** — Andrey's framing for why technical founders need to learn distribution, not just shipping
 
 ### Related Still Human Episodes
 
 You might also enjoy:
 
 - *What Is Human Connection? Bailley Georgieva on AI & Originality* — [oshenstudio.com/episode/what-is-human-connection-bailley-georgieva-ai](https://oshenstudio.com/episode/what-is-human-connection-bailley-georgieva-ai)
-- *AI Replacing Jobs? Michael Yoshimura on Execution Culture* — [oshenstudio.com/episode/ai-replacing-jobs-michael-yoshimura-biotech](https://oshenstudio.com/episode/ai-replacing-jobs-michael-yoshimura-biotech)
-- *College Entrepreneur Sean Wu on Wrestling, Nvidia & Pressure* — [oshenstudio.com/episode/college-entrepreneur-sean-wu-nvidia-wrestling](https://oshenstudio.com/episode/college-entrepreneur-sean-wu-nvidia-wrestling)
+- *Why AI Can't Reason Over Time — Michael Iwashima on BCIs, Biosensors & Building From Nothing* — [oshenstudio.com/episode/brain-computer-interfaces-michael-iwashima-ai-limits](https://oshenstudio.com/episode/brain-computer-interfaces-michael-iwashima-ai-limits)
+- *Execution Culture — Sean Wu on Raising $2M for Robotics & the Sim-to-Real Gap* — [oshenstudio.com/episode/execution-culture-sean-wu-synphony-robotics](https://oshenstudio.com/episode/execution-culture-sean-wu-synphony-robotics)
 
 ### People Mentioned
 
@@ -50,57 +56,61 @@ No additional people were cited by name in this episode beyond the host and gues
 
 *Timestamps are approximate — click to jump directly on YouTube.*
 
-- `[00:00:00]` — Andrey Marey intro: Santa Clara, math & CS, Nvidia win
-- `[00:04:00]` — The Nvidia hackathon: what the experience actually was
-- `[00:08:00]` — Walking away from 5,000 users on day one — the full story
-- `[00:14:00]` — The fake dopamine trap: why small goals are holding you back
-- `[00:20:00]` — AI and relationships: where Andrey draws the hard line
-- `[00:26:00]` — Two knee surgeries and what forced stillness teaches a builder
-- `[00:31:00]` — Why sales is the skill technical founders are afraid to develop
-- `[00:35:30]` — Vulnerability as competitive advantage in an AI-saturated world
-- `[00:39:00]` — The moment he almost quit everything — and what changed
-- `[00:41:30]` — Andrey's framework for deciding what AI is and isn't allowed to touch
-- `[00:43:00]` — Where to find Andrey and what he's building now
+- `[00:00:00]` — Andrey Marey intro: 20, Santa Clara junior, math + CS, serial founder
+- `[00:03:30]` — What "high-agency" actually means — and why it's not motivation
+- `[00:08:00]` — Discipline as a 30-second pause before the scroll
+- `[00:12:30]` — Setting impossible goals on purpose: how the brain operates when the bar is real
+- `[00:17:00]` — The framework: ideas matter, execution matters more, distribution matters most
+- `[00:21:30]` — Fraud detection in London and the NVIDIA hackathon win
+- `[00:26:00]` — Vivora, the NotebookLM competitor, and why he left before the funding round
+- `[00:30:00]` — Leaving FR8 in Finland early — being "too early" instead of dressing it up
+- `[00:34:00]` — The Bionic Reader project and engineering-led sales
+- `[00:37:30]` — Two knee surgeries before 18 and the operating system that came out of the pain
+- `[00:40:30]` — The line he won't cross: AI is never allowed in messages to friends, family, or a partner
+- `[00:42:30]` — Creators in the AI era: replaced for a beat, back stronger within the decade
+- `[00:43:30]` — The signature question: technology should deepen human relationships, not replace them
 
 ---
 
-## Quotes From This Episode
+## Key Takeaways
 
-> "I'd rather fail at something real than succeed at something automated."
-> — Andrey Marey
-
-> "Small goals feel like progress. They're not. They're a way of staying comfortable while calling it ambition. That's the trap."
-> — Andrey Marey
-
-> "I don't let AI write my messages to people I care about. Not because it can't produce something good — because what it would produce wouldn't be me. And at some point that distinction matters."
-> — Andrey Marey
+- **High-agency is the operating system, not the slogan.** Andrey distinguishes it sharply from motivation. Motivation is a spark that dies; high-agency is the structural choice to act before you feel ready.
+- **Discipline is a 30-second pause.** The window between the urge to scroll and the next click is where discipline actually lives. He trained that pause for months.
+- **Set impossible goals on purpose.** The brain operates differently when the bar is real. Aiming for something genuinely hard changes the actions you'll take in the meantime.
+- **Ideas → execution → distribution.** Ideas matter. Execution matters more. Distribution matters most. Most founder advice gets the order wrong.
+- **Pain becomes the operating system.** Two knee surgeries before 18 forced a stillness that reshaped how Andrey thinks about time and goals. He runs on what came out of that.
+- **Don't automate being a person.** AI for technical work, yes. AI for messages to friends, family, or a partner — no. The moment you outsource emotional intelligence, you've granted someone else access to your life.
+- **Creators get replaced for a beat, then come back stronger.** Andrey's contrarian take on the AI-and-creators debate: short-term displacement, decade-long resurgence.
 
 ---
 
 ## In This Episode
 
-- **Why Andrey walked away from a project on the day it hit 5,000 users** — Not because it failed. Because of what continuing would have required him to become
-- **The fake dopamine trap** — A specific framework for why incremental goal-setting produces the feeling of progress without any of the substance, and what to aim for instead
-- **AI and relationships — where the hard line is** — Andrey's position is not anti-AI. It's a deliberate boundary: AI is a tool for technical work, not a substitute for human presence in your personal life
-- **What two knee surgeries taught him about building** — Forced to stop competing, Andrey had to ask what he actually wanted. The answer changed the kind of founder he became
-- **Why sales matters more than most technical founders admit** — The builders who can't sell their own work are always dependent on someone else to do the most important part
-- **Vulnerability as the thing AI cannot replicate** — Imperfection and genuine emotional honesty are not weaknesses in a world of AI-generated polish — they're a competitive edge
-- **The moment he almost quit** — A personal account of the lowest point in his building journey, what he was feeling, and the single thing that shifted it
-- **What this conversation says about staying human** — Andrey's thesis: the goal isn't to optimize your life. The goal is to actually live it.
+- **What "high-agency" actually means** — Andrey's distinction between motivation, discipline, and high-agency, and why the difference is operational rather than philosophical
+- **The 30-second pause** — How Andrey trained the gap between impulse and action, and why that's the smallest unit of discipline
+- **Setting impossible goals on purpose** — His case for aiming high enough that your brain genuinely operates differently
+- **The framework: ideas → execution → distribution** — The hierarchy he uses to choose what to build, and why most founder advice inverts it
+- **Two knee surgeries before 18** — How a forced stillness shaped the way he runs his career
+- **NVIDIA, London, FR8, Vivora, Bionic Reader** — The actual track record behind the philosophy
+- **Why he left Vivora before the raise** — His honest answer on respect for other people's time
+- **Why he left FR8 early** — "Too early" instead of dressing it up — and what that taught him about reading rooms
+- **The line he won't cross** — AI is never allowed to text his friends, family, or a partner. The argument for why
+- **Creators in the AI era** — Replaced for a beat, back stronger within the decade
+- **The signature answer** — The most successful people of the next decade will be the ones who use technology to *deepen* human relationships, not replace them
 
 ---
 
 ## About Andrey Marey
 
-Andrey Marey is a 20-year-old serial founder pursuing a dual degree in mathematics and computer science at Santa Clara University. He won an Nvidia hackathon, launched multiple products — including one he shut down the day it reached 5,000 users — and developed his philosophy about building through two knee surgeries that forced him off the competitive track and into a more deliberate relationship with time and purpose. His view on AI is one of the clearest on the show: use it hard for technical execution, keep it entirely out of your relationships and personal communication, and never confuse optimizing your process with actually living your life. He is currently building at the intersection of technology and human judgment, and his thinking is more developed at 20 than most people manage in a career.
+Andrey Marey is a 20-year-old junior at Santa Clara University studying math and computer science, and a serial founder with three shipped startups, a NVIDIA hackathon win, fraud detection work in London, and a stint at the FR8 hacker hotel in Finland behind him. He calls himself **high-agency** — and uses it operationally rather than as a vibe. His framework for what to build is *ideas matter, execution matters more, distribution matters most*. His framework for how to build is discipline as a 30-second pause and goals set deliberately out of reach. He left Vivora (a NotebookLM competitor) before it raised funding, and left FR8 early because he was, in his own words, "too early" — not because he failed. He carries an operating system shaped by two knee surgeries before 18, and a hard line: AI is allowed in his technical work but never in his messages to people he loves. For the Still Human audience, he's the guest who turns the high-agency conversation into something concrete enough to use this week.
 
 ---
 
 ## Connect With Andrey Marey
 
-- 🌐 Website: [andrey.marey.com](https://andrey.marey.com)
-- 📸 Instagram: [@andrey.marey](https://instagram.com/andrey.marey)
 - Watch the episode: [youtube.com/watch?v=ZWhkF8q3-g0](https://www.youtube.com/watch?v=ZWhkF8q3-g0)
+- Website: [andrey.marey.com](https://andrey.marey.com)
+- Instagram: [@andrey.marey](https://instagram.com/andrey.marey)
 
 ---
 
@@ -108,8 +118,8 @@ Andrey Marey is a 20-year-old serial founder pursuing a dual degree in mathemati
 
 Still Human Podcast is a biweekly show by Oshen Studio, hosted by Perkin — exploring what it means to stay human in the age of AI. Real conversations with builders, creators, founders, and thinkers doing it in real life.
 
-- 📺 YouTube: [youtube.com/@Oshen.studio](https://youtube.com/@Oshen.studio)
-- 📸 Instagram: [instagram.com/perkin0909](https://instagram.com/perkin0909)
-- 🎧 Listen everywhere: Search **Still Human Podcast** on Spotify, Apple Podcasts, or wherever you listen
+- YouTube: [youtube.com/@Oshen.studio](https://youtube.com/@Oshen.studio)
+- Instagram: [instagram.com/perkin0909](https://instagram.com/perkin0909)
+- Listen everywhere: Search **Still Human Podcast** on Spotify, Apple Podcasts, or wherever you listen
 
 New episodes drop every two weeks. Subscribe so you never miss a conversation.
