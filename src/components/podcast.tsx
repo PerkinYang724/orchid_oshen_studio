@@ -44,8 +44,8 @@ const episodes = [
   },
   {
     number: "03",
-    title: "The Y-Combinator Effect: How a High-Stakes Environment Shapes Success",
-    description: "Krish Jajoo — CS major at Santa Clara University and leader of AI Collaborate — on growing up in Silicon Valley's pressure cooker, why the best future leaders need both technical mastery and emotional intelligence, and whether AI will make learning to code obsolete.",
+    title: "We Are the Product: Krish Jajoo on Social Media, Silicon Valley Pressure, and Why Human Connection Still Wins",
+    description: "Krish Jajoo grew up in Fremont — same high school as Y Combinator CEO Gary Tan. He joins Perkin to talk about the Silicon Valley pressure cooker, why the attention economy turned a generation into the product, financial literacy work for underserved kids, the Patelco Credit Union moment that almost killed it, and why he chose CS to fix his weakness, not sharpen his strength.",
     duration: "25 min",
     youtubeVideoId: "1jBZ1yflBgA",
   },

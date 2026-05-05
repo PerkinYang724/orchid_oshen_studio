@@ -1,26 +1,28 @@
 ---
 slug: "ai-human-connection-krish-jajoo-ycombinator-effect"
 number: "03"
-title: "The Y-Combinator Effect: How a High-Stakes Environment Shapes Success"
+title: "We Are the Product: Krish Jajoo on Social Media, Silicon Valley Pressure, and Why Human Connection Still Wins"
 guest: "Krish Jajoo"
 duration: "25 min"
 youtubeId: "1jBZ1yflBgA"
-description: "Krish Jajoo — CS major at Santa Clara University and leader of AI Collaborate — on growing up in Silicon Valley's pressure cooker, why the best future leaders need both technical mastery and emotional intelligence, and whether AI will make learning to code obsolete."
-metaTitle: "AI Human Connection: Krish Jajoo on the Y-Combinator Effect | Still Human Podcast"
-metaDescription: "AI human connection explored with Krish Jajoo — Silicon Valley CS student on empathy, imposter syndrome, and why emotional intelligence is the real edge in an AI world."
-primaryKeyword: "AI human connection"
-secondaryKeywords: "will AI take over, student founder AI, AI replacing jobs, still human podcast, college entrepreneur"
+description: "A Santa Clara sophomore on growing up in Silicon Valley, why social media made us the product, and where being human still beats every algorithm."
+metaTitle: "We Are the Product: Krish Jajoo on Social Media & Human Connection | Still Human"
+metaDescription: "A Santa Clara sophomore on growing up in Silicon Valley, why social media made us the product, and where being human still beats every algorithm."
+primaryKeyword: "human connection in the AI era"
+secondaryKeywords: "people person in tech, financial literacy for underserved students, social media attention economy, Silicon Valley pressure cooker, AI Collaborate Santa Clara, responsible AI minor, business student learning to code, imposter syndrome computer science, dopamine and short-form video, selfless leadership philosophy"
 publishDate: ""
 topics: ["ai-technology", "entrepreneurship", "identity-humanity"]
 ---
 
-# AI Human Connection: Krish Jajoo on the Y-Combinator Effect & Emotional Intelligence
+# We Are the Product: Krish Jajoo on Social Media, Silicon Valley Pressure, and Why Human Connection Still Wins
 
-AI human connection is the thing Silicon Valley talks about the least — and it might be the skill that matters most. Krish Jajoo grew up in the heart of it, where success gets measured by grades, prestige, and proximity to the next YC batch. He's a computer science major at Santa Clara University and the leader of AI Collaborate, and in this conversation with Perkin, he makes the case that the builders who will actually win in an AI-driven world are the ones who invested in what AI cannot replicate: genuine empathy, emotional intelligence, and the ability to lead real people.
+Krish Jajoo grew up in Fremont. His high school produced Gary Tan, the CEO of Y Combinator. His friends' parents ran FAANG companies. He says the pressure was so baked in he didn't even notice it until high school, when the whole valley started competing for the same colleges, the same internships, the same air.
+
+In this Still Human conversation, Krish talks through something most twenty-year-olds with a stacked LinkedIn don't admit: he didn't choose computer science because he loved it. He chose it because he was a self-described **people person** who knew his weakness was technical, and he wanted both. He wanted to be a double-edged sword. He's still working on it. He still has the mental block. He still feels like the wrong person in the room sometimes, and he uses that as the fuel.
 
 ## Show Notes
 
-Krish Jajoo is a computer science major at Santa Clara University and the leader of AI Collaborate, a student-run organization at the intersection of AI education and community. He grew up in Silicon Valley, where the ambient pressure to perform — what he calls the "YC Effect" — shaped how he thinks about ambition, identity, and what it actually means to succeed. His perspective sits at an unusual crossroads: deeply technical, but convinced that the future belongs to people who can combine that technical depth with human skills most engineers actively avoid developing. For the Still Human audience, Krish is the guest who puts a name to the pressure many of them feel, and offers a more honest framework for dealing with it.
+Krish Jajoo is a sophomore at Santa Clara University, the leader of AI Collaborate, and the co-founder of a financial literacy organization for special needs students and underserved kids. He grew up in Fremont — a high school that produced Gary Tan — and uses that backdrop to explain how the Silicon Valley pressure cooker actually shapes identity rather than just ambition. His sharpest moment in the conversation is on the attention economy: if we're not paying for it, we're the product. The advertisers are the customer. He has the receipts — he asks every friend to name three Instagram reels they watched yesterday, and nobody can. For the Still Human audience, Krish is the guest who reframes "people skills" as a moat in the AI era, and shows what selfless leadership looks like without becoming a doormat.
 
 ### Articles & Research
 
@@ -28,9 +30,13 @@ No external research was cited in this episode.
 
 ### Tools & Resources
 
-- **AI Collaborate** — Student-led organization at Santa Clara University focused on AI education and responsible development; Krish leads it and references it throughout the conversation as a testing ground for his ideas about technical and human leadership
-- **Y Combinator (YC)** — The world's most prominent startup accelerator; discussed not as a program but as a cultural force that defines what "success" looks like for an entire generation of Silicon Valley students — and what that costs them
-- **LinkedIn** — Professional networking platform; discussed critically in the context of imposter syndrome and the gap between how people present themselves and how they actually feel
+Relevant to this episode:
+
+- **AI Collaborate (Santa Clara University)** — The student community Krish leads; a hands-on testing ground for his ideas about technical depth and human leadership in equal measure
+- **Financial literacy outreach** — Krish's co-founded org serving special needs students and underserved kids; the Patelco Credit Union moment he describes is the near-collapse and recovery
+- **Y Combinator (the cultural force, not the program)** — How YC functions as a benchmark for "success" in the valley, and what it costs the people who measure themselves against it
+- **The attention economy / short-form video** — Krish's framing for why social media platforms turned a generation into the product
+- **J.P. Morgan Healthcare Conference** — Referenced as an example of walking into rooms where you're the dumbest person and using that as fuel rather than fleeing it
 
 ### Related Still Human Episodes
 
@@ -41,64 +47,65 @@ You might also enjoy:
 
 ### People Mentioned
 
-No additional people were cited by name in this episode beyond the host and guest.
+- **Gary Tan** — CEO of Y Combinator; Krish references him as a graduate of the same Fremont high school, used as a marker for the ambient pressure of growing up in the valley
 
 ---
 
 ## Timestamps
 
-- `[00:00:00]` — Welcome and Krish Jajoo introduction
-- `[00:01:10]` — Leading AI Collaborate: responsibility and legacy
-- `[00:03:08]` — Growing up in Silicon Valley's "pressure cooker"
-- `[00:04:36]` — The Y-Combinator Effect: high expectations in high school
-- `[00:05:41]` — Why a "people person" chose computer science
-- `[00:07:44]` — Technical leadership vs. personal leadership
-- `[00:09:20]` — How AI actually looks in a student's daily life
-- `[00:11:42]` — The LinkedIn Illusion: dealing with imposter syndrome
-- `[00:14:38]` — Will AI make learning to code obsolete?
-- `[00:16:04]` — Teaching financial literacy to underserved communities
-- `[00:19:15]` — Responsible AI: the danger of social media algorithms
-- `[00:22:15]` — Final thoughts: where being "Still Human" matters most
+*Timestamps are approximate — click to jump directly on YouTube.*
+
+- `[00:00:00]` — Krish Jajoo intro: Santa Clara sophomore, AI Collaborate, financial literacy work
+- `[00:02:30]` — Growing up in Fremont, Silicon Valley pressure baked in before you notice it
+- `[00:04:36]` — The Y-Combinator Effect: when a high school produces the CEO of YC
+- `[00:05:41]` — The "people person" who chose CS to fix his weakness, not sharpen his strength
+- `[00:08:00]` — The double-edged sword goal: technical depth + human depth at the same time
+- `[00:10:00]` — Imposter syndrome, the mental block, and the wrong-person-in-the-room feeling
+- `[00:12:00]` — "We are the product": social media, the attention economy, and the advertiser as customer
+- `[00:14:00]` — The reels test: ask any friend to name three from yesterday
+- `[00:16:04]` — Co-founding the financial literacy org and the Patelco Credit Union near-collapse
+- `[00:18:30]` — Writing code on paper in 2026: a CS curriculum that hasn't caught up to AI
+- `[00:20:30]` — Walk into rooms where you're the dumbest person — what JPMorgan's healthcare conference taught him
+- `[00:22:30]` — The parental philosophy: give selflessly, but don't be a doormat
+- `[00:24:00]` — Where being human still beats the algorithm
 
 ---
 
-## Quotes From This Episode
+## Key Takeaways
 
-> "The pressure to succeed in Silicon Valley isn't just external — it gets internalized so young that most people don't even realize it's running in the background of every decision they make."
-> — Krish Jajoo
-
-> "Technical skills get you in the room. Human skills determine what happens once you're there. Most people only train for one of those."
-> — Krish Jajoo
-
-> "AI will change what code looks like. But it won't change what leadership requires. That part is still entirely human — and most people are completely unprepared for it."
-> — Krish Jajoo
-
-*Note: Quotes are reconstructed from episode descriptions and topics. Verify against the recording before publishing.*
+- **"We are the product."** If you're not paying for the platform, the advertisers are. Krish's framing for why the attention economy isn't neutral background — it's a market with you as inventory.
+- **The reels test.** Ask a friend to name three Instagram reels they watched yesterday. Nobody can. The fact that the experience leaves no memory is the point.
+- **Choose CS to fix the weakness, not sharpen the strength.** Krish picked computer science because he was already a people person and wanted the other side too. The double-edged sword was the goal from day one.
+- **Walk into rooms where you're the dumbest person.** Krish credits JPMorgan's healthcare conference as the kind of room that compounds you fastest, even — especially — when you're not ready for it.
+- **Give selflessly, but don't be a doormat.** The line his parents gave him; the philosophy he tries to run on without sliding into either ditch.
+- **The CS curriculum hasn't caught up to AI.** Writing code on paper in 2026 is the symptom. The deeper question is what understanding code actually gives you that AI can't replace.
+- **Pressure becomes invisible when it's the water you swim in.** Growing up in Fremont, Krish didn't notice the Silicon Valley pressure cooker until high school. By then it was already shaping every decision.
 
 ---
 
 ## In This Episode
 
-- **What the "Y-Combinator Effect" actually does to a person** — Growing up where YC acceptance is a cultural benchmark for intelligence and worth doesn't just shape ambition. Krish explains how it shapes identity — and why that's more complicated than it sounds
-- **Why a self-described "people person" chose computer science** — Not despite his social instincts, but because of them. Krish makes the case that the most effective technical leaders are the ones who never lost their humanity in the process of learning to code
-- **Technical leadership vs. personal leadership — and why most people only develop one** — The gap between being good at the work and being good at leading people who do the work is larger than most engineering programs acknowledge
-- **How AI actually looks in a student's daily life** — Not the hype version. What Krish actually uses, what he avoids, and where he thinks his peers are developing blind spots they'll pay for later
-- **The LinkedIn Illusion and imposter syndrome** — A specific, honest conversation about the gap between how people present themselves on LinkedIn and how they actually feel — and why Silicon Valley's culture makes that gap especially wide
-- **Will AI make learning to code obsolete?** — Krish's answer is more nuanced than yes or no. The question isn't whether AI can write code. It's what understanding code actually gives you that AI can't replace
-- **Teaching financial literacy to underserved communities** — A part of Krish's work that gets less attention than his technical credentials, and says more about who he is
-- **What this conversation says about staying human** — The AI human connection is at the center of this entire episode. Krish's thesis: the builders who combine technical mastery with emotional intelligence aren't just better people. They're better at the job.
+- **"We are the product"** — Krish's sharpest moment on social media, the attention economy, and why the advertiser is the customer
+- **The reels test** — How three Instagram reels nobody can name reveals what the platforms are actually optimizing for
+- **The Y-Combinator Effect, from the inside** — Growing up where the CEO of YC went to your high school, and how the ambient pressure shapes identity rather than just ambition
+- **The people person who chose CS** — Why Krish picked computer science to fix his weakness rather than sharpen his strength, and the "double-edged sword" goal that came out of it
+- **Imposter syndrome and the wrong-person-in-the-room** — A specific, honest conversation about the mental block, and why he uses that feeling as fuel
+- **Financial literacy for special needs and underserved kids** — Why Krish co-founded the org, and the Patelco Credit Union moment that almost ended it
+- **Code on paper in 2026** — What it's actually like writing CS exams by hand in the AI era, and his honest take on a curriculum lag
+- **Walk into rooms where you're the dumbest person** — JPMorgan's healthcare conference and what it taught him about compounding faster than you're comfortable with
+- **Selfless, but not a doormat** — The philosophy Krish's parents instilled in him, and how he tries to run it without losing himself
 
 ---
 
 ## About Krish Jajoo
 
-Krish Jajoo is a computer science major at Santa Clara University and the leader of AI Collaborate, a student organization working at the intersection of AI development and community responsibility. He grew up in Silicon Valley, which gave him an unusually early and direct view of what the tech industry values — and what it tends to leave behind. His work spans technical AI development, community education, and financial literacy outreach to underserved communities, which is a broader portfolio than most CS students manage. For the Still Human audience, Krish represents something specific: a technically serious person who refuses to treat human skills as secondary, and who is building his career on the belief that the future needs both in equal measure.
+Krish Jajoo is a sophomore at Santa Clara University, the leader of AI Collaborate, and the co-founder of a financial literacy organization that serves special needs students and underserved kids. He grew up in Fremont — same high school as Y Combinator CEO Gary Tan — which gave him an early, embodied view of how the Silicon Valley pressure cooker actually works on a person before it works on a career. He calls himself a people person and chose computer science to fix his weakness rather than sharpen his strength: the goal was a double-edged sword, technical depth and human depth carried at the same time. His sharpest moment in this conversation is on the attention economy — if we're not paying for it, we're the product — and his frame for the AI era is simple: walk into rooms where you're the dumbest person, give selflessly without being a doormat, and don't let the platforms run the operating system in your head. For the Still Human audience, Krish is the guest who turns "people skills" from a soft phrase into a moat.
 
 ---
 
 ## Connect With Krish Jajoo
 
-- 💼 LinkedIn: [linkedin.com/in/krish-jajoo](https://linkedin.com/in/krish-jajoo)
+- LinkedIn: [linkedin.com/in/krish-jajoo](https://linkedin.com/in/krish-jajoo)
 - Watch the episode: [youtube.com/watch?v=1jBZ1yflBgA](https://www.youtube.com/watch?v=1jBZ1yflBgA)
 
 ---
@@ -107,8 +114,8 @@ Krish Jajoo is a computer science major at Santa Clara University and the leader
 
 Still Human Podcast is a biweekly show by Oshen Studio, hosted by Perkin — exploring what it means to stay human in the age of AI. Real conversations with builders, creators, founders, and thinkers doing it in real life.
 
-- 📺 YouTube: [youtube.com/@Oshen.studio](https://youtube.com/@Oshen.studio)
-- 📸 Instagram: [instagram.com/perkin0909](https://instagram.com/perkin0909)
-- 🎧 Listen everywhere: Search **Still Human Podcast** on Spotify, Apple Podcasts, or wherever you listen
+- YouTube: [youtube.com/@Oshen.studio](https://youtube.com/@Oshen.studio)
+- Instagram: [instagram.com/perkin0909](https://instagram.com/perkin0909)
+- Listen everywhere: Search **Still Human Podcast** on Spotify, Apple Podcasts, or wherever you listen
 
 New episodes drop every two weeks. Subscribe so you never miss a conversation.
