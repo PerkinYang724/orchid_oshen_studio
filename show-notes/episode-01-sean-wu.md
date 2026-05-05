@@ -2,6 +2,7 @@
 slug: "execution-culture-sean-wu-synphony-robotics"
 number: "01"
 title: "Execution Culture: How a Student Founder Raised $2M and Built Robotics for the Real World"
+feedTitle: "From Varsity Wrestling to Winning at Nvidia: The Art of Being \"Cooked\""
 guest: "Sean Wu"
 duration: "46 min"
 youtubeId: "jq3PUmDQivk"

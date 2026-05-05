@@ -12,7 +12,7 @@ const TOPIC_ICONS: Record<string, React.ElementType> = {
 };
 import { TOPICS, getTopicBySlug, getTopicStyle } from "@/lib/topics";
 import { getAllEpisodes } from "@/lib/episodes";
-import { getSpotifyShowEpisodes, buildEpisodeImagesArray } from "@/lib/spotify";
+import { getPodcastFeedEpisodes, buildEpisodeImagesArray } from "@/lib/podcast-rss";
 import { youtubeThumb } from "@/lib/youtube";
 
 type Props = { params: Promise<{ topic: string }> };
@@ -41,9 +41,9 @@ export default async function TopicPage({ params }: Props) {
     (ep.topics ?? []).includes(slug)
   );
 
-  const spotifyEpisodes = await getSpotifyShowEpisodes();
+  const spotifyEpisodes = await getPodcastFeedEpisodes();
   const episodeImages = buildEpisodeImagesArray(
-    allEpisodes.map((ep) => ep.title),
+    allEpisodes.map((ep) => ({ title: ep.feedTitle ?? ep.title, guest: ep.guest })),
     spotifyEpisodes
   );
 
@@ -99,7 +99,6 @@ export default async function TopicPage({ params }: Props) {
           {filtered.reverse().map((ep) => {
             const epIndex = parseInt(ep.number, 10) - 1;
             const spotifyImg = episodeImages[epIndex];
-            const hasSpotify = !!spotifyImg;
             const imgSrc = spotifyImg || youtubeThumb(ep.youtubeId, "mq");
 
             return (
@@ -108,8 +107,8 @@ export default async function TopicPage({ params }: Props) {
                 href={`/episode/${ep.slug}`}
                 className="group glass-card rounded-2xl overflow-hidden flex flex-col sm:flex-row gap-0 noise"
               >
-                {/* Thumbnail: square for Spotify covers, 16:9 for YouTube */}
-                <div className={`relative w-full ${hasSpotify ? "aspect-square sm:w-48 sm:aspect-square" : "aspect-video sm:w-48 sm:aspect-video"} flex-shrink-0`}>
+                {/* Always 1:1 — prefer Spotify cover; YouTube fallback cropped to fit */}
+                <div className="relative w-full aspect-square sm:w-48 sm:aspect-square flex-shrink-0">
                   <img
                     src={imgSrc}
                     alt={`EP ${ep.number}: ${ep.guest}`}

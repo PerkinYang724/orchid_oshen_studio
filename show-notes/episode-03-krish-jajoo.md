@@ -2,6 +2,7 @@
 slug: "ai-human-connection-krish-jajoo-ycombinator-effect"
 number: "03"
 title: "We Are the Product: Krish Jajoo on Social Media, Silicon Valley Pressure, and Why Human Connection Still Wins"
+feedTitle: ""
 guest: "Krish Jajoo"
 duration: "25 min"
 youtubeId: "1jBZ1yflBgA"

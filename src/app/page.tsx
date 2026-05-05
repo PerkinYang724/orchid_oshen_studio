@@ -7,13 +7,13 @@ import { NewsletterCta } from "../components/newsletter-cta";
 import { Footer } from "../components/footer";
 import { getAllEpisodes } from "../lib/episodes";
 import { TOPICS } from "../lib/topics";
-import { getSpotifyShowEpisodes, buildEpisodeImagesArray } from "../lib/spotify";
+import { getPodcastFeedEpisodes, buildEpisodeImagesArray } from "../lib/podcast-rss";
 
 export default async function Home() {
   const allEpisodes = getAllEpisodes(); // sorted oldest → newest
-  const spotifyEpisodes = await getSpotifyShowEpisodes();
+  const spotifyEpisodes = await getPodcastFeedEpisodes();
   const episodeImages = buildEpisodeImagesArray(
-    allEpisodes.map((ep) => ep.title),
+    allEpisodes.map((ep) => ({ title: ep.feedTitle ?? ep.title, guest: ep.guest })),
     spotifyEpisodes
   );
 

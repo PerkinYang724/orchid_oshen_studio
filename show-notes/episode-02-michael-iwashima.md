@@ -2,6 +2,7 @@
 slug: "brain-computer-interfaces-michael-iwashima-ai-limits"
 number: "02"
 title: "Why AI Can't Reason Over Time: Michael Iwashima on Brain-Computer Interfaces, Biosensors, and Building From Nothing"
+feedTitle: "Still Human? The Bioengineer Building the Technology of Tomorrow"
 guest: "Michael Iwashima"
 duration: "31 min"
 youtubeId: "GkyO4MgQW1k"

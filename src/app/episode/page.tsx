@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowUpRight, Clock, Music2 } from "lucide-react";
 import { getAllEpisodes } from "@/lib/episodes";
-import { getSpotifyShowEpisodes, buildEpisodeImagesArray } from "@/lib/spotify";
+import { getPodcastFeedEpisodes, buildEpisodeImagesArray } from "@/lib/podcast-rss";
 import { youtubeThumb } from "@/lib/youtube";
 
 export const metadata: Metadata = {
@@ -13,9 +13,9 @@ export const metadata: Metadata = {
 
 export default async function EpisodesPage() {
   const episodes = getAllEpisodes();
-  const spotifyEpisodes = await getSpotifyShowEpisodes();
+  const spotifyEpisodes = await getPodcastFeedEpisodes();
   const episodeImages = buildEpisodeImagesArray(
-    episodes.map((ep) => ep.title),
+    episodes.map((ep) => ({ title: ep.feedTitle ?? ep.title, guest: ep.guest })),
     spotifyEpisodes
   );
 
@@ -56,7 +56,6 @@ export default async function EpisodesPage() {
           {episodes.map((ep) => {
             const epIndex = parseInt(ep.number, 10) - 1;
             const spotifyImg = episodeImages[epIndex];
-            const hasSpotify = !!spotifyImg;
             const thumbnailSrc = spotifyImg || youtubeThumb(ep.youtubeId);
 
             return (
@@ -65,8 +64,8 @@ export default async function EpisodesPage() {
                 href={`/episode/${ep.slug}`}
                 className="group glass-card rounded-2xl overflow-hidden flex flex-col sm:flex-row gap-0 noise"
               >
-                {/* Spotify cover = square, YouTube = 16:9 */}
-                <div className={`relative w-full ${hasSpotify ? "aspect-square sm:w-48 sm:aspect-square" : "aspect-video sm:w-48 sm:aspect-video"} flex-shrink-0`}>
+                {/* Always 1:1 — prefer Spotify cover; YouTube fallback is cropped to fit */}
+                <div className="relative w-full aspect-square sm:w-48 sm:aspect-square flex-shrink-0">
                   <img
                     src={thumbnailSrc}
                     alt={`Episode ${ep.number}: ${ep.guest}`}

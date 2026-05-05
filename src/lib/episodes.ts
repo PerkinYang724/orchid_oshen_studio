@@ -19,6 +19,10 @@ export type EpisodeMeta = {
   secondaryKeywords: string;
   publishDate: string;
   topics?: string[];
+  // The episode title as it appears in the public RSS / Spotify feed.
+  // Used to match against feed entries when the on-site title has been
+  // rewritten and no longer shares enough words for fuzzy matching.
+  feedTitle?: string;
 };
 
 export type Episode = EpisodeMeta & {
