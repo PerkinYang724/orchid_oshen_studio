@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { Music2, Youtube, ArrowUpRight } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -45,21 +46,32 @@ export default function AboutPage() {
         <div className="space-y-12">
           <div>
             <h2 className="text-xl font-bold text-white mb-4">The Show</h2>
-            <div className="space-y-4 text-white/40 text-base leading-relaxed">
-              <p>
-                Still Human is a podcast exploring what it means to stay human as AI
-                reshapes everything we know — work, creativity, identity, relationships,
-                and the very definition of value.
-              </p>
-              <p>
-                Each episode is a conversation with a builder, scientist, founder, or
-                researcher who is navigating this moment from the inside. Not pundits.
-                Not speculators. People actually doing the work.
-              </p>
-              <p>
-                We talk about the technical, the personal, and everything between.
-                We ask hard questions. We sit with uncomfortable answers.
-              </p>
+            <div className="flex flex-col sm:flex-row gap-6 sm:gap-8">
+              <div className="relative w-32 h-32 sm:w-40 sm:h-40 shrink-0 rounded-2xl overflow-hidden border border-white/[0.08]">
+                <Image
+                  src="/icon-192.png"
+                  alt="Still Human Podcast cover art"
+                  fill
+                  sizes="(min-width: 640px) 160px, 128px"
+                  className="object-cover"
+                />
+              </div>
+              <div className="space-y-4 text-white/40 text-base leading-relaxed">
+                <p>
+                  Still Human is a podcast exploring what it means to stay human as AI
+                  reshapes everything we know — work, creativity, identity, relationships,
+                  and the very definition of value.
+                </p>
+                <p>
+                  Each episode is a conversation with a builder, scientist, founder, or
+                  researcher who is navigating this moment from the inside. Not pundits.
+                  Not speculators. People actually doing the work.
+                </p>
+                <p>
+                  We talk about the technical, the personal, and everything between.
+                  We ask hard questions. We sit with uncomfortable answers.
+                </p>
+              </div>
             </div>
           </div>
 
@@ -69,18 +81,29 @@ export default function AboutPage() {
           {/* The host */}
           <div>
             <h2 className="text-xl font-bold text-white mb-4">The Host</h2>
-            <div className="space-y-4 text-white/40 text-base leading-relaxed">
-              <p>
-                Perkin is the founder of Oshen Studio — a studio at the intersection
-                of AI, automation, and intentional storytelling. He builds AI-powered
-                systems by day and tries to understand what they mean for us by night.
-              </p>
-              <p>
-                Still Human started from a simple frustration: most conversations about
-                AI were either naively optimistic or catastrophically pessimistic.
-                Neither felt honest. The podcast is Perkin&apos;s attempt to find the
-                more complicated, more human truth.
-              </p>
+            <div className="flex flex-col sm:flex-row gap-6 sm:gap-8">
+              <div className="relative w-32 h-32 sm:w-40 sm:h-40 shrink-0 rounded-2xl overflow-hidden border border-white/[0.08]">
+                <Image
+                  src="/profile-photo.jpg"
+                  alt="Perkin, host of Still Human"
+                  fill
+                  sizes="(min-width: 640px) 160px, 128px"
+                  className="object-cover"
+                />
+              </div>
+              <div className="space-y-4 text-white/40 text-base leading-relaxed">
+                <p>
+                  Perkin is the founder of Oshen Studio — a studio at the intersection
+                  of AI, automation, and intentional storytelling. He builds AI-powered
+                  systems by day and tries to understand what they mean for us by night.
+                </p>
+                <p>
+                  Still Human started from a simple frustration: most conversations about
+                  AI were either naively optimistic or catastrophically pessimistic.
+                  Neither felt honest. The podcast is Perkin&apos;s attempt to find the
+                  more complicated, more human truth.
+                </p>
+              </div>
             </div>
           </div>
 
