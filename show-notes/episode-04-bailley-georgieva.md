@@ -20,6 +20,34 @@ Bailley Georgieva is twenty-one. She's a Rutgers junior, a hypersonic research a
 
 In this Still Human conversation, Bailley draws a line that almost no one in tech is drawing right now. **She does not trust AI with her work.** Not because she's scared of it. Because she's used it. She calls AI "the ultimate people pleaser" — a tool that will skew numbers, hallucinate justifications, and tell you what you want to hear because that's what it's designed to do. In hypersonic research, where simulating Mach 10 wrong could mean a vehicle disintegrates in a wind tunnel, she'd rather fail a hundred times by hand than dig through AI output to find the lie.
 
+---
+
+## AI as the Ultimate People Pleaser
+
+AI is trained to give you what you want — that's what RLHF optimizes for. In casual use, that's a feature. In research-grade work, it's the failure mode. Bailley's frame is direct: an AI will skew numbers, hallucinate justifications, and confirm assumptions because it's been rewarded for sounding right, not for being right. In hypersonics, where a bad simulation means a vehicle disintegrates, "sounds right" is unacceptable.
+
+## Hypersonic Research, Up Close
+
+Hypersonic research means simulating aerodynamic behavior above Mach 5 — Bailley's work at MIT uses NASA's LAURA code at Mach 10 and above. It's a regime where almost nothing behaves the way intuition predicts: shock waves, plasma chemistry, surface heating that destroys conventional materials. The cost of being wrong is that real vehicles disintegrate in real tunnels. That's why she treats critical thinking as load-bearing, not optional.
+
+## The Trained-Narrow ChatGPT
+
+Bailley trained her own ChatGPT instance to respond only in code and TXT files. Strip the conversational layer, strip the agreeable phrasing, strip everything that nudges her toward agreement. What she's left with is a tool that returns artifacts she has to verify herself, not a chat partner whose tone she might absorb. It's a deliberate de-personalization of an AI that's designed to feel personal.
+
+## Lawrenceville Rejection, Three Times
+
+Bailley applied to Lawrenceville School. Rejected. Waitlisted. Then rejected off the waitlist. Three "no"s in a row. Her grandfather's voice — he flew planes for the Bulgarian Parliament — kept telling her to keep going. The story matters because the rejection didn't define the trajectory. The response did. Rejection is data, not a verdict.
+
+## At 21, Fact-Checking the Room
+
+As a Defense Innovation Unit fellow, Bailley sat across the table from defense startup founders evaluating their math. At 21. The angle is the asset: being the youngest person in the room with the most up-to-date technical lens means you see things the room has stopped seeing. Age becomes the lens, not the obstacle — if you can hold the line under that kind of mismatch.
+
+## The WALL-E Future
+
+Remember the floating humans in WALL-E — served, comfortable, slowly losing the capacity to do anything for themselves? Bailley sees the parallel in modern AI usage patterns. Convenience compounds. The fix is friction you choose on purpose: tasks you do by hand even though AI could do them, decisions you reason through even when a chatbot would answer. The skill being protected is not output. It's the muscle that produces output.
+
+---
+
 ## Show Notes
 
 Bailley Georgieva is a 21-year-old junior in Aerospace Engineering at Rutgers University and a Hypersonic Research Affiliate at MIT, where she works with NASA LAURA to simulate aerodynamic behavior at speeds above Mach 10. She's a former Defense Innovation Unit fellow, sits across the table from defense startup founders telling them their math doesn't show up, and has trained her own ChatGPT to respond only in code and TXT files — a deliberate choice to remove the human element from a tool she calls "the ultimate people pleaser." Her origin story runs through a fifth-grade YouTube conspiracy about a meteor hitting Earth, a grandfather who flew for the Bulgarian Parliament, and an F-18 tattooed on her arm. For the Still Human audience, Bailley is the guest who reframes critical thinking as the load-bearing skill of the AI era — and shows what it costs to actually do it.

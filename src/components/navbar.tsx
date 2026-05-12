@@ -2,6 +2,7 @@
 
 import { m, useScroll, useMotionValueEvent } from "framer-motion";
 import { useState, useRef } from "react";
+import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { useLocale } from "@/i18n/client";
 
@@ -43,7 +44,7 @@ export function Navbar() {
       >
         <div className="max-w-6xl mx-auto px-6 h-14 flex items-center justify-between">
           {/* Logo */}
-          <a href="/" className="flex items-center gap-2.5 group">
+          <Link href="/" className="flex items-center gap-2.5 group">
             <img
               src="/favicon concept.png"
               alt="Still Human"
@@ -57,7 +58,7 @@ export function Navbar() {
                 {t.nav.brandSubtitle}
               </span>
             </div>
-          </a>
+          </Link>
 
           {/* Desktop nav */}
           <div className="hidden sm:flex items-center gap-8">

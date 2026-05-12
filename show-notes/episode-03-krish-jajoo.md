@@ -21,6 +21,34 @@ Krish Jajoo grew up in Fremont. His high school produced Gary Tan, the CEO of Y 
 
 In this Still Human conversation, Krish talks through something most twenty-year-olds with a stacked LinkedIn don't admit: he didn't choose computer science because he loved it. He chose it because he was a self-described **people person** who knew his weakness was technical, and he wanted both. He wanted to be a double-edged sword. He's still working on it. He still has the mental block. He still feels like the wrong person in the room sometimes, and he uses that as the fuel.
 
+---
+
+## "We Are the Product"
+
+If you don't pay for the platform, the advertisers do — and you're not the customer, you're the inventory being sold. Krish's framing of the attention economy isn't theoretical, and it lands harder than the usual critique because he doesn't moralize about it. The fact that the platform makes money from your attention isn't outrage-worthy on its own. What's outrage-worthy is that we keep using it without naming the trade.
+
+## The Reels Test
+
+Try this: ask any friend to name three Instagram Reels they watched yesterday. They can't. Krish does this regularly. The fact that the experience leaves no memory is the whole point — short-form video is engineered for engagement, not for retention. The platforms are getting better at this faster than we're getting better at noticing.
+
+## The Y-Combinator Effect
+
+Krish grew up in Fremont. His high school produced Y Combinator's CEO. His friends' parents ran FAANG companies. He didn't notice the pressure until high school, by which point it had already shaped which questions he asked of himself and which paths felt acceptable. The "Y-Combinator Effect" is what he calls that invisible-until-too-late layer — when the environment shapes identity, not just ambition.
+
+## The People Person Who Chose CS
+
+Most people sharpen their strengths and avoid their weaknesses. Krish did the opposite: he was already comfortable with people and chose computer science precisely because he wasn't comfortable with code. The goal from day one was a double-edged sword — technical depth and human depth carried at the same time. He's still working on the technical edge. He still gets the imposter feeling. He uses it as fuel rather than letting it freeze him.
+
+## Walk Into Rooms Where You're the Dumbest Person
+
+Krish credits the JPMorgan healthcare conference as one of the rooms that compounded him fastest. The principle is simple and uncomfortable: choose to be the least-qualified person at the table, regularly. Most growth advice optimizes for being prepared. His version optimizes for being exposed to people who are years ahead, even when you can barely follow the conversation.
+
+## Selfless, But Not a Doormat
+
+The line Krish's parents gave him: give selflessly, but don't be a doormat. It's a tighter rule than it sounds. "Selflessly" without the "not a doormat" clause becomes self-erasure. "Not a doormat" without "selflessly" becomes scorekeeping. The work is staying on the narrow path between the two ditches, especially when one side starts to feel safer than the other.
+
+---
+
 ## Show Notes
 
 Krish Jajoo is a sophomore at Santa Clara University, the leader of AI Collaborate, and the co-founder of a financial literacy organization for special needs students and underserved kids. He grew up in Fremont — a high school that produced Gary Tan — and uses that backdrop to explain how the Silicon Valley pressure cooker actually shapes identity rather than just ambition. His sharpest moment in the conversation is on the attention economy: if we're not paying for it, we're the product. The advertisers are the customer. He has the receipts — he asks every friend to name three Instagram reels they watched yesterday, and nobody can. For the Still Human audience, Krish is the guest who reframes "people skills" as a moat in the AI era, and shows what selfless leadership looks like without becoming a doormat.

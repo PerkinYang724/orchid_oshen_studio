@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { ArrowUpRight, Music2, Youtube } from "lucide-react";
 import { getMessages } from "@/i18n/server";
 
@@ -15,12 +16,12 @@ export default async function NewsletterPage() {
   return (
     <div className="relative min-h-screen flex items-center">
       <div className="relative z-10 max-w-2xl mx-auto px-6 py-32 text-center w-full">
-        <a
+        <Link
           href="/"
           className="text-[13px] font-medium text-white/30 hover:text-white/60 transition-colors mb-12 inline-block"
         >
           {m.newsletterPage.backHome}
-        </a>
+        </Link>
 
         <p className="text-[12px] font-medium tracking-[0.3em] uppercase text-white/20 mb-5">
           {m.newsletterPage.sectionLabel}

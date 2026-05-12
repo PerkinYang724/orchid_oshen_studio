@@ -21,6 +21,34 @@ A career-ending soccer injury sent Michael Iwashima toward engineering. Years la
 
 In this Still Human conversation, Michael talks through the limits he keeps running into with current AI. It's powerful at one-shot tasks, he says, but it can't reason over time. It doesn't reflect, doesn't remember, doesn't adjust the way humans do across days and weeks. That gap shapes how he builds.
 
+---
+
+## Why AI Can't Reason Over Time
+
+Modern AI is impressive at one-shot tasks — give it a prompt, get an answer. What it can't do is the thing humans do without thinking about it: carry context across days and weeks, notice a pattern that took months to emerge, change its mind based on something it learned yesterday. Michael keeps running into this limit when he tries to apply AI to longitudinal problems like accessibility and crop disease, and it's the limit that defines where he chooses to build.
+
+## Brain-Computer Interfaces & Accessibility
+
+Some of the most meaningful AI work happens where the technology meets a body that needs it. Michael's BCI research translates neural activity into control signals so people with paralysis or cerebral palsy can interact with devices — including games like Space Invaders — without needing fine motor control. The framing isn't "what can AI do" but "where can AI actually expand what a human body can do."
+
+## Frugal Science in Agriculture
+
+Most biosensors require expensive lab infrastructure. Michael's work — associated with the Verma Lab at Purdue — is on the opposite end: 3D-printable, low-cost sensors farmers can deploy in the field to detect crop disease. It's a category called frugal science, and it matters because the people who most need real-time biological data are the ones least likely to have access to a lab.
+
+## A Mold Detection Startup
+
+Most homeowners only learn about mold after it's already a problem. Michael is building a startup to detect it before that point — a problem that sits in the same family as the BCI and agricultural work: AI applied where humans physically can't see what's happening. It's the kind of problem that makes the "useful vs flashy" question very easy to answer.
+
+## A "1 of 1" Education Model
+
+If AI can transmit knowledge well, then the human role in education should shift to what AI can't do — curiosity, judgment, the parts of learning that don't compress into a tutorial. Michael's "1 of 1" framing imagines each student getting an AI knowledge layer plus a human mentor focused on the irreducibly human parts. Not a replacement of teachers; a redirection of what teachers spend their time on.
+
+## Community Building as a Frontier Skill
+
+Michael helped grow AI Collaborate at Santa Clara from near-shutdown to 200 members in its second year. His read: in an AI-saturated world, access to information is no longer the bottleneck. The bottleneck is the people you build alongside — the room where the next idea actually gets shipped. That makes community building one of the most underrated capabilities of the next decade.
+
+---
+
 ## Show Notes
 
 Michael Iwashima is a bioengineer and student founder working at the intersection of brain-computer interfaces, agricultural biosensors, and accessibility technology. He came to engineering after a soccer injury closed an earlier path. Today his work spans BCI research aimed at people with paralysis and cerebral palsy, frugal-science biosensors developed in association with the Verma Lab at Purdue, and a startup focused on mold detection. He also helped build AI Collaborate at Santa Clara University into a 200-member community after the club nearly folded in its first year. For the Still Human audience, Michael is the guest who pushes the AI conversation past hype and toward where the technology actually meets the human body.

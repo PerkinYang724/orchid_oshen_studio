@@ -20,6 +20,34 @@ Lilian Krengel is nineteen. She's also the founder of OrbitGuard AI, a startup t
 
 In this Still Human conversation, Lilian explains why she didn't try to build a rocket. She built the traffic management layer instead. Air traffic control, but for space. Her AI takes raw conjunction data and turns it into a clear collision risk score that satellite operators can actually act on, integrated with KeepTrack — the orbital visualization tool the industry already uses.
 
+---
+
+## Traffic Lights for Space
+
+Air traffic control exists because thousands of planes share the same sky and nobody trusts pilots to negotiate it by hand. The same thing is now true above us — except the planes are satellites, the sky is low Earth orbit, and the negotiation layer doesn't exist yet. OrbitGuard's job is to be that layer: ingest conjunction data, output a clean risk score, integrate with the visualization the industry already uses. Routing, not rockets.
+
+## The Kessler Effect, Explained
+
+The textbook version: one satellite collision creates debris, that debris hits more satellites, the cascade saturates the orbit, and eventually no one can launch into it at all. The reason it matters now is launch cadence. Starlink alone is putting hundreds of satellites up per week. Each one is a future piece of debris if it can't deorbit cleanly. The Kessler Effect is what happens if traffic management arrives a decade too late.
+
+## Why Infrastructure Beats Hardware
+
+Most aerospace founders want to build a rocket. Lilian deliberately didn't. The strategic bet is that infrastructure — the layer that everyone has to use regardless of which satellites end up in orbit — compounds differently from a single piece of hardware. A rocket competes with other rockets. The traffic management layer doesn't compete with anyone yet, and once it's adopted, it becomes the default.
+
+## Getting Copied in a Weekend
+
+A Stanford hackathon team built something almost identical to OrbitGuard in a weekend. Most founders would treat that as catastrophic. Lilian's response was a recalibration — not "we're dead" but "this is what AI-era execution speed looks like, and we have to move faster." The lesson generalizes: if your idea can be cloned in 48 hours, the moat isn't the idea. It's the people who keep showing up to extend it.
+
+## AI in Education, Done Right
+
+Schools banning AI from classrooms are losing the bigger argument. Lilian's framing: teach kids to code before they prompt, so AI amplifies real understanding instead of replacing it. The fear that AI will erase student effort is real — but the fix isn't a ban, it's sequencing. First the fundamentals, then the multiplier. The kids who never built understanding get hollowed-out output. The kids who built it first get superpowers.
+
+## The Capacity Question
+
+Lilian runs a startup, sits on student senate, manages a 500-person club's finances, and is carrying a 12.5-hour sleep debt. Capacity is a skill. It's not aspirational; it's the unsexy actual cost of building something while you're still in school. The honest version of student founding isn't a montage. It's deciding which hour of sleep you owe back to which week, and showing up to class anyway.
+
+---
+
 ## Show Notes
 
 Lilian Krengel is a sophomore at Santa Clara University and the founder of OrbitGuard AI, a real-time satellite collision risk system that ingests conjunction data and outputs a clean risk score human operators can act on, integrated with KeepTrack. She came up through 13 years of competitive gymnastics, argued NATO AI policy in collegiate-format policy debate at 16, and made an early strategic decision most aerospace founders don't: build infrastructure, not hardware. Air traffic control, but for space. For the Still Human audience, Lilian is the guest who reframes the AI economy as a thing happening 400 kilometers above your head — and shows what student founding looks like when the problem is real and the timeline is genuinely urgent.

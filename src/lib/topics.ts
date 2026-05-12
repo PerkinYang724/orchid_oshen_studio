@@ -52,32 +52,32 @@ export function getTopicBySlug(slug: string): Topic | undefined {
 export const TOPIC_STYLES: Record<string, { badge: string; card: string; glow: string }> = {
   "ai-technology": {
     badge: "text-blue-400/80 bg-blue-400/[0.08] border-blue-400/[0.15]",
-    card: "border-blue-500/[0.14] bg-blue-500/[0.05] hover:border-blue-500/[0.22]",
+    card: "border-blue-500/[0.22] bg-blue-500/70 hover:border-blue-500/[0.34]",
     glow: "bg-blue-500",
   },
   "entrepreneurship": {
     badge: "text-purple-400/80 bg-purple-400/[0.08] border-purple-400/[0.15]",
-    card: "border-purple-500/[0.14] bg-purple-500/[0.05] hover:border-purple-500/[0.22]",
+    card: "border-purple-500/[0.22] bg-purple-500/70 hover:border-purple-500/[0.34]",
     glow: "bg-purple-500",
   },
   "identity-humanity": {
     badge: "text-teal-400/80 bg-teal-400/[0.08] border-teal-400/[0.15]",
-    card: "border-teal-500/[0.14] bg-teal-500/[0.05] hover:border-teal-500/[0.22]",
+    card: "border-teal-500/[0.22] bg-teal-500/70 hover:border-teal-500/[0.34]",
     glow: "bg-teal-500",
   },
   "science-engineering": {
     badge: "text-green-400/80 bg-green-400/[0.08] border-green-400/[0.15]",
-    card: "border-green-500/[0.14] bg-green-500/[0.05] hover:border-green-500/[0.22]",
+    card: "border-green-500/[0.22] bg-green-500/70 hover:border-green-500/[0.34]",
     glow: "bg-green-500",
   },
   "mental-resilience": {
     badge: "text-orange-400/80 bg-orange-400/[0.08] border-orange-400/[0.15]",
-    card: "border-orange-500/[0.14] bg-orange-500/[0.05] hover:border-orange-500/[0.22]",
+    card: "border-orange-500/[0.22] bg-orange-500/70 hover:border-orange-500/[0.34]",
     glow: "bg-orange-500",
   },
   "space-future": {
     badge: "text-indigo-400/80 bg-indigo-400/[0.08] border-indigo-400/[0.15]",
-    card: "border-indigo-500/[0.14] bg-indigo-500/[0.05] hover:border-indigo-500/[0.22]",
+    card: "border-indigo-500/[0.22] bg-indigo-500/70 hover:border-indigo-500/[0.34]",
     glow: "bg-indigo-500",
   },
 };

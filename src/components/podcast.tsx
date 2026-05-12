@@ -2,6 +2,7 @@
 
 import { m, useInView } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
+import Link from "next/link";
 import { Youtube, Music2, List } from "lucide-react";
 import { youtubeThumb } from "@/lib/youtube";
 
@@ -234,13 +235,13 @@ export function Podcast({ episodeImages = [] }: { episodeImages?: string[] }) {
               <Youtube className="w-4 h-4 text-[#FF0000]" aria-hidden />
               Watch on YouTube
             </a>
-            <a
+            <Link
               href="/episode"
               className="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full border border-white/[0.12] bg-white/[0.04] hover:bg-white/[0.08] hover:border-white/[0.2] text-white/80 hover:text-white transition-all duration-300 text-sm font-medium"
             >
               <List className="w-4 h-4" aria-hidden />
               All Episodes
-            </a>
+            </Link>
           </div>
         </m.div>
 

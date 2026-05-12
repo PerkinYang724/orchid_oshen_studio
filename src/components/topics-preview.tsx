@@ -68,18 +68,18 @@ export function TopicsPreview({ topics, episodeCounts }: Props) {
                     <Icon className={`w-4 h-4 ${iconColor}`} />
                   </div>
 
-                  <h3 className={`text-sm sm:text-base font-bold mb-2 transition-colors duration-200 ${iconColor} group-hover:text-white`}>
+                  <h3 className="text-sm sm:text-base font-bold mb-2 text-white">
                     {topic.name}
                   </h3>
-                  <p className="text-[12px] text-white/30 leading-relaxed line-clamp-2 mb-5 flex-1">
+                  <p className="text-[12px] text-white/80 leading-relaxed line-clamp-2 mb-5 flex-1">
                     {topic.description}
                   </p>
 
                   <div className="flex items-center justify-between">
-                    <span className="text-[11px] text-white/20 font-mono">
+                    <span className="text-[11px] text-white/60 font-mono">
                       {count} {count === 1 ? t.topicsPreview.episode : t.topicsPreview.episodes}
                     </span>
-                    <ArrowUpRight className="w-3.5 h-3.5 text-white/20 group-hover:text-white/50 transition-colors" />
+                    <ArrowUpRight className="w-3.5 h-3.5 text-white/60 group-hover:text-white transition-colors" />
                   </div>
                 </div>
               </m.a>

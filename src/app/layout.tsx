@@ -83,6 +83,11 @@ export async function generateMetadata(): Promise<Metadata> {
     manifest: "/manifest.json",
     alternates: {
       canonical: siteUrl,
+      languages: {
+        en: siteUrl,
+        "zh-Hant-TW": siteUrl,
+        "x-default": siteUrl,
+      },
     },
     verification: {
       google: "WhUGBjtZn51Svv7QS9FBRJDmzbsIE-ATUCmevsB90Cg",
@@ -123,6 +128,7 @@ const jsonLd = {
     },
     {
       "@type": "PodcastSeries",
+      "@id": `${siteUrl}/#podcast`,
       name: "Still Human Podcast",
       url: "https://open.spotify.com/show/2JdDo1zeJ2fyO5wxxS7ikN",
       description:
@@ -144,6 +150,7 @@ export default async function RootLayout({
   return (
     <html lang={htmlLang} className="dark">
       <head>
+        <link rel="alternate" type="application/rss+xml" title="Still Human Podcast" href="/feed.xml" />
         <link rel="alternate" type="application/rss+xml" title="Still Human — Blog" href="https://perkin0909.substack.com/feed" />
         <link rel="preconnect" href="https://img.youtube.com" />
         <link rel="preconnect" href="https://open.spotify.com" />

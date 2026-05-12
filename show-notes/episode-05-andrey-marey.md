@@ -20,6 +20,34 @@ Andrey Marey has been building since before most people his age finished a colle
 
 In this Still Human conversation, Andrey breaks down what that actually means. It's not motivation. Motivation is a dopamine spark that fires and dies. Discipline is the thirty-second pause before the scroll, where you catch yourself and choose something else. He talks about training that pause for months. He talks about setting impossible goals on purpose because your brain operates differently when the bar is real. And he talks about the line he refuses to cross: he will never use AI to text his friends, his family, or a partner. The moment you outsource emotional intelligence to a machine, he says, you've granted someone else access to your life.
 
+---
+
+## What High-Agency Actually Means
+
+Most people use "high-agency" as a vibe — Twitter shorthand for ambitious. Andrey treats it as the operating system itself. The cleaner definition: motivation is a dopamine spark that fires and dies, discipline is the work of building habits, high-agency is the structural choice to act before you feel ready. It's distinct from confidence. You can be terrified and still high-agency. The act is what defines it.
+
+## The 30-Second Pause
+
+The smallest unit of discipline isn't a routine — it's the gap between an impulse and the action that follows it. Thirty seconds between wanting to open Instagram and tapping the icon. Andrey trained that pause for months. The skill isn't never wanting to scroll. The skill is reliably noticing the want and choosing again, every time, until the chain of small choices compounds into a different life.
+
+## Setting Impossible Goals on Purpose
+
+Most goal-setting advice tells you to be realistic. Andrey argues the opposite for one specific reason: the brain literally operates differently when the bar is real. Aiming at something genuinely beyond your current capacity changes which actions feel relevant in the meantime. The realistic goal lets you optimize around what you already do. The impossible one forces you to invent the actions that make it possible.
+
+## Ideas → Execution → Distribution
+
+Most founder advice ranks these wrong. Ideas matter. Execution matters more. Distribution matters most. The trap is assuming a good idea, well-built, will find its audience. It almost never does. Andrey's hierarchy isn't a slogan — it's a directive about where to spend your unscheduled time. Most of it should go to distribution, not the thing you're already comfortable with.
+
+## The Line He Won't Cross
+
+Andrey uses AI heavily for technical work. He refuses to use it to text his friends, his family, or a partner. The moment you outsource emotional intelligence to a machine, you've granted it access to the most personal layer of your life. The cost is invisible at first. By the time you notice the warmth has gone out of the conversations, you've already trained yourself out of being someone who can produce it.
+
+## Pain as Operating System
+
+Two knee surgeries before he was 18. Forced stillness, weeks of it, before he had any framework for what to do with it. He doesn't pretend the pain was good. What he does say is that what he built during and after it became the operating system he still runs. Most operating systems for ambition come from someone else's book. Andrey's came from a hospital bed.
+
+---
+
 ## Show Notes
 
 Andrey Marey is a 20-year-old junior at Santa Clara University studying math and computer science, and a serial founder with a track record that runs through fraud detection work in London, an NVIDIA hackathon win, a stint at the FR8 hacker hotel in Finland, and three shipped startups including Vivora (a NotebookLM competitor) and a Bionic Reader project. He left Vivora before it raised funding and left FR8 early — both decisions he describes honestly rather than dressed up. His framework for choosing what to build is short: ideas matter, execution matters more, distribution matters most. His framework for how to build is shorter: discipline over motivation, and never automate the parts of your life that require you to be a person. For the Still Human audience, Andrey is the guest who turns "high-agency" from a Twitter slogan into a working operating system.

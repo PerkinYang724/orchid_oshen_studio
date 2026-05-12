@@ -11,6 +11,7 @@ export type PodcastEpisodeInfo = {
   imageUrl: string;
   title: string;
   spotifyUrl: string;
+  pubDate: string; // ISO 8601, empty if unparseable
 };
 
 export async function getPodcastFeedEpisodes(): Promise<PodcastEpisodeInfo[]> {
@@ -43,8 +44,55 @@ export async function getPodcastFeedEpisodes(): Promise<PodcastEpisodeInfo[]> {
       item.match(/<guid[^>]*>([\s\S]*?)<\/guid>/)?.[1]?.trim() ??
       `rss-${index}`;
 
-    return { id, imageUrl, title, spotifyUrl };
+    const rawPubDate = item.match(/<pubDate>([\s\S]*?)<\/pubDate>/)?.[1]?.trim() ?? "";
+    let pubDate = "";
+    if (rawPubDate) {
+      const d = new Date(rawPubDate);
+      if (!isNaN(d.getTime())) pubDate = d.toISOString();
+    }
+
+    return { id, imageUrl, title, spotifyUrl, pubDate };
   });
+}
+
+/**
+ * Same match pattern as buildEpisodeImagesArray, but returns ISO pubDate
+ * strings per local episode (empty string if no match).
+ */
+export function buildEpisodePubDatesArray(
+  locals: ReadonlyArray<string | LocalMatchInput>,
+  feedEps: PodcastEpisodeInfo[]
+): string[] {
+  const normalized: LocalMatchInput[] = locals.map((l) =>
+    typeof l === "string" ? { title: l } : l
+  );
+
+  const candidates: { localIdx: number; feedIdx: number; score: number }[] = [];
+
+  for (let li = 0; li < normalized.length; li++) {
+    const local = normalized[li];
+    if (!local.title) continue;
+    for (let fi = 0; fi < feedEps.length; fi++) {
+      const score = titleMatchScore(local, feedEps[fi].title);
+      if (score > 0) candidates.push({ localIdx: li, feedIdx: fi, score });
+    }
+  }
+
+  candidates.sort((a, b) => b.score - a.score);
+
+  const result: string[] = new Array(normalized.length).fill("");
+  const usedLocal = new Set<number>();
+  const usedFeed = new Set<number>();
+
+  for (const { localIdx, feedIdx, score } of candidates) {
+    if (usedLocal.has(localIdx) || usedFeed.has(feedIdx)) continue;
+    if (score < 0.15) break;
+    result[localIdx] = feedEps[feedIdx].pubDate;
+    usedLocal.add(localIdx);
+    usedFeed.add(feedIdx);
+  }
+
+  return result;
 }
 
 type LocalMatchInput = { title: string; guest?: string };

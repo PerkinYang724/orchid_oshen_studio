@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { ArrowUpRight, Cpu, Rocket, User, FlaskConical, Brain, Telescope } from "lucide-react";
 import { TOPICS, getTopicStyle } from "@/lib/topics";
 import { getAllEpisodes } from "@/lib/episodes";
@@ -31,12 +32,12 @@ export default async function TopicsPage() {
       <div className="relative z-10 max-w-4xl mx-auto px-6 pt-32 pb-24">
         {/* Header */}
         <div className="mb-16">
-          <a
+          <Link
             href="/"
             className="text-[13px] font-medium text-white/30 hover:text-white/60 transition-colors mb-8 inline-block"
           >
             {m.topicsPage.backHome}
-          </a>
+          </Link>
           <p className="text-[12px] font-medium tracking-[0.25em] uppercase text-white/20 mb-4">
             {m.topicsPage.sectionLabel}
           </p>
@@ -76,28 +77,28 @@ export default async function TopicsPage() {
                     <ArrowUpRight className="w-4 h-4 text-white/20 group-hover:text-white/50 transition-colors mt-1" />
                   </div>
 
-                  <h2 className={`text-xl font-bold mb-2 transition-colors duration-200 ${style.badge.split(" ")[0]} group-hover:text-white`}>
+                  <h2 className="text-xl font-bold mb-2 text-white">
                     {topic.name}
                   </h2>
-                  <p className="text-[13px] text-white/35 leading-relaxed mb-5">
+                  <p className="text-[13px] text-white/80 leading-relaxed mb-5">
                     {topic.description}
                   </p>
 
                   <div className="flex items-center justify-between">
-                    <span className="text-[11px] text-white/20 font-mono">
+                    <span className="text-[11px] text-white/60 font-mono">
                       {count} {count === 1 ? m.topicsPage.episode : m.topicsPage.episodes}
                     </span>
                   </div>
 
                   {/* Mini episode list */}
                   {topicEpisodes.length > 0 && (
-                    <div className="mt-5 pt-5 border-t border-white/[0.06] space-y-2">
+                    <div className="mt-5 pt-5 border-t border-white/[0.18] space-y-2">
                       {topicEpisodes.map((ep) => (
                         <div key={ep.slug} className="flex items-center gap-2">
-                          <span className="text-[10px] font-mono text-white/20 flex-shrink-0">
+                          <span className="text-[10px] font-mono text-white/60 flex-shrink-0">
                             EP {ep.number}
                           </span>
-                          <span className="text-[12px] text-white/40 line-clamp-1">
+                          <span className="text-[12px] text-white/80 line-clamp-1">
                             {ep.guest}
                           </span>
                         </div>

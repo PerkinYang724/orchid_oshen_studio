@@ -30,12 +30,12 @@ export default async function EpisodesPage() {
       <div className="relative z-10 max-w-4xl mx-auto px-6 pt-32 pb-24">
         {/* Header */}
         <div className="mb-16">
-          <a
+          <Link
             href="/"
             className="text-[13px] font-medium text-white/30 hover:text-white/60 transition-colors mb-8 inline-block"
           >
             {m.episodesPage.backHome}
-          </a>
+          </Link>
           <p className="text-[13px] font-medium tracking-[0.25em] uppercase text-white/25 mb-4">
             {m.episodesPage.sectionLabel}
           </p>
@@ -65,7 +65,7 @@ export default async function EpisodesPage() {
                 <div className="relative w-full aspect-square sm:w-48 sm:aspect-square flex-shrink-0">
                   <img
                     src={thumbnailSrc}
-                    alt={`${m.episodeDetail.episodeNumberPrefix}${ep.number}${m.episodeDetail.episodeNumberSuffix} · ${ep.guest}`}
+                    alt={`${m.episodeDetail.episodeNumberPrefix}${ep.number}${m.episodeDetail.episodeNumberSuffix} — ${ep.guest}: ${ep.title}`}
                     className="w-full h-full object-cover"
                   />
                   <span className="absolute top-2 left-2 text-[11px] font-mono text-white/90 bg-black/50 backdrop-blur-sm px-2 py-1 rounded">

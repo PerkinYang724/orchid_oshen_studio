@@ -9,11 +9,14 @@ export type TopicCopy = {
   description: string;
 };
 
+export type EpisodeFaq = { q: string; a: string };
+
 export type EpisodeCopy = {
   title: string;
   description: string;
   metaTitle: string;
   metaDescription: string;
+  faqs?: EpisodeFaq[];
 };
 
 export type Messages = {
@@ -112,6 +115,7 @@ export type Messages = {
   episodeDetail: {
     backHome: string;
     allEpisodes: string;
+    faqHeading: string;
     episodeNumberPrefix: string;
     episodeNumberSuffix: string;
     watchYoutube: string;

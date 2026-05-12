@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { getLocale, getMessages } from "@/i18n/server";
 
@@ -66,12 +67,12 @@ export default async function BlogPage() {
       <div className="relative z-10 max-w-4xl mx-auto px-6 pt-32 pb-24">
         {/* Header */}
         <div className="mb-16">
-          <a
+          <Link
             href="/"
             className="text-[13px] font-medium text-white/30 hover:text-white/60 transition-colors mb-8 inline-block"
           >
             {m.blogPage.backHome}
-          </a>
+          </Link>
           <p className="text-[13px] font-medium tracking-[0.25em] uppercase text-white/25 mb-4">
             {m.blogPage.sectionLabel}
           </p>

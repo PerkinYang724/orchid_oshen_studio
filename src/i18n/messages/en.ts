@@ -113,6 +113,7 @@ export const en: Messages = {
   episodeDetail: {
     backHome: "← Still Human",
     allEpisodes: "All Episodes",
+    faqHeading: "Frequently Asked",
     episodeNumberPrefix: "Episode ",
     episodeNumberSuffix: "",
     watchYoutube: "Watch on YouTube",
@@ -206,65 +207,177 @@ export const en: Messages = {
       title: "Execution Culture: How a Student Founder Raised $2M and Built Robotics for the Real World",
       description:
         "Sean Wu raised over $2M for Synphony — a robotics startup tackling the sim-to-real gap — while finishing his junior year at Santa Clara. On execution culture, the wrestling lesson behind founder loneliness, and why most students never ship.",
-      metaTitle: "Execution Culture: Sean Wu on Raising $2M for Robotics & the Sim-to-Real Gap | Still Human",
+      metaTitle: "Execution Culture: Raising $2M for Robotics | Still Human",
       metaDescription:
         "A Santa Clara junior on raising $2M for robotics, why most students never ship, and the wrestling lesson behind execution culture.",
+      faqs: [
+        {
+          q: "What is the sim-to-real gap in robotics?",
+          a: "The distance between how robots perform in simulation and how they perform in physical reality. Current simulations are roughly 90% accurate; the remaining 10% is where real deployments break, and what Sean Wu's startup Synphony is built to close.",
+        },
+        {
+          q: "How did Sean Wu raise $2 million as a student founder?",
+          a: "A combination of cold outreach signed as a student (which gets higher reply rates than founder-style emails), an NVIDIA hackathon win that became the company's seed, and what Sean calls vulnerable pitching — sounding like a real person asking for help rather than a polished, over-rehearsed founder.",
+        },
+        {
+          q: "What is execution culture?",
+          a: "Sean's framing for why most students at top universities never ship. Universities are full of brilliant people; very few actually finish things and release them. The gap between brilliance and execution is the whole game.",
+        },
+      ],
     },
     "brain-computer-interfaces-michael-iwashima-ai-limits": {
       title: "Why AI Can’t Reason Over Time: Michael Iwashima on Brain-Computer Interfaces, Biosensors, and Building From Nothing",
       description:
         "A bioengineer on why AI still can’t reason over time, what a soccer injury taught him about building from nothing, and where humans still matter most — brain-computer interfaces, biosensors, and accessibility tech.",
-      metaTitle: "Why AI Can’t Reason Over Time | Michael Iwashima on BCIs & Accessibility | Still Human",
+      metaTitle: "Brain-Computer Interfaces & AI’s Limits | Still Human",
       metaDescription:
         "A bioengineer on why AI still can’t reason over time, what a soccer injury taught him about building from nothing, and where humans still matter most.",
+      faqs: [
+        {
+          q: "Why can’t AI reason over time?",
+          a: "Current AI excels at one-shot tasks but doesn’t reflect, remember, or adjust across days and weeks the way humans do. That’s the limit Michael Iwashima keeps running into when applying AI to longitudinal problems like accessibility and agriculture.",
+        },
+        {
+          q: "What are brain-computer interfaces used for in accessibility?",
+          a: "BCIs translate neural activity into control signals that let people with paralysis or cerebral palsy interact with devices — including games like Space Invaders — without needing fine motor control.",
+        },
+        {
+          q: "What is frugal science in agriculture?",
+          a: "Low-cost, 3D-printable biosensors that detect crop disease in the field without expensive lab infrastructure. Michael's work in this space is associated with the Verma Lab at Purdue University.",
+        },
+      ],
     },
     "ai-human-connection-krish-jajoo-ycombinator-effect": {
       title: "We Are the Product: Krish Jajoo on Social Media, Silicon Valley Pressure, and Why Human Connection Still Wins",
       description:
         "A Santa Clara sophomore on growing up in Silicon Valley, why social media made us the product, and where being human still beats every algorithm.",
-      metaTitle: "We Are the Product: Krish Jajoo on Social Media & Human Connection | Still Human",
+      metaTitle: "Human Connection in the AI Era | Still Human",
       metaDescription:
         "A Santa Clara sophomore on growing up in Silicon Valley, why social media made us the product, and where being human still beats every algorithm.",
+      faqs: [
+        {
+          q: "What does 'we are the product' mean for social media?",
+          a: "If you don’t pay for a platform, the advertisers are the customers and your attention is the inventory being sold. It’s not a neutral background — it’s a market with you on the shelf.",
+        },
+        {
+          q: "What is the Y-Combinator Effect?",
+          a: "How growing up in environments shaped by Silicon Valley success — like a high school that produced YC’s CEO — builds invisible career pressure that shapes identity, not just ambition, before you even notice it.",
+        },
+        {
+          q: "How can people skills be a moat in the AI era?",
+          a: "As AI commoditizes technical execution, the differentiator becomes what machines genuinely can’t replicate: emotional intelligence, judgment, and the ability to build trust with humans in person.",
+        },
+      ],
     },
     "ai-people-pleaser-bailley-georgieva-hypersonics": {
       title: "AI Is the Ultimate People Pleaser: Bailley Georgieva on Hypersonics, Critical Thinking, and What Stays Human at Mach 10",
       description:
         "A 21-year-old hypersonic researcher on why AI is the ultimate people pleaser, the cost of complacency, and what stays human at Mach 10.",
-      metaTitle: "AI Is the Ultimate People Pleaser: Bailley Georgieva on Hypersonics & Critical Thinking | Still Human",
+      metaTitle: "AI Critical Thinking: The Ultimate People Pleaser | Still Human",
       metaDescription:
         "A 21-year-old hypersonic researcher on why AI is the ultimate people pleaser, the cost of complacency, and what stays human at Mach 10.",
+      faqs: [
+        {
+          q: "Why does Bailley call AI 'the ultimate people pleaser'?",
+          a: "Because AI is trained to give you what you want to hear — it will skew numbers, hallucinate justifications, and confirm assumptions. In high-stakes research like hypersonic CFD, that’s not a feature, it’s the failure mode.",
+        },
+        {
+          q: "What is hypersonic research?",
+          a: "Simulating aerodynamic behavior at speeds above Mach 5. Bailley’s work at MIT uses NASA's LAURA code at Mach 10+ — the kind of regime where a vehicle disintegrates in a wind tunnel if the simulation is wrong.",
+        },
+        {
+          q: "How do you use AI without losing critical thinking?",
+          a: "Bailley’s approach: train a narrow ChatGPT to respond only in code and TXT files, stripping the conversational layer that nudges you toward agreement. Failing by hand a hundred times is faster than auditing AI output for the place it confidently lied.",
+        },
+      ],
     },
     "high-agency-andrey-marey-student-founder": {
       title: "Build Before You’re Ready: Andrey Marey on High-Agency, Discipline, and Refusing to Use AI With Friends",
       description:
         "A 20-year-old serial founder on high-agency, why discipline beats motivation, and the one thing he refuses to ever let AI touch — covering NVIDIA, Vivora, FR8 Finland, and the framework that runs his career.",
-      metaTitle: "Build Before You’re Ready: Andrey Marey on High-Agency & Discipline | Still Human",
+      metaTitle: "High-Agency: Build Before You’re Ready | Still Human",
       metaDescription:
         "A 20-year-old serial founder on high-agency, why discipline beats motivation, and the one thing he refuses to ever let AI touch.",
+      faqs: [
+        {
+          q: "What does high-agency mean for builders?",
+          a: "The structural choice to act before you feel ready. Andrey distinguishes it from motivation (a spark that dies) and discipline (a 30-second pause before you scroll). High-agency is the operating system that makes both functional.",
+        },
+        {
+          q: "Why shouldn’t AI write messages to people you love?",
+          a: "The moment you outsource emotional intelligence to a machine, you’ve granted it access to your relationships. Andrey uses AI for technical work but refuses to let it touch messages to friends, family, or a partner.",
+        },
+        {
+          q: "Is execution or distribution more important for founders?",
+          a: "Distribution. Andrey’s framework: ideas matter, execution matters more, distribution matters most. Most founder advice gets the order wrong — assuming that a good idea well-built will find its audience on its own.",
+        },
+      ],
     },
     "space-traffic-management-ai-lilian-krengel-orbitguard": {
       title: "Building Traffic Lights for Space: Lilian Krengel on AI, Orbital Congestion, and Student Founding",
       description:
         "A Santa Clara sophomore on building AI traffic lights for space, the Kessler Effect, and what it means when someone copies your startup in a weekend.",
-      metaTitle: "Building Traffic Lights for Space: Lilian Krengel on AI & Orbital Congestion | Still Human",
+      metaTitle: "Space Traffic Management AI: OrbitGuard | Still Human",
       metaDescription:
         "A Santa Clara sophomore on building AI traffic lights for space, the Kessler Effect, and what it means when someone copies your startup in a weekend.",
+      faqs: [
+        {
+          q: "What is the Kessler Effect?",
+          a: "The orbital cascade scenario where one satellite collision creates debris that triggers more collisions, eventually rendering low Earth orbit unusable. It's the underlying threat that makes space traffic management urgent.",
+        },
+        {
+          q: "What is space traffic management?",
+          a: "Air traffic control for satellites. Lilian's startup OrbitGuard ingests conjunction (orbital proximity) data and outputs a clean collision risk score that operators can act on, integrated with KeepTrack — the visualization tool the industry already uses.",
+        },
+        {
+          q: "How do student founders compete with funded startups in the AI era?",
+          a: "Execution speed. Lilian's takeaway from getting nearly-copied by a Stanford weekend hackathon project: student founders today have to recalibrate how fast they ship, because the gap between idea and clone is hours, not months.",
+        },
+      ],
     },
     "zentrepreneurship-toby-corey-brandcapsule-ai-trust": {
       title: "Toby Corey: Zentrepreneurship, Tesla’s Fake Solar Roof, and Building Trust in AI",
       description:
         "Toby Corey has been at the center of three tech waves — the dot-com boom (USWeb, $3B valuation), the clean energy transition (SolarCity, Tesla Energy), and now AI. He testified under oath that Tesla’s Solar Roof tiles were never connected to the grid, laid off 4,000+ people, and created Zentrepreneurship — a 21-principle framework for building companies with consciousness, taught at Stanford for 11 years. Now he’s building BrandCapsule: verifying identity in an AI world where hallucinations are the default.",
-      metaTitle: "Zentrepreneur: Building AI with Consciousness & Verified Truth",
+      metaTitle: "Zentrepreneurship: Building AI with Consciousness | Still Human",
       metaDescription:
         "Toby Corey testified against Tesla, built Zentrepreneurship at Stanford, and now solves AI’s identity problem. A masterclass in scaling with consciousness.",
+      faqs: [
+        {
+          q: "What is Zentrepreneurship?",
+          a: "A 21-principle framework Toby Corey developed for building companies with consciousness — taught at Stanford for 11 years. It’s not about slowing down. It’s the internal architecture that lets you move fast without breaking the people around you, or yourself.",
+        },
+        {
+          q: "Why did Toby Corey testify against Tesla?",
+          a: "He swore under oath that Tesla’s Solar Roof demo tiles were never connected to the grid. He frames the moment as a test of integrity at scale — when the truth diverges from the company narrative, and you have to choose which side to stand on.",
+        },
+        {
+          q: "What is AI’s biggest blind spot, according to Toby?",
+          a: "Not intelligence — trust. AI confidently hallucinates by default, so the load-bearing problem is verifying identity and truth. That’s the gap his current venture, BrandCapsule, is built to fill.",
+        },
+      ],
     },
     "neural-networks-from-scratch-c-william-norden-neuromorphic-computing": {
       title: "William Norden: Building Neural Networks from Scratch in C and What Most AI Engineers Skip",
       description:
         "A Still Human conversation with William Norden — Research Engineer at Santa Clara University, neuromorphic computing researcher, and the rare builder who writes neural networks in C from scratch. We get into the intelligence augmentation argument, the high-dimensional tapestry of global problems, and why Russian piano pedagogy and USTA tennis show up in his backpropagation.",
-      metaTitle: "Building Neural Networks from Scratch in C: What Most AI Engineers Skip — Still Human Ep. 08",
+      metaTitle: "Neural Networks From Scratch in C | Still Human Ep. 08",
       metaDescription:
-        "A Still Human conversation with William Norden — research engineer, neuromorphic computing researcher, and the rare builder who writes neural networks in C from scratch.",
+        "Neuromorphic computing researcher William Norden on writing neural networks in C from scratch and the intelligence-augmentation argument.",
+      faqs: [
+        {
+          q: "Why write neural networks from scratch in C?",
+          a: "Abstraction without understanding produces engineers who can’t debug their own systems when the framework breaks. Building neural networks in C forces you to sit with backpropagation, memory layout, and numerical stability — the things frameworks normally hide.",
+        },
+        {
+          q: "What is neuromorphic computing?",
+          a: "Brain-inspired hardware running event-driven, sparse, extremely power-efficient computation — usually around Spiking Neural Networks and mem-devices. It’s what unlocks edge AI: inference running on the device instead of behind an API.",
+        },
+        {
+          q: "Will AI replace engineers or augment them?",
+          a: "William’s bet is augmentation. The replacement frame is loud (‘AI will do this job for you’), but the augmentation frame — AI as cognitive prosthetic — is the one that shapes serious engineers’ work and the systems they actually ship.",
+        },
+      ],
     },
   },
 };

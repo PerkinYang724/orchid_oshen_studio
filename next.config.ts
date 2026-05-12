@@ -13,11 +13,16 @@ const nextConfig: NextConfig = {
       },
     ],
   },
-  typescript: {
-    ignoreBuildErrors: true,
-  },
-  eslint: {
-    ignoreDuringBuilds: true,
+  async headers() {
+    return [
+      {
+        // Locale is decided per-request from cookie + Accept-Language, so any
+        // edge / CDN caching must key on Accept-Language to avoid serving the
+        // wrong language to a different visitor.
+        source: "/:path*",
+        headers: [{ key: "Vary", value: "Accept-Language, Cookie" }],
+      },
+    ];
   },
 };
 

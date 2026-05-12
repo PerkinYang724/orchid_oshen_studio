@@ -33,7 +33,8 @@ export function RevealHeading({
 
   const scrollFromSection = useScroll({
     target: ref,
-    offset: offset as any,
+    // framer-motion's offset type is narrower than our prop type; runtime accepts plain string tuples.
+    offset: offset as Parameters<typeof useScroll>[0] extends { offset?: infer O } ? O : never,
   });
 
   const scrollYProgress = stickyProgress ?? scrollFromSection.scrollYProgress;
@@ -95,7 +96,7 @@ export function StaggeredText({
 
   const scrollFromSection = useScroll({
     target: ref,
-    offset: ["start 85%", "start 50%"] as any,
+    offset: ["start 85%", "start 50%"] as Parameters<typeof useScroll>[0] extends { offset?: infer O } ? O : never,
   });
 
   const scrollYProgress = stickyProgress ?? scrollFromSection.scrollYProgress;

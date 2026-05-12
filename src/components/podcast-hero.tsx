@@ -60,8 +60,10 @@ export function PodcastHero({ episode, spotifyEpisodeUrl }: Props) {
               <div className="relative aspect-video rounded-2xl overflow-hidden border border-white/[0.08] shadow-[0_32px_64px_rgba(0,0,0,0.5)]">
                 <img
                   src={youtubeThumb(episode.youtubeId)}
-                  alt={episode.title}
+                  alt={`Episode ${episode.number} — ${episode.guest}: ${episode.title}`}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  fetchPriority="high"
+                  loading="eager"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
                 <span className="absolute top-3 left-3 text-[11px] font-mono text-white/90 bg-black/50 backdrop-blur-sm px-2.5 py-1 rounded">

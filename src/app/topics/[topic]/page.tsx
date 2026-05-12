@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowUpRight, Clock, Music2, Cpu, Rocket, User, FlaskConical, Brain, Telescope } from "lucide-react";
 import { TOPICS, getTopicBySlug, getTopicStyle } from "@/lib/topics";
@@ -62,19 +63,19 @@ export default async function TopicPage({ params }: Props) {
       <div className="relative z-10 max-w-4xl mx-auto px-6 pt-32 pb-24">
         {/* Back nav */}
         <div className="flex items-center gap-3 mb-12">
-          <a
+          <Link
             href="/"
             className="text-[13px] font-medium text-white/30 hover:text-white/60 transition-colors"
           >
             {m.topicDetail.backHome}
-          </a>
+          </Link>
           <span className="text-white/15">·</span>
-          <a
+          <Link
             href="/topics"
             className="text-[13px] font-medium text-white/30 hover:text-white/60 transition-colors"
           >
             {m.topicDetail.topicsBreadcrumb}
-          </a>
+          </Link>
         </div>
 
         {/* Header */}
@@ -110,7 +111,7 @@ export default async function TopicPage({ params }: Props) {
                 <div className="relative w-full aspect-square sm:w-48 sm:aspect-square flex-shrink-0">
                   <img
                     src={imgSrc}
-                    alt={`EP ${ep.number}: ${ep.guest}`}
+                    alt={`Episode ${ep.number} — ${ep.guest}: ${ep.title}`}
                     className="absolute inset-0 w-full h-full object-cover"
                   />
                   <span className="absolute top-2 left-2 text-[11px] font-mono text-white/90 bg-black/50 backdrop-blur-sm px-2 py-1 rounded">

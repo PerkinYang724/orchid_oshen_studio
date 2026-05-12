@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import Image from "next/image";
 import { Music2, Youtube, ArrowUpRight } from "lucide-react";
 import { getMessages } from "@/i18n/server";
@@ -16,12 +17,12 @@ export default async function AboutPage() {
   return (
     <div className="relative min-h-screen">
       <div className="relative z-10 max-w-3xl mx-auto px-6 pt-32 pb-24">
-        <a
+        <Link
           href="/"
           className="text-[13px] font-medium text-white/30 hover:text-white/60 transition-colors mb-12 inline-block"
         >
           {m.about.backToHome}
-        </a>
+        </Link>
 
         {/* Hero */}
         <div className="mb-20">

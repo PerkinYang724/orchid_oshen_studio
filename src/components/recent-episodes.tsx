@@ -2,6 +2,7 @@
 
 import { m, useInView } from "framer-motion";
 import { useRef, useState, useMemo } from "react";
+import Link from "next/link";
 import { Clock, ArrowUpRight, Search, X } from "lucide-react";
 import type { EpisodeMeta } from "@/lib/episodes";
 import type { Topic } from "@/lib/topics";
@@ -85,13 +86,13 @@ export function RecentEpisodes({ episodes, topics }: Props) {
               )}
             </div>
 
-            <a
+            <Link
               href="/episode"
               className="hidden sm:flex items-center gap-1.5 text-[13px] font-medium text-white/35 hover:text-white transition-colors flex-shrink-0"
             >
               {t.recentEpisodes.allEpisodesLink}
               <ArrowUpRight className="w-3.5 h-3.5" />
-            </a>
+            </Link>
           </div>
         </m.div>
 
@@ -141,19 +142,21 @@ export function RecentEpisodes({ episodes, topics }: Props) {
               const epTopics = (ep.topics ?? []).slice(0, 2);
 
               return (
-                <m.a
+                <m.div
                   key={ep.slug}
-                  href={`/episode/${ep.slug}`}
                   initial={{ opacity: 0, y: 28 }}
                   animate={inView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.6, delay: 0.1 + i * 0.06 }}
+                >
+                <Link
+                  href={`/episode/${ep.slug}`}
                   className="group glass-card rounded-2xl overflow-hidden noise block"
                 >
                   {/* Thumbnail */}
                   <div className="relative aspect-video overflow-hidden">
                     <img
                       src={imgSrc}
-                      alt={`EP ${ep.number}: ${ep.title}`}
+                      alt={`Episode ${ep.number} — ${ep.guest} on ${ep.title}`}
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                       loading="lazy"
                     />
@@ -197,7 +200,8 @@ export function RecentEpisodes({ episodes, topics }: Props) {
                       )}
                     </div>
                   </div>
-                </m.a>
+                </Link>
+                </m.div>
               );
             })}
           </div>
@@ -209,13 +213,13 @@ export function RecentEpisodes({ episodes, topics }: Props) {
 
         {/* Mobile all-episodes link */}
         <div className="mt-8 text-center sm:hidden">
-          <a
+          <Link
             href="/episode"
             className="inline-flex items-center gap-1.5 text-[13px] font-medium text-white/35 hover:text-white transition-colors"
           >
             {t.recentEpisodes.viewAllMobile}
             <ArrowUpRight className="w-3.5 h-3.5" />
-          </a>
+          </Link>
         </div>
       </div>
     </section>

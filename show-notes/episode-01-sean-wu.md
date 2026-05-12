@@ -21,6 +21,34 @@ Sean Wu was a varsity wrestler before he was a founder. He says that's not a coi
 
 In this Still Human conversation, Sean talks through how he raised over two million dollars for Synphony — his robotics startup tackling the sim-to-real gap — while still finishing his junior year at Santa Clara University. He's blunt about how he got there. Youth is a privilege you should be abusing, he says. People give a 20-year-old access they'd never give a 30-year-old. Cold emails get higher response rates when you sign them as a student. The pitch that works isn't polished. It's vulnerable.
 
+---
+
+## Execution Culture, Defined
+
+Universities are full of brilliant people. Very few of them ship. Sean's framing for the gap between the two is what he calls execution culture — the muscle that turns capability into delivery. It's not about being smarter. It's about closing the loop, week after week, on something you said you'd do.
+
+## Raising $2M as a Student
+
+Most founders dress up the fundraising story. Sean is blunter: he raised over two million dollars for Synphony before finishing his junior year because being 20 is a leverage point most people refuse to use. The investors who'd never reply to a polished founder will take a meeting with a student who sounds like a real person asking for help. That window closes around age 25. Use it while it's open.
+
+## The Sim-to-Real Gap
+
+In robotics, simulations are roughly 90 percent accurate at predicting what a robot will do in the physical world. That last 10 percent is where deployments fail — where a manipulator that worked perfectly in sim drops a payload on a factory floor. Synphony exists to close that gap. The reason it's hard is that the missing 10 percent isn't one bug; it's the entire long tail of unmodeled physics, sensor noise, and edge cases.
+
+## Cold Outreach With Vulnerability
+
+The pitch that gets a reply isn't the polished one. Sean's argument is that founders over-rehearse — the version that lands sounds like a real person asking for help, not a startup pitching itself. Sign the email as a student. Ask for the meeting. Say what you don't know. Counterintuitively, that lower-status framing is what unlocks the room.
+
+## Wrestling and Founder Loneliness
+
+Sean was a varsity wrestler before he was a founder. He treats that as foundational, not incidental. A mat is one of the few places left in modern life where you can't hide and can't blame anyone else. You either get the takedown or you don't. The training to be comfortable while uncomfortable, to lose publicly, to keep showing up — that conditioning carries into early-stage company building cleanly.
+
+## Knowing When to Pivot
+
+Sean shut down a $10K-per-month business to chase Synphony. Most founders won't kill working revenue to chase something bigger; the cost is real and the upside is unproven. His honest answer on when to pivot: when the thing you're paying for is no longer the thing you're learning. A revenue stream you've outgrown is a tax on your own attention.
+
+---
+
 ## Show Notes
 
 Sean Wu is a junior at Santa Clara University and the founder of Synphony, a robotics startup that has raised over $2M to close the sim-to-real gap — the distance between robot performance in simulation and what actually works once it touches the physical world. His path runs through varsity wrestling, an NVIDIA hackathon win that turned into a venture-backed company, and earlier work building RAG pipelines for Citibank. He also shut down a $10K/month business to chase something bigger, which is the kind of decision most founders only talk about in retrospect. For the Still Human audience, Sean is the guest who turns "execution culture" from a slogan into a tactical playbook.
