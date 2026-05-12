@@ -3,8 +3,10 @@
 import { m, useInView } from "framer-motion";
 import { useRef } from "react";
 import { ArrowUpRight, Music2, Youtube } from "lucide-react";
+import { useLocale } from "@/i18n/client";
 
 export function NewsletterCta() {
+  const { m: t } = useLocale();
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
@@ -25,14 +27,13 @@ export function NewsletterCta() {
 
           <div className="relative z-10">
             <p className="text-[11px] font-medium tracking-[0.35em] uppercase text-white/20 mb-4">
-              Never miss an episode
+              {t.newsletterCta.label}
             </p>
             <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-white mb-4">
-              Stay Human
+              {t.newsletterCta.heading}
             </h2>
             <p className="text-white/35 text-base sm:text-lg leading-relaxed mb-10 max-w-md mx-auto">
-              New episodes every two weeks. Subscribe on Substack for show notes,
-              or follow on your platform of choice.
+              {t.newsletterCta.body}
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
@@ -42,7 +43,7 @@ export function NewsletterCta() {
                 rel="noopener noreferrer"
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-white text-black text-sm font-semibold hover:bg-white/90 transition-colors duration-200"
               >
-                Subscribe on Substack
+                {t.newsletterCta.subscribeSubstack}
                 <ArrowUpRight className="w-3.5 h-3.5" />
               </a>
               <div className="flex gap-3">

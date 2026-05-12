@@ -7,6 +7,7 @@ import type { EpisodeMeta } from "@/lib/episodes";
 import type { Topic } from "@/lib/topics";
 import { getTopicStyle } from "@/lib/topics";
 import { youtubeThumb } from "@/lib/youtube";
+import { useLocale } from "@/i18n/client";
 
 type Props = {
   episodes: EpisodeMeta[];
@@ -14,6 +15,7 @@ type Props = {
 };
 
 export function RecentEpisodes({ episodes, topics }: Props) {
+  const { m: t } = useLocale();
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
   const topicMap = useMemo(
@@ -55,10 +57,10 @@ export function RecentEpisodes({ episodes, topics }: Props) {
         >
           <div>
             <p className="text-[11px] font-medium tracking-[0.3em] uppercase text-white/20 mb-3">
-              Recent
+              {t.recentEpisodes.label}
             </p>
             <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-white">
-              More Episodes
+              {t.recentEpisodes.heading}
             </h2>
           </div>
 
@@ -68,7 +70,7 @@ export function RecentEpisodes({ episodes, topics }: Props) {
               <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-white/30 pointer-events-none" />
               <input
                 type="text"
-                placeholder="Search episodes…"
+                placeholder={t.recentEpisodes.searchPlaceholder}
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 className="w-full sm:w-56 bg-white/[0.05] border border-white/[0.1] rounded-full pl-9 pr-8 py-2 text-[13px] text-white placeholder:text-white/25 focus:outline-none focus:border-white/[0.25] focus:bg-white/[0.07] transition-all"
@@ -87,7 +89,7 @@ export function RecentEpisodes({ episodes, topics }: Props) {
               href="/episode"
               className="hidden sm:flex items-center gap-1.5 text-[13px] font-medium text-white/35 hover:text-white transition-colors flex-shrink-0"
             >
-              All episodes
+              {t.recentEpisodes.allEpisodesLink}
               <ArrowUpRight className="w-3.5 h-3.5" />
             </a>
           </div>
@@ -108,7 +110,7 @@ export function RecentEpisodes({ episodes, topics }: Props) {
                 : "border-white/[0.1] text-white/40 hover:text-white/70 hover:border-white/[0.2]"
             }`}
           >
-            All
+            {t.recentEpisodes.allFilter}
           </button>
           {topics.map((topic) => {
             const style = getTopicStyle(topic.slug);
@@ -201,7 +203,7 @@ export function RecentEpisodes({ episodes, topics }: Props) {
           </div>
         ) : (
           <div className="py-20 text-center">
-            <p className="text-white/25 text-sm">No episodes match your search.</p>
+            <p className="text-white/25 text-sm">{t.recentEpisodes.noMatch}</p>
           </div>
         )}
 
@@ -211,7 +213,7 @@ export function RecentEpisodes({ episodes, topics }: Props) {
             href="/episode"
             className="inline-flex items-center gap-1.5 text-[13px] font-medium text-white/35 hover:text-white transition-colors"
           >
-            View all episodes
+            {t.recentEpisodes.viewAllMobile}
             <ArrowUpRight className="w-3.5 h-3.5" />
           </a>
         </div>

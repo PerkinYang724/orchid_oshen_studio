@@ -8,23 +8,31 @@ import { Footer } from "../components/footer";
 import { getAllEpisodes } from "../lib/episodes";
 import { TOPICS } from "../lib/topics";
 import { getPodcastFeedEpisodes, buildEpisodeImagesArray } from "../lib/podcast-rss";
+import { getMessages } from "../i18n/server";
+import { localizeEpisodes, localizeTopics } from "../i18n/localize";
 
 export default async function Home() {
-  const allEpisodes = getAllEpisodes(); // sorted oldest → newest
+  const messages = await getMessages();
+  // Use English title/guest for Spotify matching, but display localized.
+  const rawEpisodes = getAllEpisodes(); // sorted oldest → newest
   const spotifyEpisodes = await getPodcastFeedEpisodes();
   const episodeImages = buildEpisodeImagesArray(
-    allEpisodes.map((ep) => ({ title: ep.feedTitle ?? ep.title, guest: ep.guest })),
+    rawEpisodes.map((ep) => ({ title: ep.feedTitle ?? ep.title, guest: ep.guest })),
     spotifyEpisodes
   );
 
+  const allEpisodes = localizeEpisodes(rawEpisodes, messages);
+  const localizedTopics = localizeTopics(messages);
+
   // Latest episode = last in sorted array
   const latestEpisode = allEpisodes[allEpisodes.length - 1];
+  const latestRawEpisode = rawEpisodes[rawEpisodes.length - 1];
   const latestIndex = parseInt(latestEpisode.number, 10) - 1;
   const latestImage = episodeImages[latestIndex] ?? "";
 
-  // Spotify URL for latest episode (from matched spotify data)
+  // Spotify URL match needs the English title since Spotify titles are English.
   const latestSpotifyInfo = spotifyEpisodes.find((sp) =>
-    latestEpisode.title
+    latestRawEpisode.title
       .toLowerCase()
       .split(/\W+/)
       .filter((w) => w.length > 3)
@@ -43,37 +51,27 @@ export default async function Home() {
   }
 
   return (
-    <>
-      <div
-        className="fixed inset-0 pointer-events-none z-0"
-        aria-hidden
-        style={{
-          background:
-            "radial-gradient(ellipse 80% 60% at 50% 0%, rgba(41,151,255,0.05) 0%, transparent 60%), #050507",
-        }}
+    <div className="relative min-h-screen">
+      <Navbar />
+
+      <PodcastHero
+        episode={latestEpisode}
+        spotifyImageUrl={latestImage}
+        spotifyEpisodeUrl={latestSpotifyInfo?.spotifyUrl}
       />
-      <div className="relative min-h-screen bg-[#050507]">
-        <Navbar />
 
-        <PodcastHero
-          episode={latestEpisode}
-          spotifyImageUrl={latestImage}
-          spotifyEpisodeUrl={latestSpotifyInfo?.spotifyUrl}
-        />
+      <RecentEpisodes
+        episodes={recentEpisodes}
+        topics={localizedTopics}
+      />
 
-        <RecentEpisodes
-          episodes={recentEpisodes}
-          topics={TOPICS}
-        />
+      <Mission />
 
-        <Mission />
+      <TopicsPreview topics={localizedTopics} episodeCounts={episodeCounts} />
 
-        <TopicsPreview topics={TOPICS} episodeCounts={episodeCounts} />
+      <NewsletterCta />
 
-        <NewsletterCta />
-
-        <Footer />
-      </div>
-    </>
+      <Footer />
+    </div>
   );
 }

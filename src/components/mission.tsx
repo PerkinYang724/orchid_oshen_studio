@@ -2,8 +2,10 @@
 
 import { m, useInView } from "framer-motion";
 import { useRef } from "react";
+import { useLocale } from "@/i18n/client";
 
 export function Mission() {
+  const { m: t } = useLocale();
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
@@ -23,22 +25,18 @@ export function Mission() {
           transition={{ duration: 0.8, ease: [0.25, 0.4, 0, 1] }}
         >
           <p className="text-[11px] font-medium tracking-[0.35em] uppercase text-white/20 mb-6">
-            Mission
+            {t.mission.label}
           </p>
           <h2 className="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-tight mb-8">
-            <span className="text-white">Technology should not</span>
+            <span className="text-white">{t.mission.headingLine1}</span>
             <br />
-            <span className="gradient-text">replace us.</span>
+            <span className="gradient-text">{t.mission.headingLine2}</span>
           </h2>
           <p className="text-white/40 text-base sm:text-lg leading-relaxed mb-5">
-            We&apos;re living through the most accelerating period in human history.
-            AI is reshaping every industry, every relationship, every definition
-            of what it means to be useful, creative, or valuable.
+            {t.mission.paragraph1}
           </p>
           <p className="text-white/30 text-sm sm:text-base leading-relaxed">
-            Still Human goes to the people on the frontier — the founders, scientists,
-            engineers, and researchers navigating this shift — and asks them one question:
-            how do you stay whole?
+            {t.mission.paragraph2}
           </p>
         </m.div>
       </div>

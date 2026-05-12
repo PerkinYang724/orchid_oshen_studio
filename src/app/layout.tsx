@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { MotionProvider } from "../components/motion-provider";
+import { DiamondBackground } from "../components/DiamondBackground";
+import { LocaleProvider } from "../i18n/client";
+import { getLocale, getMessages } from "../i18n/server";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -16,73 +19,76 @@ const geistMono = Geist_Mono({
 const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL || "https://oshenstudio.com";
 
-export const metadata: Metadata = {
-  metadataBase: new URL(siteUrl),
-  title: {
-    default: "Still Human — Who Are You Without AI?",
-    template: "%s | Oshen Studio",
-  },
-  description:
-    "A podcast exploring identity, creativity, and what it means to be human at the intersection of AI. Hosted by Perkin Yang.",
-  keywords: [
-    "Still Human Podcast",
-    "AI podcast",
-    "identity and AI",
-    "creativity podcast",
-    "what it means to be human",
-    "AI and humanity",
-    "Perkin Yang",
-    "Oshen Studio",
-    "future of work",
-    "AI storytelling",
-    "human in the age of AI",
-    "AI conversations",
-  ],
-  authors: [{ name: "Perkin", url: siteUrl }],
-  creator: "Perkin",
-  openGraph: {
-    type: "website",
-    locale: "en_US",
-    url: siteUrl,
-    siteName: "Oshen Studio",
-    title: "Still Human — Who Are You Without AI?",
-    description:
-      "A podcast exploring identity, creativity, and what it means to be human at the intersection of AI. Hosted by Perkin Yang.",
-    images: [
-      {
-        url: `${siteUrl}/opengraph-image`,
-        width: 1200,
-        height: 630,
-        alt: "Still Human — Who Are You Without AI?",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Still Human — Who Are You Without AI?",
-    description:
-      "A podcast exploring identity, creativity, and what it means to be human at the intersection of AI. Hosted by Perkin Yang.",
-    creator: "@oshen_studio",
-    images: [`${siteUrl}/opengraph-image`],
-  },
-  icons: {
-    icon: [
-      { url: "/favicon.ico" },
-      { url: "/favicon-32.png?v=2", sizes: "32x32", type: "image/png" },
-      { url: "/favicon-16.png?v=2", sizes: "16x16", type: "image/png" },
-    ],
-    apple: [
-      { url: "/icon-180.png?v=2", sizes: "180x180", type: "image/png" },
-    ],
-  },
-  manifest: "/manifest.json",
-  alternates: {
-    canonical: siteUrl,
-  },
-  verification: {
-    google: "WhUGBjtZn51Svv7QS9FBRJDmzbsIE-ATUCmevsB90Cg",
-  },
-};
+const KEYWORDS = [
+  "Still Human Podcast",
+  "AI podcast",
+  "identity and AI",
+  "creativity podcast",
+  "what it means to be human",
+  "AI and humanity",
+  "Perkin Yang",
+  "Oshen Studio",
+  "future of work",
+  "AI storytelling",
+  "human in the age of AI",
+  "AI conversations",
+];
+
+export async function generateMetadata(): Promise<Metadata> {
+  const locale = await getLocale();
+  const m = await getMessages();
+  return {
+    metadataBase: new URL(siteUrl),
+    title: {
+      default: m.meta.homeTitle,
+      template: m.meta.titleTemplate,
+    },
+    description: m.meta.homeDescription,
+    keywords: KEYWORDS,
+    authors: [{ name: "Perkin", url: siteUrl }],
+    creator: "Perkin",
+    openGraph: {
+      type: "website",
+      locale: locale === "zh-TW" ? "zh_TW" : "en_US",
+      url: siteUrl,
+      siteName: m.meta.siteName,
+      title: m.meta.homeTitle,
+      description: m.meta.homeDescription,
+      images: [
+        {
+          url: `${siteUrl}/opengraph-image`,
+          width: 1200,
+          height: 630,
+          alt: m.meta.homeTitle,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: m.meta.homeTitle,
+      description: m.meta.homeDescription,
+      creator: "@oshen_studio",
+      images: [`${siteUrl}/opengraph-image`],
+    },
+    icons: {
+      icon: [
+        { url: "/favicon.ico" },
+        { url: "/favicon-32.png?v=2", sizes: "32x32", type: "image/png" },
+        { url: "/favicon-16.png?v=2", sizes: "16x16", type: "image/png" },
+      ],
+      apple: [
+        { url: "/icon-180.png?v=2", sizes: "180x180", type: "image/png" },
+      ],
+    },
+    manifest: "/manifest.json",
+    alternates: {
+      canonical: siteUrl,
+    },
+    verification: {
+      google: "WhUGBjtZn51Svv7QS9FBRJDmzbsIE-ATUCmevsB90Cg",
+    },
+  };
+}
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -126,13 +132,17 @@ const jsonLd = {
   ],
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const locale = await getLocale();
+  const messages = await getMessages();
+  const htmlLang = locale === "zh-TW" ? "zh-Hant-TW" : "en";
+
   return (
-    <html lang="en" className="dark">
+    <html lang={htmlLang} className="dark">
       <head>
         <link rel="alternate" type="application/rss+xml" title="Still Human — Blog" href="https://perkin0909.substack.com/feed" />
         <link rel="preconnect" href="https://img.youtube.com" />
@@ -146,7 +156,20 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased font-sans`}
       >
-        <MotionProvider>{children}</MotionProvider>
+        <div
+          className="fixed inset-0 pointer-events-none z-0"
+          aria-hidden
+          style={{
+            background:
+              "radial-gradient(ellipse 80% 60% at 50% 0%, rgba(41,151,255,0.05) 0%, transparent 60%), transparent",
+          }}
+        />
+        <div className="fixed inset-0 pointer-events-none z-0" aria-hidden>
+          <DiamondBackground />
+        </div>
+        <LocaleProvider locale={locale} messages={messages}>
+          <MotionProvider>{children}</MotionProvider>
+        </LocaleProvider>
       </body>
     </html>
   );

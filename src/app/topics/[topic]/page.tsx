@@ -1,6 +1,12 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { ArrowUpRight, Clock, Music2, Cpu, Rocket, User, FlaskConical, Brain, Telescope } from "lucide-react";
+import { TOPICS, getTopicBySlug, getTopicStyle } from "@/lib/topics";
+import { getAllEpisodes } from "@/lib/episodes";
+import { getPodcastFeedEpisodes, buildEpisodeImagesArray } from "@/lib/podcast-rss";
+import { youtubeThumb } from "@/lib/youtube";
+import { getMessages } from "@/i18n/server";
+import { localizeEpisodes, localizeTopic } from "@/i18n/localize";
 
 const TOPIC_ICONS: Record<string, React.ElementType> = {
   "ai-technology": Cpu,
@@ -10,10 +16,6 @@ const TOPIC_ICONS: Record<string, React.ElementType> = {
   "mental-resilience": Brain,
   "space-future": Telescope,
 };
-import { TOPICS, getTopicBySlug, getTopicStyle } from "@/lib/topics";
-import { getAllEpisodes } from "@/lib/episodes";
-import { getPodcastFeedEpisodes, buildEpisodeImagesArray } from "@/lib/podcast-rss";
-import { youtubeThumb } from "@/lib/youtube";
 
 type Props = { params: Promise<{ topic: string }> };
 
@@ -23,8 +25,10 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { topic: slug } = await params;
-  const topic = getTopicBySlug(slug);
-  if (!topic) return {};
+  const rawTopic = getTopicBySlug(slug);
+  if (!rawTopic) return {};
+  const m = await getMessages();
+  const topic = localizeTopic(rawTopic, m);
   return {
     title: `${topic.name} — Still Human Podcast`,
     description: topic.description,
@@ -33,33 +37,28 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function TopicPage({ params }: Props) {
   const { topic: slug } = await params;
-  const topic = getTopicBySlug(slug);
-  if (!topic) notFound();
+  const rawTopic = getTopicBySlug(slug);
+  if (!rawTopic) notFound();
 
-  const allEpisodes = getAllEpisodes();
+  const m = await getMessages();
+  const topic = localizeTopic(rawTopic, m);
+
+  const rawAllEpisodes = getAllEpisodes();
+  const allEpisodes = localizeEpisodes(rawAllEpisodes, m);
   const filtered = allEpisodes.filter((ep) =>
     (ep.topics ?? []).includes(slug)
   );
 
   const spotifyEpisodes = await getPodcastFeedEpisodes();
   const episodeImages = buildEpisodeImagesArray(
-    allEpisodes.map((ep) => ({ title: ep.feedTitle ?? ep.title, guest: ep.guest })),
+    rawAllEpisodes.map((ep) => ({ title: ep.feedTitle ?? ep.title, guest: ep.guest })),
     spotifyEpisodes
   );
 
   const style = getTopicStyle(slug);
 
   return (
-    <div className="relative min-h-screen bg-[#050507]">
-      <div
-        className="fixed inset-0 pointer-events-none z-0"
-        aria-hidden
-        style={{
-          background:
-            "radial-gradient(ellipse 80% 50% at 50% 0%, rgba(41,151,255,0.05) 0%, transparent 50%), #050507",
-        }}
-      />
-
+    <div className="relative min-h-screen">
       <div className="relative z-10 max-w-4xl mx-auto px-6 pt-32 pb-24">
         {/* Back nav */}
         <div className="flex items-center gap-3 mb-12">
@@ -67,14 +66,14 @@ export default async function TopicPage({ params }: Props) {
             href="/"
             className="text-[13px] font-medium text-white/30 hover:text-white/60 transition-colors"
           >
-            ← Still Human
+            {m.topicDetail.backHome}
           </a>
           <span className="text-white/15">·</span>
           <a
             href="/topics"
             className="text-[13px] font-medium text-white/30 hover:text-white/60 transition-colors"
           >
-            Topics
+            {m.topicDetail.topicsBreadcrumb}
           </a>
         </div>
 
@@ -84,7 +83,7 @@ export default async function TopicPage({ params }: Props) {
             {(() => { const Icon = TOPIC_ICONS[topic.slug] ?? Cpu; return <Icon className={`w-5 h-5 ${style.badge.split(" ")[0]}`} />; })()}
           </div>
           <span className={`text-[11px] font-medium px-3 py-1 rounded-full border ${style.badge} mb-4 inline-block`}>
-            {filtered.length} {filtered.length === 1 ? "episode" : "episodes"}
+            {filtered.length} {filtered.length === 1 ? m.topicDetail.episode : m.topicDetail.episodes}
           </span>
           <h1 className="text-4xl sm:text-6xl font-bold tracking-tight text-white mt-3 mb-5">
             {topic.name}

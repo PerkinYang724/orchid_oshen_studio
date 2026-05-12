@@ -1,76 +1,59 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { Music2, Youtube, ArrowUpRight } from "lucide-react";
+import { getMessages } from "@/i18n/server";
 
-export const metadata: Metadata = {
-  title: "About — Still Human Podcast",
-  description:
-    "Still Human is a podcast about AI, humanity, and the spaces between. Hosted by Perkin of Oshen Studio.",
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const m = await getMessages();
+  return {
+    title: m.meta.aboutTitle,
+    description: m.meta.aboutDescription,
+  };
+}
 
-export default function AboutPage() {
+export default async function AboutPage() {
+  const m = await getMessages();
   return (
-    <div className="relative min-h-screen bg-[#050507]">
-      <div
-        className="fixed inset-0 pointer-events-none z-0"
-        aria-hidden
-        style={{
-          background:
-            "radial-gradient(ellipse 80% 50% at 50% 0%, rgba(41,151,255,0.05) 0%, transparent 50%), #050507",
-        }}
-      />
-
+    <div className="relative min-h-screen">
       <div className="relative z-10 max-w-3xl mx-auto px-6 pt-32 pb-24">
         <a
           href="/"
           className="text-[13px] font-medium text-white/30 hover:text-white/60 transition-colors mb-12 inline-block"
         >
-          ← Still Human
+          {m.about.backToHome}
         </a>
 
         {/* Hero */}
         <div className="mb-20">
           <p className="text-[12px] font-medium tracking-[0.25em] uppercase text-white/20 mb-4">
-            About
+            {m.about.label}
           </p>
           <h1 className="text-4xl sm:text-6xl font-bold tracking-tight text-white mb-6">
             Still <span className="gradient-text">Human</span>
           </h1>
           <p className="text-white/50 text-xl leading-relaxed font-light">
-            A podcast for the people living on the edge of the AI era —
-            and everyone trying to figure out where they stand.
+            {m.about.tagline}
           </p>
         </div>
 
         {/* The show */}
         <div className="space-y-12">
           <div>
-            <h2 className="text-xl font-bold text-white mb-4">The Show</h2>
+            <h2 className="text-xl font-bold text-white mb-4">{m.about.showHeading}</h2>
             <div className="flex flex-col sm:flex-row gap-6 sm:gap-8">
               <div className="relative w-32 h-32 sm:w-40 sm:h-40 shrink-0 rounded-2xl overflow-hidden border border-white/[0.08]">
                 <Image
                   src="/icon-192.png"
-                  alt="Still Human Podcast cover art"
+                  alt={m.about.photoAltCover}
                   fill
                   sizes="(min-width: 640px) 160px, 128px"
                   className="object-cover"
                 />
               </div>
               <div className="space-y-4 text-white/40 text-base leading-relaxed">
-                <p>
-                  Still Human is a podcast exploring what it means to stay human as AI
-                  reshapes everything we know — work, creativity, identity, relationships,
-                  and the very definition of value.
-                </p>
-                <p>
-                  Each episode is a conversation with a builder, scientist, founder, or
-                  researcher who is navigating this moment from the inside. Not pundits.
-                  Not speculators. People actually doing the work.
-                </p>
-                <p>
-                  We talk about the technical, the personal, and everything between.
-                  We ask hard questions. We sit with uncomfortable answers.
-                </p>
+                <p>{m.about.showP1}</p>
+                <p>{m.about.showP2}</p>
+                <p>{m.about.showP3}</p>
               </div>
             </div>
           </div>
@@ -80,29 +63,20 @@ export default function AboutPage() {
 
           {/* The host */}
           <div>
-            <h2 className="text-xl font-bold text-white mb-4">The Host</h2>
+            <h2 className="text-xl font-bold text-white mb-4">{m.about.hostHeading}</h2>
             <div className="flex flex-col sm:flex-row gap-6 sm:gap-8">
               <div className="relative w-32 h-32 sm:w-40 sm:h-40 shrink-0 rounded-2xl overflow-hidden border border-white/[0.08]">
                 <Image
                   src="/profile-photo.jpg"
-                  alt="Perkin, host of Still Human"
+                  alt={m.about.photoAltHost}
                   fill
                   sizes="(min-width: 640px) 160px, 128px"
                   className="object-cover"
                 />
               </div>
               <div className="space-y-4 text-white/40 text-base leading-relaxed">
-                <p>
-                  Perkin is the founder of Oshen Studio — a studio at the intersection
-                  of AI, automation, and intentional storytelling. He builds AI-powered
-                  systems by day and tries to understand what they mean for us by night.
-                </p>
-                <p>
-                  Still Human started from a simple frustration: most conversations about
-                  AI were either naively optimistic or catastrophically pessimistic.
-                  Neither felt honest. The podcast is Perkin&apos;s attempt to find the
-                  more complicated, more human truth.
-                </p>
+                <p>{m.about.hostP1}</p>
+                <p>{m.about.hostP2}</p>
               </div>
             </div>
           </div>
@@ -112,7 +86,7 @@ export default function AboutPage() {
 
           {/* Listen */}
           <div>
-            <h2 className="text-xl font-bold text-white mb-6">Listen & Watch</h2>
+            <h2 className="text-xl font-bold text-white mb-6">{m.about.listenWatch}</h2>
             <div className="flex flex-wrap gap-3">
               <a
                 href="https://open.spotify.com/show/2JdDo1zeJ2fyO5wxxS7ikN"
@@ -149,9 +123,9 @@ export default function AboutPage() {
 
           {/* Contact */}
           <div>
-            <h2 className="text-xl font-bold text-white mb-4">Get in Touch</h2>
+            <h2 className="text-xl font-bold text-white mb-4">{m.about.contactHeading}</h2>
             <p className="text-white/40 text-base leading-relaxed mb-5">
-              Guest pitches, partnerships, or just want to say something honest?
+              {m.about.contactBody}
             </p>
             <a
               href="mailto:p@oshenstudio.com"

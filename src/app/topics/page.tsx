@@ -1,5 +1,9 @@
 import type { Metadata } from "next";
 import { ArrowUpRight, Cpu, Rocket, User, FlaskConical, Brain, Telescope } from "lucide-react";
+import { TOPICS, getTopicStyle } from "@/lib/topics";
+import { getAllEpisodes } from "@/lib/episodes";
+import { getMessages } from "@/i18n/server";
+import { localizeTopic } from "@/i18n/localize";
 
 const TOPIC_ICONS: Record<string, React.ElementType> = {
   "ai-technology": Cpu,
@@ -9,29 +13,21 @@ const TOPIC_ICONS: Record<string, React.ElementType> = {
   "mental-resilience": Brain,
   "space-future": Telescope,
 };
-import { TOPICS, getTopicStyle } from "@/lib/topics";
-import { getAllEpisodes } from "@/lib/episodes";
 
-export const metadata: Metadata = {
-  title: "Topics — Still Human Podcast",
-  description:
-    "Browse Still Human episodes by topic — AI & Technology, Entrepreneurship, Identity & Humanity, Science, Mental Resilience, and Space.",
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const m = await getMessages();
+  return {
+    title: m.meta.topicsTitle,
+    description: m.meta.topicsDescription,
+  };
+}
 
-export default function TopicsPage() {
+export default async function TopicsPage() {
+  const m = await getMessages();
   const episodes = getAllEpisodes();
 
   return (
-    <div className="relative min-h-screen bg-[#050507]">
-      <div
-        className="fixed inset-0 pointer-events-none z-0"
-        aria-hidden
-        style={{
-          background:
-            "radial-gradient(ellipse 80% 50% at 50% 0%, rgba(41,151,255,0.05) 0%, transparent 50%), #050507",
-        }}
-      />
-
+    <div className="relative min-h-screen">
       <div className="relative z-10 max-w-4xl mx-auto px-6 pt-32 pb-24">
         {/* Header */}
         <div className="mb-16">
@@ -39,23 +35,24 @@ export default function TopicsPage() {
             href="/"
             className="text-[13px] font-medium text-white/30 hover:text-white/60 transition-colors mb-8 inline-block"
           >
-            ← Still Human
+            {m.topicsPage.backHome}
           </a>
           <p className="text-[12px] font-medium tracking-[0.25em] uppercase text-white/20 mb-4">
-            Browse
+            {m.topicsPage.sectionLabel}
           </p>
           <h1 className="text-4xl sm:text-6xl font-bold tracking-tight text-white mb-5">
-            All <span className="gradient-text">Topics</span>
+            {m.topicsPage.headingPre}{" "}
+            <span className="gradient-text">{m.topicsPage.headingPost}</span>
           </h1>
           <p className="text-white/35 text-lg max-w-xl leading-relaxed">
-            Every conversation on Still Human touches on one or more of these themes.
-            Start with what pulls you most.
+            {m.topicsPage.intro}
           </p>
         </div>
 
         {/* Topics grid */}
         <div className="grid sm:grid-cols-2 gap-5">
-          {TOPICS.map((topic) => {
+          {TOPICS.map((rawTopic) => {
+            const topic = localizeTopic(rawTopic, m);
             const style = getTopicStyle(topic.slug);
             const count = episodes.filter((ep) =>
               (ep.topics ?? []).includes(topic.slug)
@@ -88,7 +85,7 @@ export default function TopicsPage() {
 
                   <div className="flex items-center justify-between">
                     <span className="text-[11px] text-white/20 font-mono">
-                      {count} {count === 1 ? "episode" : "episodes"}
+                      {count} {count === 1 ? m.topicsPage.episode : m.topicsPage.episodes}
                     </span>
                   </div>
 

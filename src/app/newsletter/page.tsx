@@ -1,41 +1,35 @@
 import type { Metadata } from "next";
 import { ArrowUpRight, Music2, Youtube } from "lucide-react";
+import { getMessages } from "@/i18n/server";
 
-export const metadata: Metadata = {
-  title: "Subscribe — Still Human Podcast",
-  description:
-    "Subscribe to Still Human — bi-weekly conversations about AI, humanity, and the spaces between. On Spotify, YouTube, and Substack.",
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const m = await getMessages();
+  return {
+    title: m.meta.newsletterTitle,
+    description: m.meta.newsletterDescription,
+  };
+}
 
-export default function NewsletterPage() {
+export default async function NewsletterPage() {
+  const m = await getMessages();
   return (
-    <div className="relative min-h-screen bg-[#050507] flex items-center">
-      <div
-        className="fixed inset-0 pointer-events-none z-0"
-        aria-hidden
-        style={{
-          background:
-            "radial-gradient(ellipse 80% 60% at 50% 40%, rgba(120,80,255,0.06) 0%, transparent 60%), #050507",
-        }}
-      />
-
+    <div className="relative min-h-screen flex items-center">
       <div className="relative z-10 max-w-2xl mx-auto px-6 py-32 text-center w-full">
         <a
           href="/"
           className="text-[13px] font-medium text-white/30 hover:text-white/60 transition-colors mb-12 inline-block"
         >
-          ← Still Human
+          {m.newsletterPage.backHome}
         </a>
 
         <p className="text-[12px] font-medium tracking-[0.3em] uppercase text-white/20 mb-5">
-          Subscribe
+          {m.newsletterPage.sectionLabel}
         </p>
         <h1 className="text-4xl sm:text-6xl font-bold tracking-tight text-white mb-6">
-          Stay <span className="gradient-text">Human</span>
+          {m.newsletterPage.headingPre} <span className="gradient-text">{m.newsletterPage.headingPost}</span>
         </h1>
         <p className="text-white/40 text-lg leading-relaxed mb-14 max-w-md mx-auto">
-          New episodes every two weeks. Show notes, key ideas, and links from
-          every conversation — in your inbox via Substack.
+          {m.newsletterPage.intro}
         </p>
 
         {/* Primary CTA */}
@@ -43,7 +37,7 @@ export default function NewsletterPage() {
           <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-bl from-purple-500/[0.08] to-transparent rounded-full blur-[80px] pointer-events-none" />
           <div className="relative z-10">
             <p className="text-sm font-medium text-white/40 mb-6">
-              Subscribe on Substack for show notes delivered to your inbox
+              {m.newsletterPage.substackCardBody}
             </p>
             <a
               href="https://substack.com/@perkin0909"
@@ -51,14 +45,14 @@ export default function NewsletterPage() {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-white text-black text-sm font-bold hover:bg-white/90 transition-colors duration-200"
             >
-              Subscribe on Substack
+              {m.newsletterPage.subscribeSubstack}
               <ArrowUpRight className="w-4 h-4" />
             </a>
           </div>
         </div>
 
         {/* Platform links */}
-        <p className="text-[13px] text-white/25 mb-5">Or follow on your platform</p>
+        <p className="text-[13px] text-white/25 mb-5">{m.newsletterPage.orFollow}</p>
         <div className="flex flex-wrap items-center justify-center gap-3">
           <a
             href="https://open.spotify.com/show/2JdDo1zeJ2fyO5wxxS7ikN"

@@ -4,32 +4,29 @@ import { ArrowUpRight, Clock, Music2 } from "lucide-react";
 import { getAllEpisodes } from "@/lib/episodes";
 import { getPodcastFeedEpisodes, buildEpisodeImagesArray } from "@/lib/podcast-rss";
 import { youtubeThumb } from "@/lib/youtube";
+import { getMessages } from "@/i18n/server";
+import { localizeEpisodes } from "@/i18n/localize";
 
-export const metadata: Metadata = {
-  title: "Episodes — Still Human Podcast",
-  description:
-    "Every episode of Still Human Podcast — honest conversations with builders, creators, and founders about AI, startups, and what it means to stay human.",
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const m = await getMessages();
+  return {
+    title: m.meta.episodesTitle,
+    description: m.meta.episodesDescription,
+  };
+}
 
 export default async function EpisodesPage() {
-  const episodes = getAllEpisodes();
+  const m = await getMessages();
+  const rawEpisodes = getAllEpisodes();
   const spotifyEpisodes = await getPodcastFeedEpisodes();
   const episodeImages = buildEpisodeImagesArray(
-    episodes.map((ep) => ({ title: ep.feedTitle ?? ep.title, guest: ep.guest })),
+    rawEpisodes.map((ep) => ({ title: ep.feedTitle ?? ep.title, guest: ep.guest })),
     spotifyEpisodes
   );
+  const episodes = localizeEpisodes(rawEpisodes, m);
 
   return (
-    <div className="relative min-h-screen bg-[#050507]">
-      <div
-        className="fixed inset-0 pointer-events-none z-0"
-        aria-hidden
-        style={{
-          background:
-            "radial-gradient(ellipse 80% 50% at 50% 0%, rgba(41,151,255,0.06) 0%, transparent 50%), #050507",
-        }}
-      />
-
+    <div className="relative min-h-screen">
       <div className="relative z-10 max-w-4xl mx-auto px-6 pt-32 pb-24">
         {/* Header */}
         <div className="mb-16">
@@ -37,17 +34,17 @@ export default async function EpisodesPage() {
             href="/"
             className="text-[13px] font-medium text-white/30 hover:text-white/60 transition-colors mb-8 inline-block"
           >
-            ← Still Human
+            {m.episodesPage.backHome}
           </a>
           <p className="text-[13px] font-medium tracking-[0.25em] uppercase text-white/25 mb-4">
-            Still Human Podcast
+            {m.episodesPage.sectionLabel}
           </p>
           <h1 className="text-4xl sm:text-6xl font-bold tracking-tight text-white mb-6">
-            All{" "}
-            <span className="gradient-text">Episodes</span>
+            {m.episodesPage.headingPre}{" "}
+            <span className="gradient-text">{m.episodesPage.headingPost}</span>
           </h1>
           <p className="text-white/40 text-lg max-w-xl leading-relaxed">
-            Honest conversations with builders, creators, and founders working with AI in real life.
+            {m.episodesPage.intro}
           </p>
         </div>
 
@@ -68,7 +65,7 @@ export default async function EpisodesPage() {
                 <div className="relative w-full aspect-square sm:w-48 sm:aspect-square flex-shrink-0">
                   <img
                     src={thumbnailSrc}
-                    alt={`Episode ${ep.number}: ${ep.guest}`}
+                    alt={`${m.episodeDetail.episodeNumberPrefix}${ep.number}${m.episodeDetail.episodeNumberSuffix} · ${ep.guest}`}
                     className="w-full h-full object-cover"
                   />
                   <span className="absolute top-2 left-2 text-[11px] font-mono text-white/90 bg-black/50 backdrop-blur-sm px-2 py-1 rounded">
@@ -113,7 +110,7 @@ export default async function EpisodesPage() {
         {/* CTA */}
         <div className="mt-16 pt-12 border-t border-white/[0.05] text-center">
           <p className="text-white/25 text-sm mb-4">
-            New episodes every two weeks
+            {m.episodesPage.newEveryTwoWeeks}
           </p>
           <a
             href="https://open.spotify.com/show/2JdDo1zeJ2fyO5wxxS7ikN"
@@ -122,7 +119,7 @@ export default async function EpisodesPage() {
             className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-sm font-medium text-white/70 hover:text-white border border-white/[0.1] hover:border-white/[0.25] hover:bg-white/[0.05] transition-all duration-300"
           >
             <Music2 className="w-4 h-4 text-[#1DB954]" />
-            Listen on Spotify
+            {m.episodesPage.listenSpotify}
             <ArrowUpRight className="w-3.5 h-3.5" />
           </a>
         </div>

@@ -5,6 +5,7 @@ import { useRef } from "react";
 import { ArrowUpRight, Cpu, Rocket, User, FlaskConical, Brain, Telescope } from "lucide-react";
 import type { Topic } from "@/lib/topics";
 import { getTopicStyle } from "@/lib/topics";
+import { useLocale } from "@/i18n/client";
 
 type Props = {
   topics: Topic[];
@@ -21,6 +22,7 @@ const TOPIC_ICONS: Record<string, React.ElementType> = {
 };
 
 export function TopicsPreview({ topics, episodeCounts }: Props) {
+  const { m: t } = useLocale();
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
@@ -37,10 +39,10 @@ export function TopicsPreview({ topics, episodeCounts }: Props) {
           className="mb-12"
         >
           <p className="text-[11px] font-medium tracking-[0.3em] uppercase text-white/20 mb-3">
-            Explore
+            {t.topicsPreview.label}
           </p>
           <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-white">
-            Browse by Topic
+            {t.topicsPreview.heading}
           </h2>
         </m.div>
 
@@ -75,7 +77,7 @@ export function TopicsPreview({ topics, episodeCounts }: Props) {
 
                   <div className="flex items-center justify-between">
                     <span className="text-[11px] text-white/20 font-mono">
-                      {count} {count === 1 ? "episode" : "episodes"}
+                      {count} {count === 1 ? t.topicsPreview.episode : t.topicsPreview.episodes}
                     </span>
                     <ArrowUpRight className="w-3.5 h-3.5 text-white/20 group-hover:text-white/50 transition-colors" />
                   </div>

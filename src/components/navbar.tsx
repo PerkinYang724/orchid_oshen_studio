@@ -3,16 +3,17 @@
 import { m, useScroll, useMotionValueEvent } from "framer-motion";
 import { useState, useRef } from "react";
 import { Menu, X } from "lucide-react";
-
-const navItems = [
-  { label: "Episodes", href: "/episode" },
-  { label: "Topics", href: "/topics" },
-  { label: "About", href: "/about" },
-];
+import { useLocale } from "@/i18n/client";
 
 const THROTTLE_MS = 120;
 
 export function Navbar() {
+  const { m: t } = useLocale();
+  const navItems = [
+    { label: t.nav.episodes, href: "/episode" },
+    { label: t.nav.topics, href: "/topics" },
+    { label: t.nav.about, href: "/about" },
+  ];
   const [hidden, setHidden] = useState(false);
   const [atTop, setAtTop] = useState(true);
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -53,7 +54,7 @@ export function Navbar() {
                 Still Human
               </span>
               <span className="text-[9px] text-white/25 tracking-wide">
-                by Oshen Studio
+                {t.nav.brandSubtitle}
               </span>
             </div>
           </a>
@@ -77,12 +78,12 @@ export function Navbar() {
               href="/newsletter"
               className="hidden sm:inline-flex items-center text-[13px] font-semibold px-4 py-2 rounded-full bg-white/[0.08] text-white/80 hover:bg-white/[0.14] hover:text-white border border-white/[0.08] transition-all duration-300"
             >
-              Subscribe
+              {t.nav.subscribe}
             </a>
             <button
               onClick={() => setMobileOpen((o) => !o)}
               className="sm:hidden w-9 h-9 flex items-center justify-center text-white/50 hover:text-white transition-colors"
-              aria-label="Toggle menu"
+              aria-label={t.nav.toggleMenu}
             >
               {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
@@ -109,7 +110,7 @@ export function Navbar() {
               onClick={() => setMobileOpen(false)}
               className="text-3xl font-bold text-white/60 hover:text-white py-4 transition-colors"
             >
-              Subscribe
+              {t.nav.subscribe}
             </a>
           </nav>
 

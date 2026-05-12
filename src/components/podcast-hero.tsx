@@ -3,8 +3,9 @@
 import { m } from "framer-motion";
 import { Youtube, Music2, Clock, ArrowRight } from "lucide-react";
 import type { EpisodeMeta } from "@/lib/episodes";
-import { getTopicStyle, getTopicBySlug } from "@/lib/topics";
+import { getTopicStyle } from "@/lib/topics";
 import { youtubeThumb } from "@/lib/youtube";
+import { useLocale } from "@/i18n/client";
 
 type Props = {
   episode: EpisodeMeta;
@@ -12,7 +13,8 @@ type Props = {
   spotifyEpisodeUrl?: string;
 };
 
-export function PodcastHero({ episode, spotifyImageUrl, spotifyEpisodeUrl }: Props) {
+export function PodcastHero({ episode, spotifyEpisodeUrl }: Props) {
+  const { m: t } = useLocale();
   const topics = (episode.topics ?? []).slice(0, 2);
 
   return (
@@ -32,13 +34,13 @@ export function PodcastHero({ episode, spotifyImageUrl, spotifyEpisodeUrl }: Pro
           className="mb-14 sm:mb-20"
         >
           <p className="text-[11px] font-medium tracking-[0.35em] uppercase text-white/20 mb-4">
-            A podcast by Oshen Studio
+            {t.hero.tagline}
           </p>
           <h1 className="text-6xl sm:text-8xl lg:text-[9rem] font-bold tracking-tight text-white leading-none">
             Still Human
           </h1>
           <p className="text-white/35 text-base sm:text-xl mt-5 max-w-lg font-light leading-relaxed">
-            What does it mean to stay human as AI reshapes everything we know?
+            {t.hero.subtitle}
           </p>
         </m.div>
 
@@ -49,7 +51,7 @@ export function PodcastHero({ episode, spotifyImageUrl, spotifyEpisodeUrl }: Pro
           transition={{ duration: 0.8, delay: 0.18, ease: [0.25, 0.4, 0, 1] }}
         >
           <p className="text-[11px] font-medium tracking-[0.3em] uppercase text-white/20 mb-6">
-            Latest Episode
+            {t.hero.latestEpisode}
           </p>
 
           <div className="grid md:grid-cols-[260px_1fr] lg:grid-cols-[300px_1fr] gap-8 lg:gap-16 items-start">
@@ -94,13 +96,13 @@ export function PodcastHero({ episode, spotifyImageUrl, spotifyEpisodeUrl }: Pro
                 )}
                 {topics.map((slug) => {
                   const style = getTopicStyle(slug);
-                  const topic = getTopicBySlug(slug);
+                  const topicName = t.topics[slug]?.name ?? slug;
                   return (
                     <span
                       key={slug}
                       className={`text-[11px] font-medium px-2.5 py-0.5 rounded-full border ${style.badge}`}
                     >
-                      {topic?.name ?? slug}
+                      {topicName}
                     </span>
                   );
                 })}
@@ -115,7 +117,7 @@ export function PodcastHero({ episode, spotifyImageUrl, spotifyEpisodeUrl }: Pro
                   className="inline-flex items-center gap-2.5 px-6 py-3 rounded-full bg-white text-black text-sm font-semibold hover:bg-white/90 transition-colors duration-200"
                 >
                   <Youtube className="w-4 h-4" />
-                  Watch on YouTube
+                  {t.hero.watchYoutube}
                 </a>
                 <a
                   href={spotifyEpisodeUrl ?? "https://open.spotify.com/show/2JdDo1zeJ2fyO5wxxS7ikN"}
@@ -130,7 +132,7 @@ export function PodcastHero({ episode, spotifyImageUrl, spotifyEpisodeUrl }: Pro
                   href={`/episode/${episode.slug}`}
                   className="inline-flex items-center gap-1.5 px-4 py-3 rounded-full text-sm font-medium text-white/35 hover:text-white/70 transition-colors"
                 >
-                  Show Notes
+                  {t.hero.showNotes}
                   <ArrowRight className="w-3.5 h-3.5" />
                 </a>
               </div>

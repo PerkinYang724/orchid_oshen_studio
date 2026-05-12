@@ -1,11 +1,14 @@
 import type { Metadata } from "next";
 import { ArrowUpRight } from "lucide-react";
+import { getLocale, getMessages } from "@/i18n/server";
 
-export const metadata: Metadata = {
-  title: "Blog — Writing on AI, Automation & the Future of Work",
-  description:
-    "Perkin writes about AI, automation, the future of work, and building a life you love. Essays and insights from Oshen Studio.",
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const m = await getMessages();
+  return {
+    title: m.meta.blogTitle,
+    description: m.meta.blogDescription,
+  };
+}
 
 interface Post {
   title: string;
@@ -14,7 +17,7 @@ interface Post {
   date: string;
 }
 
-async function getPosts(): Promise<Post[]> {
+async function getPosts(locale: string): Promise<Post[]> {
   try {
     const res = await fetch("https://perkin0909.substack.com/feed", {
       next: { revalidate: 3600 },
@@ -22,6 +25,7 @@ async function getPosts(): Promise<Post[]> {
     const xml = await res.text();
 
     const items = xml.match(/<item>([\s\S]*?)<\/item>/g) ?? [];
+    const dateLocale = locale === "zh-TW" ? "zh-TW" : "en-US";
 
     return items.map((item) => {
       const title =
@@ -38,7 +42,7 @@ async function getPosts(): Promise<Post[]> {
 
       const rawDate = item.match(/<pubDate>(.*?)<\/pubDate>/)?.[1]?.trim() ?? "";
       const date = rawDate
-        ? new Date(rawDate).toLocaleDateString("en-US", {
+        ? new Date(rawDate).toLocaleDateString(dateLocale, {
             year: "numeric",
             month: "long",
             day: "numeric",
@@ -53,20 +57,12 @@ async function getPosts(): Promise<Post[]> {
 }
 
 export default async function BlogPage() {
-  const posts = await getPosts();
+  const m = await getMessages();
+  const locale = await getLocale();
+  const posts = await getPosts(locale);
 
   return (
-    <div className="relative min-h-screen bg-[#050507]">
-      {/* Background glow */}
-      <div
-        className="fixed inset-0 pointer-events-none z-0"
-        aria-hidden
-        style={{
-          background:
-            "radial-gradient(ellipse 80% 50% at 50% 0%, rgba(41,151,255,0.06) 0%, transparent 50%), #050507",
-        }}
-      />
-
+    <div className="relative min-h-screen">
       <div className="relative z-10 max-w-4xl mx-auto px-6 pt-32 pb-24">
         {/* Header */}
         <div className="mb-16">
@@ -74,17 +70,17 @@ export default async function BlogPage() {
             href="/"
             className="text-[13px] font-medium text-white/30 hover:text-white/60 transition-colors mb-8 inline-block"
           >
-            ← Oshen Studio
+            {m.blogPage.backHome}
           </a>
           <p className="text-[13px] font-medium tracking-[0.25em] uppercase text-white/25 mb-4">
-            Writing
+            {m.blogPage.sectionLabel}
           </p>
           <h1 className="text-4xl sm:text-6xl font-bold tracking-tight text-white mb-6">
-            From the{" "}
-            <span className="gradient-text">Blog</span>
+            {m.blogPage.headingPre}{" "}
+            <span className="gradient-text">{m.blogPage.headingPost}</span>
           </h1>
           <p className="text-white/40 text-lg max-w-xl leading-relaxed">
-            Essays on AI, automation, and building a life you love. Published on{" "}
+            {m.blogPage.introPre}
             <a
               href="https://substack.com/@perkin0909"
               target="_blank"
@@ -93,16 +89,16 @@ export default async function BlogPage() {
             >
               Substack
             </a>
-            .
+            {m.blogPage.introPost}
           </p>
         </div>
 
         {/* Posts */}
         {posts.length === 0 ? (
-          <p className="text-white/30">No posts found.</p>
+          <p className="text-white/30">{m.blogPage.noPosts}</p>
         ) : (
           <div className="flex flex-col gap-4">
-            {posts.map((post, i) => (
+            {posts.map((post) => (
               <a
                 key={post.link}
                 href={post.link}
@@ -136,7 +132,7 @@ export default async function BlogPage() {
         {/* Substack CTA */}
         <div className="mt-12 pt-12 border-t border-white/[0.05] text-center">
           <p className="text-white/25 text-sm mb-4">
-            Subscribe to get new posts directly in your inbox
+            {m.blogPage.substackCta}
           </p>
           <a
             href="https://substack.com/@perkin0909"
@@ -144,7 +140,7 @@ export default async function BlogPage() {
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-sm font-medium text-white/70 hover:text-white border border-white/[0.1] hover:border-white/[0.25] hover:bg-white/[0.05] transition-all duration-300"
           >
-            Subscribe on Substack
+            {m.blogPage.subscribeSubstack}
             <ArrowUpRight className="w-3.5 h-3.5" />
           </a>
         </div>

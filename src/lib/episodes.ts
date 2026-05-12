@@ -2,8 +2,13 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 import { marked } from "marked";
+import type { Locale } from "@/i18n/types";
 
 const showNotesDir = path.join(process.cwd(), "show-notes");
+const localeDirs: Record<Locale, string> = {
+  en: showNotesDir,
+  "zh-TW": path.join(showNotesDir, "zh-TW"),
+};
 
 export type EpisodeMeta = {
   slug: string;
@@ -44,18 +49,28 @@ export function getAllEpisodes(): EpisodeMeta[] {
     .sort((a, b) => a.number.localeCompare(b.number));
 }
 
-export function getEpisodeBySlug(slug: string): Episode | null {
+export function getEpisodeBySlug(slug: string, locale: Locale = "en"): Episode | null {
   const files = fs
     .readdirSync(showNotesDir)
     .filter((f) => f.endsWith(".md") && !f.includes("TEMPLATE"));
 
   for (const filename of files) {
     const raw = fs.readFileSync(path.join(showNotesDir, filename), "utf8");
-    const { data, content } = matter(raw);
-    if (data.slug === slug) {
-      const contentHtml = marked(content) as string;
-      return { ...(data as EpisodeMeta), contentHtml };
+    const { data, content: enBody } = matter(raw);
+    if (data.slug !== slug) continue;
+
+    let body = enBody;
+    if (locale !== "en") {
+      const localePath = path.join(localeDirs[locale], filename);
+      if (fs.existsSync(localePath)) {
+        const localeRaw = fs.readFileSync(localePath, "utf8");
+        const { content: localeBody } = matter(localeRaw);
+        if (localeBody.trim()) body = localeBody;
+      }
     }
+
+    const contentHtml = marked(body) as string;
+    return { ...(data as EpisodeMeta), contentHtml };
   }
   return null;
 }
