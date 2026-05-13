@@ -18,7 +18,7 @@ export function PodcastHero({ episode, spotifyEpisodeUrl }: Props) {
   const topics = (episode.topics ?? []).slice(0, 2);
 
   return (
-    <section className="relative min-h-screen flex flex-col justify-center px-6 pt-24 pb-20 overflow-hidden">
+    <section className="relative min-h-screen flex flex-col justify-center px-5 sm:px-6 lg:px-8 pt-24 sm:pt-28 pb-16 sm:pb-20 overflow-hidden">
       {/* Ambient glows */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-1/3 left-1/4 w-[600px] h-[500px] bg-purple-500/[0.05] rounded-full blur-[160px]" />

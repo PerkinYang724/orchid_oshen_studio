@@ -27,7 +27,7 @@ export default async function EpisodesPage() {
 
   return (
     <div className="relative min-h-screen">
-      <div className="relative z-10 max-w-4xl mx-auto px-6 pt-32 pb-24">
+      <div className="relative z-10 max-w-4xl mx-auto px-5 sm:px-6 lg:px-8 pt-24 sm:pt-32 pb-20 sm:pb-24">
         {/* Header */}
         <div className="mb-16">
           <Link

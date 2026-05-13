@@ -8,7 +8,7 @@ export default async function NotFound() {
   return (
     <div className="relative min-h-screen text-white">
       <Navbar />
-      <main className="flex flex-col items-center justify-center px-6 py-40 text-center">
+      <main className="flex flex-col items-center justify-center px-5 sm:px-6 lg:px-8 py-28 sm:py-40 text-center">
         <p className="text-sm uppercase tracking-[0.25em] text-white/35 mb-6">
           {m.notFound.fourOhFour}
         </p>

@@ -161,7 +161,7 @@ export default async function EpisodePage({ params }: Props) {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
         />
       )}
-      <div className="relative z-10 max-w-3xl mx-auto px-6 pt-28 pb-24">
+      <div className="relative z-10 max-w-3xl mx-auto px-5 sm:px-6 lg:px-8 pt-24 sm:pt-28 pb-20 sm:pb-24">
         {/* Back nav */}
         <div className="flex items-center gap-4 mb-10">
           <Link
@@ -180,8 +180,8 @@ export default async function EpisodePage({ params }: Props) {
         </div>
 
         {/* Episode header: cover art + info */}
-        <div className="flex items-start gap-6 mb-6">
-          <div className="w-28 h-28 sm:w-36 sm:h-36 rounded-2xl overflow-hidden border border-white/[0.08] flex-shrink-0 shadow-2xl">
+        <div className="flex items-start gap-4 sm:gap-6 mb-6">
+          <div className="w-24 h-24 sm:w-32 sm:h-32 lg:w-36 lg:h-36 rounded-2xl overflow-hidden border border-white/[0.08] flex-shrink-0 shadow-2xl">
             <img
               src={coverImageUrl || youtubeThumb(episode.youtubeId)}
               alt={`${m.episodeDetail.episodeNumberPrefix}${episode.number}${m.episodeDetail.episodeNumberSuffix} — ${episode.guest}: ${episode.title} cover art`}

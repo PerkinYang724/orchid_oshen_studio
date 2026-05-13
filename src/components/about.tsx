@@ -33,7 +33,7 @@ export function About() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   return (
-    <section id="about" className="relative py-32 sm:py-40 px-6">
+    <section id="about" className="relative py-24 sm:py-32 lg:py-40 px-5 sm:px-6 lg:px-8">
       <div ref={ref} className="max-w-6xl mx-auto">
         <m.div
           initial={{ opacity: 0, y: 40 }}

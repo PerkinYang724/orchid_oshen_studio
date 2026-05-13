@@ -46,7 +46,7 @@ export function RecentEpisodes({ episodes, topics }: Props) {
   return (
     <section
       ref={ref}
-      className="relative py-20 sm:py-28 px-6 border-t border-white/[0.05]"
+      className="relative py-16 sm:py-24 lg:py-28 px-5 sm:px-6 lg:px-8 border-t border-white/[0.05]"
     >
       <div className="max-w-6xl mx-auto">
         {/* Header row */}

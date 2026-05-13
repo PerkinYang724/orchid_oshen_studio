@@ -12,7 +12,7 @@ export function Mission() {
   return (
     <section
       ref={ref}
-      className="relative py-24 sm:py-36 px-6 border-t border-white/[0.05]"
+      className="relative py-20 sm:py-28 lg:py-36 px-5 sm:px-6 lg:px-8 border-t border-white/[0.05]"
     >
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[300px] bg-blue-500/[0.04] rounded-full blur-[120px]" />

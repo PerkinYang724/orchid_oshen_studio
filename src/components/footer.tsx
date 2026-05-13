@@ -12,7 +12,7 @@ export function Footer() {
   ];
 
   return (
-    <footer className="relative border-t border-white/[0.05] py-12 px-6">
+    <footer className="relative border-t border-white/[0.05] py-10 sm:py-12 px-5 sm:px-6 lg:px-8">
       <div className="max-w-6xl mx-auto flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
         <div className="flex items-center gap-6">
           <span className="text-sm font-semibold text-white/40">

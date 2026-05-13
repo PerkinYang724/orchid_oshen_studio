@@ -42,7 +42,7 @@ export function Navbar() {
             : "glass-nav border-b border-white/[0.06]"
         }`}
       >
-        <div className="max-w-6xl mx-auto px-6 h-14 flex items-center justify-between">
+        <div className="max-w-6xl mx-auto px-5 sm:px-6 lg:px-8 h-14 flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2.5 group">
             <img
@@ -94,7 +94,7 @@ export function Navbar() {
 
       {/* Mobile menu overlay */}
       {mobileOpen && (
-        <div className="fixed inset-0 z-40 bg-[#050507]/97 backdrop-blur-xl flex flex-col pt-20 px-6 sm:hidden">
+        <div className="fixed inset-0 z-40 bg-[#050507]/97 backdrop-blur-xl flex flex-col pt-20 px-5 sm:hidden">
           <nav className="flex flex-col gap-1 mt-4">
             {navItems.map((item) => (
               <a

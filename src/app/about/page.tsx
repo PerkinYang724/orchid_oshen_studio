@@ -16,7 +16,7 @@ export default async function AboutPage() {
   const m = await getMessages();
   return (
     <div className="relative min-h-screen">
-      <div className="relative z-10 max-w-3xl mx-auto px-6 pt-32 pb-24">
+      <div className="relative z-10 max-w-3xl mx-auto px-5 sm:px-6 lg:px-8 pt-24 sm:pt-32 pb-20 sm:pb-24">
         <Link
           href="/"
           className="text-[13px] font-medium text-white/30 hover:text-white/60 transition-colors mb-12 inline-block"
