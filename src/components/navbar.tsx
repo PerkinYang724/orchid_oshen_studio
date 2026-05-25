@@ -6,6 +6,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { Search, ChevronDown } from "lucide-react";
 import { useLocale } from "@/i18n/client";
+import { FlagLanguageSwitcher } from "./flag-language-switcher";
 
 const THROTTLE_MS = 120;
 const ACCENT = "#E2603D";
@@ -149,16 +150,19 @@ export function Navbar({ light = false, topics = [], latestEpisodeSlug }: Props)
       >
         <div className="max-w-6xl mx-auto px-5 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
           <BoxedLogo light={light} />
-          <button
-            onClick={() => setOpen(true)}
-            className={`text-[15px] font-semibold tracking-tight transition-colors ${
-              light
-                ? "text-[#161310]/80 hover:text-black"
-                : "text-white/80 hover:text-white"
-            }`}
-          >
-            {t.nav.menu}
-          </button>
+          <div className="flex items-center gap-3 sm:gap-4">
+            <FlagLanguageSwitcher light={light} />
+            <button
+              onClick={() => setOpen(true)}
+              className={`text-[15px] font-semibold tracking-tight transition-colors ${
+                light
+                  ? "text-[#161310]/80 hover:text-black"
+                  : "text-white/80 hover:text-white"
+              }`}
+            >
+              {t.nav.menu}
+            </button>
+          </div>
         </div>
       </m.header>
 
