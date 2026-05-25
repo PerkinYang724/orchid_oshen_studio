@@ -30,9 +30,43 @@ export type EpisodeMeta = {
   feedTitle?: string;
 };
 
+export type Timestamp = {
+  time: string; // "HH:MM:SS" or "MM:SS" as written
+  seconds: number;
+  label: string;
+};
+
 export type Episode = EpisodeMeta & {
   contentHtml: string;
+  timestamps: Timestamp[];
 };
+
+function toSeconds(t: string): number {
+  const parts = t.split(":").map(Number);
+  if (parts.length === 3) return parts[0] * 3600 + parts[1] * 60 + parts[2];
+  if (parts.length === 2) return parts[0] * 60 + parts[1];
+  return 0;
+}
+
+/** Extract `- `[HH:MM:SS]` — Label` rows from the markdown's Timestamps section. */
+function parseTimestamps(md: string): Timestamp[] {
+  const section = md.match(/##\s*Timestamps([\s\S]*?)(?=\n##\s|\n*$)/i);
+  if (!section) return [];
+  const out: Timestamp[] = [];
+  for (const raw of section[1].split("\n")) {
+    const li = raw.match(/^\s*[-*]\s+(.*)$/);
+    if (!li) continue;
+    const item = li[1].replace(/`/g, "").trim();
+    const tm = item.match(/^\[?(\d{1,2}:\d{2}(?::\d{2})?)\]?\s*[—–-]\s*(.+)$/);
+    if (tm) out.push({ time: tm[1], seconds: toSeconds(tm[1]), label: tm[2].trim() });
+  }
+  return out;
+}
+
+/** Remove the Timestamps section (and its leading divider) so it isn't duplicated. */
+function stripTimestampsSection(md: string): string {
+  return md.replace(/\n*-{3,}\s*\n+##\s*Timestamps[\s\S]*?(?=\n##\s|\n*$)/i, "\n\n");
+}
 
 export function getAllEpisodes(): EpisodeMeta[] {
   const files = fs
@@ -69,8 +103,13 @@ export function getEpisodeBySlug(slug: string, locale: Locale = "en"): Episode |
       }
     }
 
-    const contentHtml = marked(body) as string;
-    return { ...(data as EpisodeMeta), contentHtml };
+    // Timestamps render in their own tab — parse from the shown body, falling
+    // back to the English body (the times are language-neutral).
+    let timestamps = parseTimestamps(body);
+    if (timestamps.length === 0 && body !== enBody) timestamps = parseTimestamps(enBody);
+
+    const contentHtml = marked(stripTimestampsSection(body)) as string;
+    return { ...(data as EpisodeMeta), contentHtml, timestamps };
   }
   return null;
 }

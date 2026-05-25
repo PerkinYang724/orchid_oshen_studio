@@ -1,12 +1,14 @@
 import { Navbar } from "../components/navbar";
 import { PodcastHero } from "../components/podcast-hero";
-import { RecentEpisodes } from "../components/recent-episodes";
-import { Mission } from "../components/mission";
-import { TopicsPreview } from "../components/topics-preview";
-import { NewsletterCta } from "../components/newsletter-cta";
-import { Footer } from "../components/footer";
+import { LatestEpisodes } from "../components/home/latest-episodes";
+import { FeaturedEpisodes } from "../components/home/featured-episodes";
+import { TopicsSearch } from "../components/home/topics-search";
+import { AboutHost } from "../components/home/about-host";
+import { ShowPromo } from "../components/home/show-promo";
+import { NewsletterSignup } from "../components/home/newsletter-signup";
+import { Testimonials } from "../components/home/testimonials";
+import { SiteFooter } from "../components/home/site-footer";
 import { getAllEpisodes } from "../lib/episodes";
-import { TOPICS } from "../lib/topics";
 import { getPodcastFeedEpisodes, buildEpisodeImagesArray } from "../lib/podcast-rss";
 import { getMessages } from "../i18n/server";
 import { localizeEpisodes, localizeTopics } from "../i18n/localize";
@@ -41,18 +43,26 @@ export default async function Home() {
 
   // All episodes, newest first
   const recentEpisodes = [...allEpisodes].reverse();
+  const latestThree = recentEpisodes.slice(0, 3);
+  const featuredThree = recentEpisodes.slice(3, 6);
 
-  // Episode counts per topic
-  const episodeCounts: Record<string, number> = {};
-  for (const topic of TOPICS) {
-    episodeCounts[topic.slug] = allEpisodes.filter((ep) =>
-      (ep.topics ?? []).includes(topic.slug)
-    ).length;
-  }
+  // Spotify cover per episode slug — used as a fallback when a YouTube
+  // thumbnail isn't available yet (new / unlisted upload).
+  const coverImages: Record<string, string> = {};
+  rawEpisodes.forEach((ep) => {
+    const idx = parseInt(ep.number, 10) - 1;
+    if (episodeImages[idx]) coverImages[ep.slug] = episodeImages[idx];
+  });
+
+  // Localized topic name per slug, for episode-card eyebrows.
+  const topicNames: Record<string, string> = Object.fromEntries(
+    localizedTopics.map((tp) => [tp.slug, tp.name])
+  );
+  const navTopics = localizedTopics.map((tp) => ({ slug: tp.slug, name: tp.name }));
 
   return (
-    <div className="relative min-h-screen">
-      <Navbar />
+    <div className="relative z-10 min-h-screen bg-[#FAF8F5]">
+      <Navbar light topics={navTopics} latestEpisodeSlug={latestEpisode.slug} />
 
       <PodcastHero
         episode={latestEpisode}
@@ -60,18 +70,29 @@ export default async function Home() {
         spotifyEpisodeUrl={latestSpotifyInfo?.spotifyUrl}
       />
 
-      <RecentEpisodes
-        episodes={recentEpisodes}
-        topics={localizedTopics}
+      <LatestEpisodes
+        episodes={latestThree}
+        covers={coverImages}
+        topicNames={topicNames}
       />
 
-      <Mission />
+      <FeaturedEpisodes
+        episodes={featuredThree}
+        covers={coverImages}
+        topicNames={topicNames}
+      />
 
-      <TopicsPreview topics={localizedTopics} episodeCounts={episodeCounts} />
+      <TopicsSearch topics={navTopics} />
 
-      <NewsletterCta />
+      <AboutHost />
 
-      <Footer />
+      <ShowPromo coverImage={latestImage} />
+
+      <NewsletterSignup />
+
+      <Testimonials />
+
+      <SiteFooter />
     </div>
   );
 }

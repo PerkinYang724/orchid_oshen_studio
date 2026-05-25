@@ -364,3 +364,113 @@ nextjs-portal {
   border-top: 1px solid rgba(255, 255, 255, 0.06);
   margin: 2.5rem 0;
 }
+
+/* ── Light prose (episode detail, cream theme) ── */
+.episode-prose-light h1 {
+  font-size: 1.875rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #161310;
+  margin-bottom: 1.25rem;
+  line-height: 1.25;
+}
+.episode-prose-light h2 {
+  font-size: 1.375rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: #161310;
+  margin-top: 2.75rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(22, 19, 16, 0.1);
+}
+.episode-prose-light h3 {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: #c9512f;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+.episode-prose-light p {
+  font-size: 1rem;
+  color: rgba(22, 19, 16, 0.7);
+  line-height: 1.75;
+  margin-bottom: 1rem;
+}
+.episode-prose-light a {
+  color: #c9512f;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.2s;
+}
+.episode-prose-light a:hover {
+  color: #e2603d;
+}
+.episode-prose-light ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 1rem;
+}
+.episode-prose-light ul li {
+  font-size: 1rem;
+  color: rgba(22, 19, 16, 0.7);
+  line-height: 1.7;
+  padding-left: 1.25rem;
+  position: relative;
+  margin-bottom: 0.5rem;
+}
+.episode-prose-light ul li::before {
+  content: "—";
+  position: absolute;
+  left: 0;
+  color: #e2603d;
+  font-size: 0.8rem;
+}
+.episode-prose-light ol {
+  list-style: decimal;
+  padding-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+.episode-prose-light ol li {
+  font-size: 1rem;
+  color: rgba(22, 19, 16, 0.7);
+  line-height: 1.7;
+  margin-bottom: 0.5rem;
+}
+.episode-prose-light blockquote {
+  border-left: 3px solid #e2603d;
+  padding: 0.75rem 0 0.75rem 1.25rem;
+  margin: 1.75rem 0;
+  background: rgba(226, 96, 61, 0.05);
+  border-radius: 0 0.5rem 0.5rem 0;
+}
+.episode-prose-light blockquote p {
+  font-size: 1.0625rem;
+  color: #161310;
+  font-style: italic;
+  line-height: 1.65;
+  margin-bottom: 0.25rem;
+}
+.episode-prose-light code {
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 0.8125rem;
+  color: #161310;
+  background: rgba(22, 19, 16, 0.06);
+  padding: 0.15em 0.45em;
+  border-radius: 0.3rem;
+}
+.episode-prose-light strong {
+  font-weight: 600;
+  color: #161310;
+}
+.episode-prose-light em {
+  color: rgba(22, 19, 16, 0.55);
+  font-style: italic;
+}
+.episode-prose-light hr {
+  border: none;
+  border-top: 1px solid rgba(22, 19, 16, 0.1);
+  margin: 2.5rem 0;
+}

@@ -1,13 +1,26 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { Youtube, ArrowUpRight, Clock, Music2 } from "lucide-react";
+import { Youtube, Music2, Podcast, Clock } from "lucide-react";
 import { getAllSlugs, getEpisodeBySlug, getAllEpisodes } from "@/lib/episodes";
 import { getPodcastFeedEpisodes, buildEpisodeImagesArray, buildEpisodePubDatesArray } from "@/lib/podcast-rss";
-import { getTopicStyle } from "@/lib/topics";
-import { youtubeThumb } from "@/lib/youtube";
+import { youtubeThumb, bestThumb } from "@/lib/youtube";
 import { getLocale, getMessages } from "@/i18n/server";
-import { localizeEpisode, localizeEpisodes, getLocalizedTopicBySlug } from "@/i18n/localize";
+import {
+  localizeEpisode,
+  localizeEpisodes,
+  localizeTopics,
+  getLocalizedTopicBySlug,
+} from "@/i18n/localize";
+import { Navbar } from "@/components/navbar";
+import { EpisodeTabs } from "@/components/home/episode-tabs";
+import { NewsletterBand } from "@/components/home/newsletter-band";
+import { RelatedEpisodes } from "@/components/home/related-episodes";
+import { SiteFooter } from "@/components/home/site-footer";
+
+const APPLE_PODCASTS = "https://podcasts.apple.com/us/podcast/still-human/id1795315498";
+const SHOW_SPOTIFY = "https://open.spotify.com/show/2JdDo1zeJ2fyO5wxxS7ikN";
+const ACCENT = "#E2603D";
 
 const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL || "https://oshenstudio.com";
@@ -39,6 +52,18 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   ]
     .map((k) => k.trim())
     .filter(Boolean);
+
+  // Prefer the YouTube frame, but fall back to the Spotify cover when the video
+  // has no thumbnail yet (new / unlisted upload) so social cards don't 404.
+  const rawAllEpisodes = getAllEpisodes();
+  const spotifyEpisodes = await getPodcastFeedEpisodes();
+  const episodeImages = buildEpisodeImagesArray(
+    rawAllEpisodes.map((ep) => ({ title: ep.feedTitle ?? ep.title, guest: ep.guest })),
+    spotifyEpisodes
+  );
+  const coverFallback = episodeImages[parseInt(rawEpisode.number, 10) - 1] ?? "";
+  const ogImage = await bestThumb(episode.youtubeId, coverFallback);
+
   return {
     title: episode.metaTitle,
     description: episode.metaDescription,
@@ -46,13 +71,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     openGraph: {
       title: episode.metaTitle,
       description: episode.metaDescription,
-      images: [youtubeThumb(episode.youtubeId)],
+      images: [ogImage],
     },
     twitter: {
       card: "summary_large_image",
       title: episode.metaTitle,
       description: episode.metaDescription,
-      images: [youtubeThumb(episode.youtubeId)],
+      images: [ogImage],
     },
   };
 }
@@ -145,8 +170,36 @@ export default async function EpisodePage({ params }: Props) {
     })),
   } : null;
 
+  const navTopics = localizeTopics(m).map((tp) => ({ slug: tp.slug, name: tp.name }));
+  const latestSlug = allEpisodes[allEpisodes.length - 1]?.slug;
+  const primaryTopicName = episodeTopics[0]
+    ? getLocalizedTopicBySlug(episodeTopics[0], m)?.name ?? null
+    : null;
+  const dateLabel = datePublished
+    ? new Date(datePublished).toLocaleDateString(
+        locale === "zh-TW" ? "zh-TW" : "en-US",
+        { year: "numeric", month: "long", day: "numeric" }
+      )
+    : "";
+
+  const relatedItems = related.map((ep) => {
+    const idx = parseInt(ep.number, 10) - 1;
+    return {
+      href: `/episode/${ep.slug}`,
+      cover: youtubeThumb(ep.youtubeId),
+      fallbackCover: episodeImages[idx],
+      epNumber: ep.number,
+      eyebrow: getLocalizedTopicBySlug(ep.topics?.[0] ?? "", m)?.name ?? m.nav.podcast,
+      title: ep.title,
+    };
+  });
+  const findMore =
+    episodeTopics[0] && primaryTopicName
+      ? { label: primaryTopicName, href: `/topics/${episodeTopics[0]}` }
+      : undefined;
+
   return (
-    <div className="relative min-h-screen">
+    <div className="relative z-10 min-h-screen bg-[#FAF8F5]">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(episodeSchema) }}
@@ -161,61 +214,55 @@ export default async function EpisodePage({ params }: Props) {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
         />
       )}
-      <div className="relative z-10 max-w-3xl mx-auto px-5 sm:px-6 lg:px-8 pt-24 sm:pt-28 pb-20 sm:pb-24">
-        {/* Back nav */}
-        <div className="flex items-center gap-4 mb-10">
-          <Link
-            href="/"
-            className="text-[13px] font-medium text-white/30 hover:text-white/60 transition-colors"
-          >
-            {m.episodeDetail.backHome}
+      <Navbar light topics={navTopics} latestEpisodeSlug={latestSlug} />
+
+      <article className="relative z-10 max-w-3xl mx-auto px-5 sm:px-6 lg:px-8 pt-24 sm:pt-28 pb-16 sm:pb-20">
+        {/* Breadcrumb */}
+        <div className="flex items-center gap-3 mb-8 text-[13px] font-medium">
+          <Link href="/" className="text-[#161310]/40 hover:text-[#161310] transition-colors">
+            Still Human
           </Link>
-          <span className="text-white/15">·</span>
+          <span className="text-[#161310]/20">·</span>
           <Link
             href="/episode"
-            className="text-[13px] font-medium text-white/30 hover:text-white/60 transition-colors"
+            className="text-[#161310]/40 hover:text-[#161310] transition-colors"
           >
             {m.episodeDetail.allEpisodes}
           </Link>
         </div>
 
-        {/* Episode header: cover art + info */}
-        <div className="flex items-start gap-4 sm:gap-6 mb-6">
-          <div className="w-24 h-24 sm:w-32 sm:h-32 lg:w-36 lg:h-36 rounded-2xl overflow-hidden border border-white/[0.08] flex-shrink-0 shadow-2xl">
-            <img
-              src={coverImageUrl || youtubeThumb(episode.youtubeId)}
-              alt={`${m.episodeDetail.episodeNumberPrefix}${episode.number}${m.episodeDetail.episodeNumberSuffix} — ${episode.guest}: ${episode.title} cover art`}
-              className="w-full h-full object-cover"
-              fetchPriority="high"
-              loading="eager"
-            />
-          </div>
-          <div className="flex-1 min-w-0 pt-1">
-            <p className="text-[11px] font-mono text-white/25 tracking-widest uppercase mb-3">
-              {m.episodeDetail.episodeNumberPrefix}{episode.number}{m.episodeDetail.episodeNumberSuffix} · {episode.guest}
-            </p>
-            <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-white leading-tight">
-              {episode.title}
-            </h1>
-          </div>
-        </div>
+        {/* Eyebrow: topic · date */}
+        <p
+          className="text-[12px] font-semibold tracking-[0.18em] uppercase mb-4"
+          style={{ color: ACCENT }}
+        >
+          {[primaryTopicName ?? m.nav.podcast, dateLabel].filter(Boolean).join("  ·  ")}
+        </p>
+
+        {/* Title */}
+        <h1 className="text-3xl sm:text-4xl lg:text-[2.75rem] font-bold tracking-tight text-[#161310] leading-[1.08] mb-5">
+          {episode.title}
+        </h1>
 
         {/* Meta + topic tags */}
-        <div className="flex flex-wrap items-center gap-3 mb-10">
+        <div className="flex flex-wrap items-center gap-2.5 mb-8">
+          <span className="text-[13px] font-medium text-[#161310]/45">{episode.guest}</span>
           {episode.duration !== "—" && (
-            <span className="inline-flex items-center gap-1.5 text-[12px] text-white/30 font-mono">
-              <Clock className="w-3.5 h-3.5" />
-              {episode.duration}
-            </span>
+            <>
+              <span className="text-[#161310]/20">·</span>
+              <span className="inline-flex items-center gap-1.5 text-[13px] text-[#161310]/45 font-mono">
+                <Clock className="w-3.5 h-3.5" />
+                {episode.duration}
+              </span>
+            </>
           )}
           {episodeTopics.map((topicSlug) => {
             const topic = getLocalizedTopicBySlug(topicSlug, m);
-            const style = getTopicStyle(topicSlug);
             return (
               <a
                 key={topicSlug}
                 href={`/topics/${topicSlug}`}
-                className={`text-[11px] font-medium px-2.5 py-1 rounded-full border transition-opacity hover:opacity-80 ${style.badge}`}
+                className="text-[12px] font-medium px-2.5 py-1 rounded-full border border-[#161310]/15 text-[#161310]/60 hover:border-[#161310]/30 hover:text-[#161310] transition-colors"
               >
                 {topic?.name ?? topicSlug}
               </a>
@@ -223,8 +270,8 @@ export default async function EpisodePage({ params }: Props) {
           })}
         </div>
 
-        {/* YouTube embed */}
-        <div className="relative w-full aspect-video rounded-2xl overflow-hidden border border-white/[0.08] mb-5">
+        {/* Video */}
+        <div className="relative w-full aspect-video rounded-2xl overflow-hidden border border-[#161310]/10 mb-5 bg-[#161310]">
           <iframe
             src={`https://www.youtube.com/embed/${episode.youtubeId}`}
             title={episode.title}
@@ -235,147 +282,54 @@ export default async function EpisodePage({ params }: Props) {
         </div>
 
         {/* Platform links */}
-        <div className="flex flex-wrap gap-3 mb-16">
+        <div className="flex flex-wrap gap-3 mb-12">
           <a
             href={`https://www.youtube.com/watch?v=${episode.youtubeId}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/[0.1] bg-white/[0.03] hover:bg-white/[0.07] text-white/60 hover:text-white text-[13px] font-medium transition-all duration-200"
+            className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-white border border-[#161310]/10 hover:border-[#161310]/25 text-[#161310]/75 hover:text-[#161310] text-[13px] font-semibold transition-all"
           >
             <Youtube className="w-4 h-4 text-[#FF0000]" />
             {m.episodeDetail.watchYoutube}
           </a>
           <a
-            href="https://open.spotify.com/show/2JdDo1zeJ2fyO5wxxS7ikN"
+            href={APPLE_PODCASTS}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/[0.1] bg-white/[0.03] hover:bg-white/[0.07] text-white/60 hover:text-white text-[13px] font-medium transition-all duration-200"
+            className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-white border border-[#161310]/10 hover:border-[#161310]/25 text-[#161310]/75 hover:text-[#161310] text-[13px] font-semibold transition-all"
+          >
+            <Podcast className="w-4 h-4 text-[#9933CC]" />
+            {m.episodeDetail.listenApple}
+          </a>
+          <a
+            href={SHOW_SPOTIFY}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-white border border-[#161310]/10 hover:border-[#161310]/25 text-[#161310]/75 hover:text-[#161310] text-[13px] font-semibold transition-all"
           >
             <Music2 className="w-4 h-4 text-[#1DB954]" />
             {m.episodeDetail.listenSpotify}
           </a>
         </div>
 
-        {/* Show notes */}
-        <article
-          className="episode-prose"
-          dangerouslySetInnerHTML={{ __html: episode.contentHtml }}
+        {/* Tabbed content: Show Notes / Timestamps / Transcript */}
+        <EpisodeTabs
+          contentHtml={episode.contentHtml}
+          timestamps={episode.timestamps}
+          youtubeId={episode.youtubeId}
+          faqs={faqs}
         />
 
-        {/* FAQ */}
-        {faqs && faqs.length > 0 && (
-          <section className="mt-16 pt-14 border-t border-white/[0.06]">
-            <p className="text-[11px] font-medium tracking-[0.3em] uppercase text-white/30 mb-3">
-              FAQ
-            </p>
-            <h3 className="text-2xl font-bold text-white mb-8">
-              {m.episodeDetail.faqHeading}
-            </h3>
-            <div className="flex flex-col gap-3">
-              {faqs.map((faq) => (
-                <details
-                  key={faq.q}
-                  className="group glass-card rounded-xl noise px-5 py-4 [&_summary::-webkit-details-marker]:hidden"
-                >
-                  <summary className="cursor-pointer list-none flex items-start justify-between gap-4">
-                    <h4 className="text-base font-semibold text-white/90 group-open:text-white transition-colors leading-snug">
-                      {faq.q}
-                    </h4>
-                    <span
-                      aria-hidden
-                      className="mt-1 text-white/40 group-open:rotate-45 transition-transform duration-200 text-lg leading-none flex-shrink-0"
-                    >
-                      +
-                    </span>
-                  </summary>
-                  <p className="mt-3 text-sm text-white/65 leading-relaxed">
-                    {faq.a}
-                  </p>
-                </details>
-              ))}
-            </div>
-          </section>
-        )}
+      </article>
 
-        {/* Related episodes */}
-        {related.length > 0 && (
-          <div className="mt-16 pt-14 border-t border-white/[0.06]">
-            <p className="text-[11px] font-medium tracking-[0.3em] uppercase text-white/20 mb-3">
-              {m.episodeDetail.keepListening}
-            </p>
-            <h3 className="text-2xl font-bold text-white mb-8">{m.episodeDetail.relatedEpisodes}</h3>
-            <div className="flex flex-col gap-4">
-              {related.map((ep) => {
-                const idx = parseInt(ep.number, 10) - 1;
-                const spotifyImg = episodeImages[idx];
-                const img = spotifyImg || youtubeThumb(ep.youtubeId, "mq");
-                return (
-                  <Link
-                    key={ep.slug}
-                    href={`/episode/${ep.slug}`}
-                    className="group glass-card rounded-xl overflow-hidden flex gap-0 noise"
-                  >
-                    <div className="relative w-20 sm:w-24 aspect-square flex-shrink-0">
-                      <img
-                        src={img}
-                        alt={`${m.episodeDetail.episodeNumberPrefix}${ep.number}${m.episodeDetail.episodeNumberSuffix} — ${ep.guest}: ${ep.title}`}
-                        className="absolute inset-0 w-full h-full object-cover"
-                        loading="lazy"
-                      />
-                      <span className="absolute top-1.5 left-1.5 text-[9px] font-mono text-white/90 bg-black/50 px-1.5 py-0.5 rounded">
-                        {ep.number}
-                      </span>
-                    </div>
-                    <div className="flex flex-1 items-center justify-between px-4 py-3 gap-3">
-                      <div className="min-w-0">
-                        <p className="text-[11px] text-white/30 mb-1">{ep.guest}</p>
-                        <p className="text-sm font-semibold text-white/75 group-hover:text-white transition-colors line-clamp-2 leading-snug">
-                          {ep.title}
-                        </p>
-                      </div>
-                      <ArrowUpRight className="w-4 h-4 text-white/25 group-hover:text-white/60 transition-colors flex-shrink-0" />
-                    </div>
-                  </Link>
-                );
-              })}
-            </div>
-          </div>
-        )}
+      {/* 1 — Newsletter band */}
+      <NewsletterBand />
 
-        {/* Newsletter CTA */}
-        <div className="mt-14 glass-strong rounded-3xl p-8 sm:p-10 noise relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-bl from-blue-500/[0.06] to-transparent rounded-full blur-[60px] pointer-events-none" />
-          <div className="relative z-10">
-            <p className="text-[11px] font-medium tracking-wider uppercase text-white/20 mb-3">
-              {m.episodeDetail.neverMiss}
-            </p>
-            <h3 className="text-xl sm:text-2xl font-bold text-white/90 mb-2">
-              {m.episodeDetail.stayHumanHeading}
-            </h3>
-            <p className="text-white/35 text-sm leading-relaxed mb-6 max-w-sm">
-              {m.episodeDetail.newsletterCopy}
-            </p>
-            <a
-              href="https://substack.com/@perkin0909"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-sm font-medium text-white/80 hover:text-white border border-white/[0.15] hover:border-white/[0.3] hover:bg-white/[0.05] transition-all duration-300"
-            >
-              {m.episodeDetail.subscribeSubstack}
-              <ArrowUpRight className="w-3.5 h-3.5" />
-            </a>
-          </div>
-        </div>
+      {/* 2 — Related episodes */}
+      <RelatedEpisodes items={relatedItems} findMore={findMore} />
 
-        <div className="mt-10 text-center">
-          <Link
-            href="/episode"
-            className="inline-flex items-center gap-2 text-[13px] text-white/30 hover:text-white/60 transition-colors"
-          >
-            {m.episodeDetail.viewAllEpisodes}
-          </Link>
-        </div>
-      </div>
+      {/* 3 — Footer */}
+      <SiteFooter />
     </div>
   );
 }

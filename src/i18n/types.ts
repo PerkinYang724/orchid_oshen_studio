@@ -43,6 +43,15 @@ export type Messages = {
     subscribe: string;
     toggleMenu: string;
     brandSubtitle: string;
+    menu: string;
+    close: string;
+    searchPlaceholder: string;
+    podcast: string;
+    latestEpisode: string;
+    allEpisodes: string;
+    browseByTopic: string;
+    newsletter: string;
+    listenEverywhere: string;
   };
   hero: {
     tagline: string;
@@ -50,6 +59,32 @@ export type Messages = {
     latestEpisode: string;
     watchYoutube: string;
     showNotes: string;
+    brandHeadline: string;
+    exploreEpisodes: string;
+    listenNow: string;
+    newsletterTitle: string;
+    newsletterSubtitle: string;
+    newsletterCta: string;
+    emailPlaceholder: string;
+  };
+  home: {
+    latestHeading: string;
+    featuredHeading: string;
+    exploreAllEpisodes: string;
+    searchHeading: string;
+    searchSubtitle: string;
+    exploreAllTopics: string;
+    aboutHeading: string;
+    aboutLearnMore: string;
+    promoEyebrow: string;
+    promoHeading: string;
+    promoBody: string;
+    promoCta: string;
+    newsletterHeading: string;
+    newsletterBody: string;
+    newsletterCta: string;
+    quotesHeading: string;
+    quotesSubtitle: string;
   };
   mission: {
     label: string;
@@ -84,6 +119,9 @@ export type Messages = {
     instagram: string;
     email: string;
     languageLabel: string;
+    explore: string;
+    listen: string;
+    connect: string;
   };
   about: {
     label: string;
@@ -111,6 +149,10 @@ export type Messages = {
     intro: string;
     newEveryTwoWeeks: string;
     listenSpotify: string;
+    sortLabel: string;
+    sortNewest: string;
+    sortOldest: string;
+    resultsFor: string;
   };
   episodeDetail: {
     backHome: string;
@@ -127,6 +169,15 @@ export type Messages = {
     newsletterCopy: string;
     subscribeSubstack: string;
     viewAllEpisodes: string;
+    showNotesTab: string;
+    timestampsTab: string;
+    transcriptTab: string;
+    listenApple: string;
+    timestampsNote: string;
+    transcriptHeading: string;
+    transcriptBody: string;
+    readTranscript: string;
+    findMoreAbout: string;
   };
   topicsPage: {
     backHome: string;
