@@ -434,5 +434,28 @@ export const en: Messages = {
         },
       ],
     },
+    "neil-gawande-building-ai-human-connection": {
+      title:
+        "Building AI for Human Connection: Neil Gawande on Belonging, Perception, and Five Companies by 20",
+      description:
+        "Neil Gawande started five companies by 20 — from a GPS tracker for seniors to The Block, a personal AI assistant he calls 'ClaudeBot for regular people.' A Still Human conversation about building AI for human connection, belonging as a computational problem, being a third culture kid who belongs nowhere, and what we quietly lose by building too fast.",
+      metaTitle: "Building AI for Human Connection: Neil Gawande — Still Human Ep. 09",
+      metaDescription:
+        "Neil Gawande started five companies by 20. He talks AI for human connection, belonging as a computational problem, and what we lose building too fast.",
+      faqs: [
+        {
+          q: "What does 'belonging as a computational problem' mean?",
+          a: "Neil reframes belonging not as a feeling but as a problem a system could, in principle, model and even solve. As a third culture kid who belongs to every place and none of them, that lens shapes what he builds and why.",
+        },
+        {
+          q: "What is The Block?",
+          a: "Neil's personal AI assistant, which he describes as 'ClaudeBot for regular people.' It aims not to replace human connection but to scaffold it — raising the question of whether software can genuinely create belonging or only simulate the conditions for it.",
+        },
+        {
+          q: "What does 'every system eventually develops cancer' mean?",
+          a: "A recurring metaphor in the conversation: every system — biological, economic, or technological — eventually develops cancer, where growth that can't stop becomes the thing that kills the host. Neil uses it to examine the companies we build and the technologies we keep scaling.",
+        },
+      ],
+    },
   },
 };

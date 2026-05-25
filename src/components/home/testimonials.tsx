@@ -6,12 +6,14 @@ import { useLocale } from "@/i18n/client";
 
 const ACCENT = "#E2603D";
 
-// Real, attributable lines pulled from the show notes. Add more as episodes
-// get their quote sections filled in.
+// Real, attributable lines pulled from the show notes (EN + zh-TW). Add more as
+// episodes get their quote sections filled in.
 const MOMENTS = [
   {
     quote:
       "I testified under oath that those Solar Roof tiles were never connected to the grid. That's the moment you find out what you're actually made of.",
+    quoteZh:
+      "我在宣誓下作證：那些太陽能屋頂瓦片從未真正連上電網。那一刻，你會發現自己到底是用什麼材質做成的。",
     guest: "Toby Corey",
     ep: "07",
     slug: "zentrepreneurship-toby-corey-brandcapsule-ai-trust",
@@ -19,6 +21,8 @@ const MOMENTS = [
   {
     quote:
       "You can hold consciousness and execution at the same time. Most people think you have to choose. You don't.",
+    quoteZh:
+      "你可以同時握住「覺察」與「執行」。多數人以為你必須二選一。其實不必。",
     guest: "Toby Corey",
     ep: "07",
     slug: "zentrepreneurship-toby-corey-brandcapsule-ai-trust",
@@ -26,6 +30,7 @@ const MOMENTS = [
   {
     quote:
       "AI's biggest blind spot isn't intelligence — it's trust. And trust is a human problem.",
+    quoteZh: "AI 最大的盲點不是智慧，而是信任。而信任，是一個人類問題。",
     guest: "Toby Corey",
     ep: "07",
     slug: "zentrepreneurship-toby-corey-brandcapsule-ai-trust",
@@ -33,7 +38,7 @@ const MOMENTS = [
 ];
 
 export function Testimonials() {
-  const { m } = useLocale();
+  const { m, locale } = useLocale();
 
   return (
     <section className="bg-[#FAF8F5] px-4 sm:px-6 lg:px-8 py-20 sm:py-28 border-t border-[#161310]/[0.06]">
@@ -66,7 +71,7 @@ export function Testimonials() {
                 strokeWidth={0}
               />
               <p className="text-[#161310] text-lg sm:text-xl leading-relaxed font-medium mb-5">
-                {mo.quote}
+                {locale === "zh-TW" ? mo.quoteZh : mo.quote}
               </p>
               <div className="flex items-center gap-2 text-[13px]">
                 <span className="font-semibold text-[#161310]">{mo.guest}</span>
@@ -77,6 +82,7 @@ export function Testimonials() {
                 >
                   {m.episodeDetail.episodeNumberPrefix}
                   {mo.ep}
+                  {m.episodeDetail.episodeNumberSuffix}
                 </span>
               </div>
             </Link>
