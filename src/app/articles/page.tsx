@@ -31,8 +31,13 @@ export default async function ArticlesPage() {
     name: tp.name,
   }));
 
-  // Every article available from the Substack feed.
-  const posts = await getSubstackPosts();
+  // Every written article. Podcast episodes live in the site's podcast section,
+  // so exclude audio cross-posts and anything tagged "still human podcast".
+  const posts = (await getSubstackPosts()).filter(
+    (p) =>
+      p.type !== "podcast" &&
+      !p.tags.some((t) => t.slug === "still-human-podcast")
+  );
 
   return (
     <div className="relative z-10 min-h-screen bg-[#FAF8F5]">

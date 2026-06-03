@@ -27,8 +27,14 @@ export default async function NewsletterPage() {
     name: tp.name,
   }));
 
-  // Every article, fetched directly from the Substack feed, for the rolling preview.
-  const posts = await getSubstackPosts();
+  // Written articles only for the rolling preview — podcast episodes already
+  // live in the site's dedicated podcast section. Exclude both audio cross-posts
+  // and anything tagged "still human podcast".
+  const posts = (await getSubstackPosts()).filter(
+    (p) =>
+      p.type !== "podcast" &&
+      !p.tags.some((t) => t.slug === "still-human-podcast")
+  );
 
   return (
     <div className="relative z-10 min-h-screen bg-[#FAF8F5]">
