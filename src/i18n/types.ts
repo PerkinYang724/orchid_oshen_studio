@@ -203,6 +203,28 @@ export type Messages = {
     substackCardBody: string;
     subscribeSubstack: string;
     orFollow: string;
+    previewHeading: string;
+    previewSubtitle: string;
+    previewEmpty: string;
+    previewViewAll: string;
+    previewReadPost: string;
+  };
+  articlesPage: {
+    sectionLabel: string;
+    headingPre: string;
+    headingPost: string;
+    intro: string;
+    searchPlaceholder: string;
+    filterAll: string;
+    filterEssays: string;
+    filterPodcasts: string;
+    empty: string;
+    countSuffix: string;
+    typePodcast: string;
+    typeEssay: string;
+    readOnSubstack: string;
+    ctaBody: string;
+    ctaButton: string;
   };
   blogPage: {
     backHome: string;

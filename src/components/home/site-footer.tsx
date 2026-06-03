@@ -25,6 +25,7 @@ export function SiteFooter() {
         { label: m.nav.topics, href: "/topics" },
         { label: m.nav.about, href: "/about" },
         { label: m.nav.newsletter, href: "/newsletter" },
+        { label: m.articlesPage.sectionLabel, href: "/articles" },
       ],
     },
     {
