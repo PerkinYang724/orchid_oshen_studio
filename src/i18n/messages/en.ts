@@ -480,5 +480,28 @@ export const en: Messages = {
         },
       ],
     },
+    "will-ai-replace-doctors-ewen-huang-causal-ai-medicine": {
+      title:
+        "Will AI Replace Doctors? Ewen Huang on Causal AI, CRISPR, and What Medicine Can't Automate",
+      description:
+        "Ewen Shengyao Huang is an M.D. candidate at National Taiwan University who has analyzed autoimmune data from 97 million COVID patients and worked on CRISPR gene delivery for inherited blindness at Columbia. A Still Human conversation about using AI as a memory palace rather than a shortcut, what causal AI means for medical research, and the bedside moment no model could have taught him.",
+      metaTitle: "Will AI Replace Doctors? Ewen Huang on Causal AI — Still Human Ep. 10",
+      metaDescription:
+        "A med student who studied 97M COVID patients on using AI to learn medicine, what causal AI changes in research, and why doctors won't be replaced.",
+      faqs: [
+        {
+          q: "Will AI replace doctors?",
+          a: "Ewen's answer is no — not because models are weak, but because the hardest part of the job isn't retrieval. He separates the parts of medicine AI will genuinely take over from the part that stays human: sitting with someone at the worst moment of their life and understanding what they actually mean, not what they said.",
+        },
+        {
+          q: "What does 'causal AI' mean in medical research?",
+          a: "Most AI in medicine answers predictive questions — what tends to happen next. Causal AI, via approaches like targeted learning, tries to answer why: what actually causes an outcome. Ewen argues that shift is what determines whether AI can meaningfully contribute to drug research rather than just pattern-matching.",
+        },
+        {
+          q: "How does Ewen use AI to study medicine?",
+          a: "As a memory palace, not a shortcut. He uses AI to build durable structure for recall and understanding rather than to outsource it — a distinction that matters more in medicine than almost anywhere else, where the cost of a hollow answer is measured in patients.",
+        },
+      ],
+    },
   },
 };
