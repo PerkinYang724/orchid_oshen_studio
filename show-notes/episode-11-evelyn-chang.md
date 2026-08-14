@@ -1,70 +1,78 @@
 ---
 slug: "ai-medical-robotics-evelyn-chang-noah-medical"
 number: "11"
-title: "Your Lung Map Is Five Days Old: Evelyn Chang on AI in Medical Robotics, Robotic Bronchoscopy, and Clinical Engineering"
+title: "Your Lung Map Is a Week Old: Evelyn Chang on AI in Medical Robotics, Robotic Bronchoscopy, and Clinical Engineering"
 guest: "Evelyn Chang"
 duration: "40 min"
 youtubeId: "C4pxqtYIC9M"
-description: "Evelyn Chang is a senior clinical engineer at Noah Medical, where she works on the Galaxy system — a robotic bronchoscopy platform built to reach nodules at the outer edge of the lung. A Still Human conversation about why peripheral lung biopsy is so hard without robotics, how real-time 3D reconstruction replaces a scan that's already days out of date, and why the human check-in before and after a procedure still carries so much weight."
+description: "Evelyn Chang is a senior clinical engineer at Noah Medical, working on the Galaxy system — a robotic platform built to navigate the outermost edges of the human lung and biopsy nodules early. A Still Human conversation about what manual bronchoscopy loses, how a live fluoroscopy sweep gets reconstructed into 3D mid-procedure, where a clinician still has to confirm what the model sees, and why patient trust before and after may matter more than the procedure itself."
 metaTitle: "AI in Medical Robotics: Evelyn Chang on Robotic Bronchoscopy — Still Human Ep. 11"
-metaDescription: "A Noah Medical clinical engineer on why peripheral lung biopsy needs robotics, how real-time 3D reconstruction replaces a week-old CT scan, and where AI still needs a human to confirm it."
+metaDescription: "A Noah Medical clinical engineer on why manual bronchoscopy loses real-time position, how live fluoroscopy becomes a 3D map, and where AI still needs a human to confirm."
 primaryKeyword: "AI in medical robotics"
-secondaryKeywords: "robotic bronchoscopy, Noah Medical Galaxy system, clinical engineering, human in the loop AI, peripheral lung biopsy, real-time 3D reconstruction, medical device design, systems thinking, engineering career paths, Evelyn Chang"
+secondaryKeywords: "robotic bronchoscopy, Noah Medical Galaxy system, clinical engineering, human in the loop AI, image recognition in healthcare, peripheral lung biopsy, fluoroscopy 3D reconstruction, medical device design, systems thinking, Evelyn Chang"
 topics: ["ai-technology", "science-engineering", "identity-humanity"]
 feedTitle: "AI in Medical Robotics with Evelyn Chang, Noah Medical"
 publishDate: ""
 ---
 
-# Your Lung Map Is Five Days Old: Evelyn Chang on AI in Medical Robotics, Robotic Bronchoscopy, and Clinical Engineering
+# Your Lung Map Is a Week Old: Evelyn Chang on AI in Medical Robotics, Robotic Bronchoscopy, and Clinical Engineering
 
-The doctor navigating your lung is comparing a live scope to a CT scan taken five days ago. In the meantime the body has shifted. The breathing hasn't stopped. Closing that gap — between the map and the territory, in real time — is what AI in medical robotics is actually for.
+A doctor guiding a scope into your lung is often working from a CT scan taken a week earlier. Your body has moved since then. Your breathing moves it again during the procedure. That gap — between the map and the body it claims to describe — is the entire problem AI in medical robotics is trying to close.
 
-Evelyn Chang is a senior clinical engineer at Noah Medical, where she works on the Galaxy system, a robotic bronchoscopy platform designed to reach nodules at the outer edge of the lung. She arrived there by an unusually wide route: fieldwork in Yellowstone, data science at NASA, operations work in Singapore, and a degree in operations research. In this episode of Still Human, the biweekly podcast from Oshen Studio, Evelyn and host Perkin Yang talk about what it takes to steer a robot through a moving organ — and which parts of that job no model should be handed.
+Evelyn Chang is a senior clinical engineer at Noah Medical, working on the Galaxy system, a robotic platform built to navigate the outermost edges of the human lung and biopsy nodules early. Her path there ran through Yellowstone fieldwork, a NASA data science role, operations and logistics work in Singapore, and an IEEE conference stage at seventeen. In this episode of Still Human, the biweekly podcast from Oshen Studio, Evelyn and host Perkin Yang talk about what robotics actually fixes, where AI is already doing real work in medicine, and what stays human when the tool gets better than the hand.
 
 ---
 
 ## Key Themes Covered in This Episode
 
-- Why peripheral lung biopsy is so hard without robotics
-- How real-time 3D reconstruction replaces a scan that is already days old
-- Where image recognition already helps clinicians, and where it still needs human confirmation
-- What clinical engineering actually is, and why the field is growing
-- Why the human check-in before and after a procedure carries so much weight
-- Systems thinking as a through-line across Yellowstone, NASA, Singapore, and medical devices
+- Why manual bronchoscopy loses precision and real-time position, and what robotics actually fixes
+- How a live fluoroscopy sweep gets reconstructed into 3D to confirm where the scope is *right now*
+- Where AI is already doing real work in medicine, and where a clinician still has to confirm
+- What a clinical engineer actually does on a Tuesday — translating physician needs into design inputs
+- Why patient trust before and after the procedure may matter more than the procedure itself
+- Systems thinking as a career, and why medical devices adopt new technology slowly
 
 ---
 
-## Why the Outer Edge of the Lung Is the Hard Part
+## Systems Thinking, and a Career Built Sideways
 
-Nodules at the lung's periphery sit at the end of narrowing, branching airways. Getting a scope out there — accurately, repeatably, without going through the chest wall — is the problem robotic bronchoscopy exists to solve. Evelyn explains why this specific reach is the bottleneck in diagnosis, and what changes when a platform can navigate it.
+Evelyn's route into medical devices doesn't read like a straight line, and that's the point. Yellowstone fieldwork taught hands-on problem solving. A NASA role during COVID-19 put her in front of massive satellite datasets. Operations and logistics work in Singapore added a different kind of scale. She presented research at an IEEE conference at seventeen. What connects them is a habit of looking at the whole system rather than the component in front of her — which turns out to be most of the job in medtech, where cross-functional teams are the unit of work.
 
-## The Five-Day-Old Scan
+## The Galaxy System and the Problem With the Lung
 
-Standard practice plans a procedure against a CT scan captured days earlier. But a lung is not a static object: the patient breathes, tissue shifts, and the map drifts from the body it describes. Real-time 3D reconstruction closes that gap by rebuilding the picture during the procedure rather than trusting a stale one.
+Nodules at the periphery of the lung sit at the end of narrowing, branching airways. Reaching them early is where diagnosis gets hard, and it's the specific problem Noah Medical's Galaxy system is built for. Evelyn walks through why the anatomy makes this difficult and what a robotic platform changes about the reach.
 
-## Where Image Recognition Helps — and Where It Waits
+## Manual Scope vs. Robotic Precision
 
-Evelyn draws a working line between the two. Image recognition already does real work in the loop, surfacing and flagging what a clinician should look at. What it doesn't do is decide alone. She describes where the technology has earned autonomy and where a human confirmation step is still the right design, not a limitation to engineer away.
+The comparison Evelyn draws is concrete: a manual scope loses precision and, more importantly, loses real-time position — the operator is inferring where they are from a picture that predates the procedure. Robotics restores that. A live fluoroscopy sweep is reconstructed into 3D during the case, confirming where the scope actually is at that moment rather than where a week-old scan suggests it should be.
 
-## What Clinical Engineering Actually Is
+## Where AI Works, and Where a Human Confirms
 
-It's one of the less legible jobs in medtech: part engineering, part clinical fluency, part translation between the operating room and the people building the device. Evelyn describes the day-to-day of the role, why it's growing, and what draws engineers toward it.
+Evelyn is precise about the boundary. Image recognition is already doing real work inside the loop — surfacing and flagging what matters. What it does not do is close the loop alone. A clinician still confirms. She frames that not as a gap waiting to be engineered away but as the correct design for the stakes involved, and part of why medical devices adopt new technology slowly.
+
+## A Day in the Life of a Clinical Engineer
+
+It's one of the less legible roles in medtech. Evelyn describes the actual Tuesday: sitting between physicians and engineers, translating clinical needs into design inputs that a team can build against. She makes the case for why clinical engineering is crucial to medical device development, and why the field is growing.
+
+## Designing for Human Perception
+
+The last stretch of the conversation turns to interface design — how 3D imaging gets presented so a human can actually read it under pressure. Visual feedback is not a cosmetic layer on top of the robotics; it's where the system either meets human perception or fails to.
 
 ## The Part That Isn't Technical
 
-Before a procedure and after it, someone talks to the patient. Evelyn is direct about how much that carries — and why a team optimizing a robotic platform should still treat that conversation as part of the system it's building.
+Before a procedure and after it, someone talks to the patient. Evelyn suggests that trust may matter more than the procedure itself — and that a team optimizing a robotic platform should treat that conversation as part of the system it's building, not as something outside it.
 
 ---
 
 ## Show Notes
 
-Evelyn Chang is a senior clinical engineer at Noah Medical working on the Galaxy system, a robotic bronchoscopy platform designed to reach nodules at the periphery of the lung. Her path into medical robotics ran through Yellowstone fieldwork, data science at NASA, operations work in Singapore, and an operations research degree — a background that shows up in how she reasons about the whole system around a device rather than the device alone. In this conversation she explains the clinical problem robotics is solving, where AI genuinely helps inside that loop, and which human steps should stay human.
+Evelyn Chang is a senior clinical engineer at Noah Medical working on the Galaxy system, a robotic platform designed to navigate the outermost edges of the lung and biopsy nodules early. Her background spans Yellowstone fieldwork, data science at NASA, operations and logistics work in Singapore, and an operations research degree — a range that shows up in how she reasons about the whole system around a device rather than the device alone. In this conversation she explains what robotics fixes about bronchoscopy, where AI has earned a role inside the procedure, and which steps should stay human.
 
 ### Tools & Resources
 
 - **Noah Medical Galaxy System** — The robotic bronchoscopy platform Evelyn works on — [noahmed.com](https://www.noahmed.com)
-- **Real-time 3D reconstruction** — The approach that replaces a days-old CT scan with a live picture during the procedure
-- **Human-in-the-loop AI** — The design pattern behind image recognition that assists rather than decides
+- **Live fluoroscopy → 3D reconstruction** — The approach that replaces a week-old CT scan with a real-time picture of where the scope actually is
+- **Human-in-the-loop decision making** — The design pattern behind image recognition that assists rather than decides
 
 ### Related Still Human Episodes
 
@@ -79,7 +87,7 @@ Builders working where technology meets the human body:
 
 ## About Evelyn Chang
 
-Evelyn Chang is a senior clinical engineer at Noah Medical, where she works on the Galaxy robotic bronchoscopy system. Before medical devices she did fieldwork in Yellowstone, data science at NASA, and operations work in Singapore, and she holds a degree in operations research. That range is the point: she treats a surgical robot as one component inside a larger system that includes the clinician, the patient, and everything that happens in the room before the procedure starts.
+Evelyn Chang is a senior clinical engineer at Noah Medical, where she works on the Galaxy robotic bronchoscopy system. Before medical devices she did fieldwork in Yellowstone, worked with large satellite datasets as a data scientist at NASA, and did operations and logistics work in Singapore; she presented research at an IEEE conference at seventeen. That range is the point: she treats a surgical robot as one component inside a larger system that includes the clinician, the patient, and everything that happens in the room before the procedure starts.
 
 ---
 
@@ -104,3 +112,25 @@ Still Human is a biweekly podcast by [Oshen Studio](https://oshenstudio.com), ho
 - Listen everywhere: Search **Still Human Podcast** on Spotify, Apple Podcasts, or wherever you listen
 
 New episodes drop every two weeks. Subscribe so you never miss a conversation.
+
+---
+
+## Timestamps
+
+*Timestamps are approximate — click to jump directly on YouTube.*
+
+- `[00:00:00]` — Intro: background, and reflections on human connection and AI
+- `[00:00:46]` — Meet Evelyn Chang, senior clinical engineer at Noah Medical
+- `[00:01:21]` — Systems thinking and navigating technological shifts in medical devices
+- `[00:02:08]` — Her career path: seeking meaningful work from NASA to Singapore to medtech
+- `[00:03:22]` — Why cross-functional teams matter
+- `[00:03:36]` — Presenting research at an IEEE conference at seventeen
+- `[00:05:07]` — Yellowstone fieldwork and hands-on problem solving
+- `[00:05:50]` — Working with massive satellite datasets at NASA during COVID-19
+- `[00:06:33]` — The Galaxy system and the challenges of lung biopsy
+- `[00:07:54]` — Manual scopes vs. robotic precision and real-time imaging
+- `[00:08:52]` — The role of AI and image recognition in medical robotics
+- `[00:09:35]` — Why human clinicians are necessary: patient trust and emotional support
+- `[00:10:39]` — A day in the life: translating clinical needs into engineering design
+- `[00:12:20]` — Why clinical engineering is crucial in medical device development
+- `[00:12:54]` — Human perception and visual feedback interface design in 3D imaging

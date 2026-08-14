@@ -505,5 +505,29 @@ export const en: Messages = {
         },
       ],
     },
+    "ai-medical-robotics-evelyn-chang-noah-medical": {
+      title:
+        "Your Lung Map Is a Week Old: Evelyn Chang on AI in Medical Robotics, Robotic Bronchoscopy, and Clinical Engineering",
+      description:
+        "Evelyn Chang is a senior clinical engineer at Noah Medical, working on the Galaxy system — a robotic platform built to navigate the outermost edges of the human lung and biopsy nodules early. A Still Human conversation about what manual bronchoscopy loses, how a live fluoroscopy sweep gets reconstructed into 3D mid-procedure, where a clinician still has to confirm what the model sees, and why patient trust before and after may matter more than the procedure itself.",
+      metaTitle:
+        "AI in Medical Robotics: Evelyn Chang on Robotic Bronchoscopy — Still Human Ep. 11",
+      metaDescription:
+        "A Noah Medical clinical engineer on why manual bronchoscopy loses real-time position, how live fluoroscopy becomes a 3D map, and where AI still needs a human to confirm.",
+      faqs: [
+        {
+          q: "What does robotic bronchoscopy fix that a manual scope can't?",
+          a: "A manual scope loses precision and, more importantly, real-time position — the operator is inferring where they are from a CT scan that predates the procedure, sometimes by a week, during which the body has moved and breathing keeps moving it. Robotics restores that position by reconstructing a live fluoroscopy sweep into 3D during the case, confirming where the scope actually is at that moment.",
+        },
+        {
+          q: "Where is AI already doing real work in medical robotics?",
+          a: "Image recognition is already working inside the loop, surfacing and flagging what matters to a clinician. What it does not do is close the loop alone — a clinician still confirms. Evelyn frames that human confirmation not as a gap waiting to be engineered away but as the correct design for the stakes involved, and part of why medical devices adopt new technology slowly.",
+        },
+        {
+          q: "What does a clinical engineer actually do?",
+          a: "Evelyn describes it as sitting between physicians and engineers and translating clinical needs into design inputs a team can build against. It's one of the less legible roles in medtech, and one of the reasons the field is growing — someone has to carry what happens in the room back into how the device gets designed.",
+        },
+      ],
+    },
   },
 };
