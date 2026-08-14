@@ -1,5 +1,6 @@
 import { Navbar } from "../components/navbar";
 import { PodcastHero } from "../components/podcast-hero";
+import { LatestVideo } from "../components/home/latest-video";
 import { LatestEpisodes } from "../components/home/latest-episodes";
 import { FeaturedEpisodes } from "../components/home/featured-episodes";
 import { TopicsSearch } from "../components/home/topics-search";
@@ -69,6 +70,8 @@ export default async function Home() {
         spotifyImageUrl={latestImage}
         spotifyEpisodeUrl={latestSpotifyInfo?.spotifyUrl}
       />
+
+      <LatestVideo />
 
       <LatestEpisodes
         episodes={latestThree}

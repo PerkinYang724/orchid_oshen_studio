@@ -68,6 +68,8 @@ export type Messages = {
     emailPlaceholder: string;
   };
   home: {
+    watchEyebrow: string;
+    watchHeading: string;
     latestHeading: string;
     featuredHeading: string;
     exploreAllEpisodes: string;

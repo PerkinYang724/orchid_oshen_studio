@@ -56,6 +56,8 @@ export const zhTW: Messages = {
     emailPlaceholder: "輸入你的電子郵件",
   },
   home: {
+    watchEyebrow: "正在播放",
+    watchHeading: "觀看最新單集",
     latestHeading: "最新單集",
     featuredHeading: "精選單集",
     exploreAllEpisodes: "瀏覽所有單集",

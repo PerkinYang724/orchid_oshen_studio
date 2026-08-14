@@ -56,6 +56,8 @@ export const en: Messages = {
     emailPlaceholder: "Enter your email",
   },
   home: {
+    watchEyebrow: "Now Playing",
+    watchHeading: "Watch the latest episode",
     latestHeading: "Latest Episodes",
     featuredHeading: "Featured Episodes",
     exploreAllEpisodes: "Explore all episodes",
