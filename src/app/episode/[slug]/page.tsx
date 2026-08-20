@@ -272,8 +272,12 @@ export default async function EpisodePage({ params }: Props) {
 
         {/* Video */}
         <div className="relative w-full aspect-video rounded-2xl overflow-hidden border border-[#161310]/10 mb-5 bg-[#161310]">
+          {/* enablejsapi=1 is what lets GA4 enhanced measurement see this
+              player. Without it the Video engagement toggle is on in the data
+              stream but collects nothing: no starts, progress or completions.
+              The VideoObject embedUrl in the schema above stays clean. */}
           <iframe
-            src={`https://www.youtube.com/embed/${episode.youtubeId}`}
+            src={`https://www.youtube.com/embed/${episode.youtubeId}?enablejsapi=1`}
             title={episode.title}
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
