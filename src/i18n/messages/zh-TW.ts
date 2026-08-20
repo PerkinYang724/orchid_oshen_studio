@@ -256,6 +256,13 @@ export const zhTW: Messages = {
     english: "English",
     traditionalMandarin: "繁體中文",
   },
+  consent: {
+    ariaLabel: "Cookie 同意設定",
+    body:
+      "這個網站使用 Google Analytics，只是想知道大家實際上在聽哪幾集。沒有廣告，也不會跨站追蹤你。",
+    accept: "接受",
+    decline: "拒絕",
+  },
   topics: {
     "ai-technology": {
       name: "AI 與科技",

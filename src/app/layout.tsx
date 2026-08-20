@@ -4,6 +4,7 @@ import Script from "next/script";
 import "./globals.css";
 import { MotionProvider } from "../components/motion-provider";
 import { DiamondBackground } from "../components/DiamondBackground";
+import { ConsentBanner } from "../components/consent-banner";
 import { LocaleProvider } from "../i18n/client";
 import { getLocale, getMessages } from "../i18n/server";
 
@@ -24,6 +25,41 @@ const siteUrl =
 // lives here rather than in a secret, with an env override for other envs.
 const gaMeasurementId =
   process.env.NEXT_PUBLIC_GA_ID || "G-90YK91J4HP";
+
+// EEA, plus the UK and Switzerland, which have equivalent regimes. Consent
+// Mode applies the region-scoped default to these and the global default
+// everywhere else, so visitors outside them are measured without waiting on
+// a banner click.
+const CONSENT_DENIED_REGIONS = [
+  "AT", "BE", "BG", "HR", "CY", "CZ", "DK", "EE", "FI", "FR", "DE", "GR",
+  "HU", "IE", "IT", "LV", "LT", "LU", "MT", "NL", "PL", "PT", "RO", "SK",
+  "SI", "ES", "SE", "IS", "LI", "NO", "GB", "CH",
+];
+
+// Queues the consent defaults and the GA config before gtag.js can read the
+// dataLayer. This has to be a real inline <script> in <head>: next/script
+// renders inline children into the RSC payload and runs them after hydration,
+// which is far too late to gate a tag that is already loading. Executes during
+// parse, so the async library cannot get there first.
+const gaBootstrap = `
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('consent', 'default', {
+  ad_storage: 'denied',
+  ad_user_data: 'denied',
+  ad_personalization: 'denied',
+  analytics_storage: 'granted',
+  functionality_storage: 'granted',
+  security_storage: 'granted'
+});
+gtag('consent', 'default', {
+  analytics_storage: 'denied',
+  region: ${JSON.stringify(CONSENT_DENIED_REGIONS)},
+  wait_for_update: 500
+});
+gtag('js', new Date());
+gtag('config', '${'${gaMeasurementId}'}');
+`;
 
 const KEYWORDS = [
   "Still Human Podcast",
@@ -161,6 +197,9 @@ export default async function RootLayout({
         <link rel="preconnect" href="https://img.youtube.com" />
         <link rel="preconnect" href="https://open.spotify.com" />
         <link rel="dns-prefetch" href="https://img.youtube.com" />
+        {process.env.NODE_ENV === "production" && (
+          <script dangerouslySetInnerHTML={{ __html: gaBootstrap }} />
+        )}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -182,25 +221,20 @@ export default async function RootLayout({
         </div>
         <LocaleProvider locale={locale} messages={messages}>
           <MotionProvider>{children}</MotionProvider>
+          <ConsentBanner />
         </LocaleProvider>
 
         {/* Google Analytics. This root layout wraps every route, so the tag
             loads on all of them. Production only: otherwise every `next dev`
             session and every refresh while drafting show notes lands in the
             reporting. afterInteractive keeps it off the critical path. */}
+        {/* Only the library load stays on next/script; the dataLayer, consent
+            defaults and config are queued by gaBootstrap in <head> above. */}
         {process.env.NODE_ENV === "production" && (
-          <>
-            <Script
-              src={`https://www.googletagmanager.com/gtag/js?id=${gaMeasurementId}`}
-              strategy="afterInteractive"
-            />
-            <Script id="ga4-init" strategy="afterInteractive">
-              {`window.dataLayer = window.dataLayer || [];
-                function gtag(){dataLayer.push(arguments);}
-                gtag('js', new Date());
-                gtag('config', '${gaMeasurementId}');`}
-            </Script>
-          </>
+          <Script
+            src={`https://www.googletagmanager.com/gtag/js?id=${gaMeasurementId}`}
+            strategy="afterInteractive"
+          />
         )}
       </body>
     </html>

@@ -250,6 +250,12 @@ export type Messages = {
     english: string;
     traditionalMandarin: string;
   };
+  consent: {
+    ariaLabel: string;
+    body: string;
+    accept: string;
+    decline: string;
+  };
   topics: Record<string, TopicCopy>;
   episodes: Record<string, EpisodeCopy>;
 };

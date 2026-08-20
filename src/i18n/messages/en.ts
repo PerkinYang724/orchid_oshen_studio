@@ -256,6 +256,13 @@ export const en: Messages = {
     english: "English",
     traditionalMandarin: "繁體中文",
   },
+  consent: {
+    ariaLabel: "Cookie consent",
+    body:
+      "This site uses Google Analytics to see which episodes people actually listen to. No ads, and nothing that follows you around other sites.",
+    accept: "Accept",
+    decline: "Decline",
+  },
   topics: {
     "ai-technology": {
       name: "AI & Technology",
