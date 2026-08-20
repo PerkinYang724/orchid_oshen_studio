@@ -5,6 +5,7 @@ import "./globals.css";
 import { MotionProvider } from "../components/motion-provider";
 import { DiamondBackground } from "../components/DiamondBackground";
 import { ConsentBanner } from "../components/consent-banner";
+import { GA_MEASUREMENT_ID, gaScriptSrc } from "../lib/ga";
 import { LocaleProvider } from "../i18n/client";
 import { getLocale, getMessages } from "../i18n/server";
 
@@ -20,11 +21,6 @@ const geistMono = Geist_Mono({
 
 const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL || "https://oshenstudio.com";
-
-// GA4 measurement ID. Public by design (it ships in the page source), so it
-// lives here rather than in a secret, with an env override for other envs.
-const gaMeasurementId =
-  process.env.NEXT_PUBLIC_GA_ID || "G-90YK91J4HP";
 
 // EEA, plus the UK and Switzerland, which have equivalent regimes. Consent
 // Mode applies the region-scoped default to these and the global default
@@ -58,7 +54,7 @@ gtag('consent', 'default', {
   wait_for_update: 500
 });
 gtag('js', new Date());
-gtag('config', '${'${gaMeasurementId}'}');
+gtag('config', '${GA_MEASUREMENT_ID}');
 `;
 
 const KEYWORDS = [
@@ -229,10 +225,11 @@ export default async function RootLayout({
             session and every refresh while drafting show notes lands in the
             reporting. afterInteractive keeps it off the critical path. */}
         {/* Only the library load stays on next/script; the dataLayer, consent
-            defaults and config are queued by gaBootstrap in <head> above. */}
+            defaults and config are queued by gaBootstrap in <head> above.
+            src is /metrics/ on our own domain unless GA_USE_GATEWAY=0. */}
         {process.env.NODE_ENV === "production" && (
           <Script
-            src={`https://www.googletagmanager.com/gtag/js?id=${gaMeasurementId}`}
+            src={gaScriptSrc}
             strategy="afterInteractive"
           />
         )}
