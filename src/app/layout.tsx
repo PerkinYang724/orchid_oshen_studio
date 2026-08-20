@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import { MotionProvider } from "../components/motion-provider";
 import { DiamondBackground } from "../components/DiamondBackground";
@@ -18,6 +19,11 @@ const geistMono = Geist_Mono({
 
 const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL || "https://oshenstudio.com";
+
+// GA4 measurement ID. Public by design (it ships in the page source), so it
+// lives here rather than in a secret, with an env override for other envs.
+const gaMeasurementId =
+  process.env.NEXT_PUBLIC_GA_ID || "G-90YK91J4HP";
 
 const KEYWORDS = [
   "Still Human Podcast",
@@ -177,6 +183,25 @@ export default async function RootLayout({
         <LocaleProvider locale={locale} messages={messages}>
           <MotionProvider>{children}</MotionProvider>
         </LocaleProvider>
+
+        {/* Google Analytics. This root layout wraps every route, so the tag
+            loads on all of them. Production only: otherwise every `next dev`
+            session and every refresh while drafting show notes lands in the
+            reporting. afterInteractive keeps it off the critical path. */}
+        {process.env.NODE_ENV === "production" && (
+          <>
+            <Script
+              src={`https://www.googletagmanager.com/gtag/js?id=${gaMeasurementId}`}
+              strategy="afterInteractive"
+            />
+            <Script id="ga4-init" strategy="afterInteractive">
+              {`window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', '${gaMeasurementId}');`}
+            </Script>
+          </>
+        )}
       </body>
     </html>
   );
