@@ -11,6 +11,12 @@ export type TopicCopy = {
 
 export type EpisodeFaq = { q: string; a: string };
 
+export type PolicySection = {
+  heading: string;
+  paragraphs: string[];
+  bullets?: string[];
+};
+
 export type EpisodeCopy = {
   title: string;
   description: string;
@@ -255,6 +261,14 @@ export type Messages = {
     body: string;
     accept: string;
     decline: string;
+  };
+  privacy: {
+    title: string;
+    updated: string;
+    intro: string;
+    sections: PolicySection[];
+    contactHeading: string;
+    contactBody: string;
   };
   topics: Record<string, TopicCopy>;
   episodes: Record<string, EpisodeCopy>;

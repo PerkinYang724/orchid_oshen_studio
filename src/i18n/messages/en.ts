@@ -263,6 +263,80 @@ export const en: Messages = {
     accept: "Accept",
     decline: "Decline",
   },
+  privacy: {
+    title: "Privacy",
+    updated: "Last updated: 21 August 2026",
+    intro:
+      "Still Human is a podcast, not a product. There is nothing to sign up for on this site, no account to create, and no password to lose. What follows is a plain description of the small amount of data this site does handle, and what you can do about it.",
+    sections: [
+      {
+        heading: "Analytics",
+        paragraphs: [
+          "This site uses Google Analytics 4 to understand which episodes people actually read and listen to. The tag is served from oshenstudio.com rather than from Google's own domain, but the measurement still reaches Google.",
+          "Google sets cookies in your browser so repeat visits can be told apart from new ones. Your IP address is used to work out an approximate location and is not stored by this site.",
+        ],
+        bullets: [
+          "Which pages you open, and how far down them you scroll",
+          "Clicks on links that lead off this site",
+          "Whether you start or finish an embedded episode video",
+          "Approximate location: country, region and city, never a precise position",
+          "Device type, browser, and language",
+        ],
+      },
+      {
+        heading: "Your consent choice",
+        paragraphs: [
+          "On your first visit a banner asks whether analytics may run. In the EEA, the UK and Switzerland, analytics is switched off by default and stays off until you accept. Everywhere else it is on by default, and declining switches it off.",
+          "Your answer is kept in your own browser under the name oshen-consent-v1. It is never sent anywhere. Clearing this site's data from your browser erases it and brings the banner back, so you can change your mind at any time.",
+        ],
+      },
+      {
+        heading: "Language",
+        paragraphs: [
+          "Choosing English or 繁體中文 stores a cookie called locale for a year, so the site opens in your language next time. It does nothing else and is not used to track you.",
+        ],
+      },
+      {
+        heading: "The newsletter",
+        paragraphs: [
+          "The subscribe box on this site does not store your email address or send it to any server of ours. It opens Substack in a new tab with the address already filled in, which means the address does travel to Substack as part of that link.",
+          "The subscription itself, and everything that happens to your address afterwards, is handled by Substack under its own privacy policy.",
+        ],
+      },
+      {
+        heading: "Embedded players",
+        paragraphs: [
+          "Episode pages embed a YouTube player, and several pages embed a Spotify player. Once one of those loads, it can set its own cookies and will see your IP address, exactly as if you had visited YouTube or Spotify directly.",
+          "Those players are governed by Google's and Spotify's privacy policies rather than this one.",
+        ],
+      },
+      {
+        heading: "Hosting",
+        paragraphs: [
+          "The site is hosted on Vercel, which keeps ordinary server logs, including IP addresses and browser user agents, in order to serve the site and protect it from abuse.",
+        ],
+      },
+      {
+        heading: "What this site does not do",
+        paragraphs: [],
+        bullets: [
+          "No accounts, logins or passwords",
+          "No advertising, and all ad-related measurement signals are switched off",
+          "Your data is never sold or handed to data brokers",
+          "No tracking of you across other websites",
+        ],
+      },
+      {
+        heading: "Your choices",
+        paragraphs: [
+          "You can decline analytics in the banner, clear this site's data in your browser to reset that choice, or use a browser or extension that blocks analytics outright. Google also publishes an opt-out add-on that disables Google Analytics on every site you visit.",
+        ],
+      },
+    ],
+    contactHeading: "Questions",
+    contactBody:
+      "If anything here is unclear, or you want to know what is held about you, write to p@oshenstudio.com.",
+  },
   topics: {
     "ai-technology": {
       name: "AI & Technology",

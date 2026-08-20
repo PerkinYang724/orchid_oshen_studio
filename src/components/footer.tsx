@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useLocale } from "@/i18n/client";
 import { LanguageSwitcher } from "./LanguageSwitcher";
 
@@ -8,7 +9,7 @@ export function Footer() {
   const socialLinks = [
     { label: m.footer.linkedin, href: "https://www.linkedin.com/in/perkin0909/" },
     { label: m.footer.instagram, href: "https://www.instagram.com/oshen_studio/" },
-    { label: m.footer.email, href: "mailto:hello@oshenstudio.com" },
+    { label: m.footer.email, href: "mailto:p@oshenstudio.com" },
   ];
 
   return (
@@ -21,6 +22,12 @@ export function Footer() {
           <span className="text-xs text-white/15">
             &copy; {new Date().getFullYear()}
           </span>
+          <Link
+            href="/privacy"
+            className="text-xs text-white/40 transition-colors hover:text-white/70"
+          >
+            {m.privacy.title}
+          </Link>
         </div>
 
         <div className="flex flex-col-reverse items-center gap-5 sm:flex-row sm:gap-6">

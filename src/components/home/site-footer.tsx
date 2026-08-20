@@ -42,7 +42,8 @@ export function SiteFooter() {
       links: [
         { label: m.footer.instagram, href: INSTAGRAM, external: true },
         { label: m.footer.linkedin, href: LINKEDIN, external: true },
-        { label: m.footer.email, href: "mailto:hello@oshenstudio.com" },
+        { label: m.footer.email, href: "mailto:p@oshenstudio.com" },
+        { label: m.privacy.title, href: "/privacy" },
       ],
     },
   ];
@@ -52,7 +53,7 @@ export function SiteFooter() {
     { Icon: Instagram, href: INSTAGRAM, label: "Instagram" },
     { Icon: Music2, href: SHOW_SPOTIFY, label: "Spotify" },
     { Icon: Linkedin, href: LINKEDIN, label: "LinkedIn" },
-    { Icon: Mail, href: "mailto:hello@oshenstudio.com", label: "Email" },
+    { Icon: Mail, href: "mailto:p@oshenstudio.com", label: "Email" },
   ];
 
   return (
@@ -105,6 +106,12 @@ export function SiteFooter() {
             <span className="text-[13px] text-[#161310]/40">
               &copy; {new Date().getFullYear()} Oshen Studio
             </span>
+            <Link
+              href="/privacy"
+              className="text-[13px] text-[#161310]/40 transition-colors hover:text-[#161310]/70"
+            >
+              {m.privacy.title}
+            </Link>
             <LanguageSwitcher />
           </div>
 

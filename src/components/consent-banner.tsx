@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 import { useLocale } from "@/i18n/client";
 
 const STORAGE_KEY = "oshen-consent-v1";
@@ -59,7 +60,15 @@ export function ConsentBanner() {
       className="fixed inset-x-0 bottom-0 z-[90] flex justify-center p-4 pointer-events-none"
     >
       <div className="pointer-events-auto w-full max-w-[560px] rounded-2xl border border-white/10 bg-[#1a1a1d]/95 backdrop-blur-xl p-4 sm:p-5 shadow-[0_20px_50px_-20px_rgba(0,0,0,0.6)]">
-        <p className="text-sm leading-relaxed text-white/75">{m.consent.body}</p>
+        <p className="text-sm leading-relaxed text-white/75">
+          {m.consent.body}{" "}
+          <Link
+            href="/privacy"
+            className="underline underline-offset-2 text-white/90 transition-colors hover:text-white"
+          >
+            {m.privacy.title}
+          </Link>
+        </p>
         <div className="mt-4 flex gap-2.5">
           <button
             type="button"
