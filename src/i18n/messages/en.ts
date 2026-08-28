@@ -610,5 +610,29 @@ export const en: Messages = {
         },
       ],
     },
+    "ai-workflows-makarove-hong-flyidea": {
+      title:
+        "Losing Money Is Normal in SaaS: Makarove Hong on 40+ Products, Two-Week MVPs, and Why Decomposition Beats Execution",
+      description:
+        "Makarove Hong is the founder and CEO of FlyiDEA, a Taiwanese company that ships an MVP in two weeks with no-code and AI, acts as an outsourced CTO for small and mid-sized businesses, and takes a share of the product instead of a maintenance fee. He has built more than forty products. Over half of them lost money, and he calls that the normal ecology of SaaS. A Still Human conversation about running AI inside a working day, why the bottleneck in the AI era is decomposition rather than execution, and the two weeks of night shifts at Taipei 101 that ended with him falling down the stairs.",
+      metaTitle:
+        "AI Workflows in Practice: Makarove Hong on Two-Week MVPs and 40+ Products — Still Human Ep. 12",
+      metaDescription:
+        "The FlyiDEA founder on shipping an MVP in two weeks with no-code and AI, why over half of his 40+ products lost money, and why decomposition — not execution — is the real bottleneck.",
+      faqs: [
+        {
+          q: "Why does Makarove Hong say losing money is normal in SaaS?",
+          a: "Across more than forty products, over half lost money. His argument is that this distribution is not evidence of doing it wrong — it is what the SaaS ecology looks like from the inside. FlyiDEA takes a share of margin rather than a maintenance fee, which ties the company’s outcome to whether a product actually works, and makes the losses visible instead of hiding them inside a retainer.",
+        },
+        {
+          q: "What does he mean by decomposition being harder than execution?",
+          a: "Execution has gotten cheap: models write the code, no-code covers the scaffolding, and a two-week MVP is possible because of it. What has not gotten cheap is knowing how to cut a problem into the right pieces before any of that starts. His claim is that decomposition is the scarce skill in the AI era, and that most teams are still optimizing the part that stopped being hard.",
+        },
+        {
+          q: "How does FlyiDEA deliver an MVP in two weeks?",
+          a: "A mix of no-code and AI, with FlyiDEA acting as an outsourced CTO for small and mid-sized businesses. In the episode Makarove walks through the fourteen days honestly — which parts the tooling handles and how much he still builds by hand between day one and day fourteen.",
+        },
+      ],
+    },
   },
 };
