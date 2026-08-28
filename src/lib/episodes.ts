@@ -48,9 +48,14 @@ function toSeconds(t: string): number {
   return 0;
 }
 
+/** The heading that opens the timestamps section, in each locale it's authored in. */
+const TIMESTAMPS_HEADING = "(?:Timestamps|時間軸)";
+
 /** Extract `- `[HH:MM:SS]` — Label` rows from the markdown's Timestamps section. */
 function parseTimestamps(md: string): Timestamp[] {
-  const section = md.match(/##\s*Timestamps([\s\S]*?)(?=\n##\s|\n*$)/i);
+  const section = md.match(
+    new RegExp(`##\\s*${TIMESTAMPS_HEADING}([\\s\\S]*?)(?=\\n##\\s|\\n*$)`, "i"),
+  );
   if (!section) return [];
   const out: Timestamp[] = [];
   for (const raw of section[1].split("\n")) {
@@ -65,7 +70,13 @@ function parseTimestamps(md: string): Timestamp[] {
 
 /** Remove the Timestamps section (and its leading divider) so it isn't duplicated. */
 function stripTimestampsSection(md: string): string {
-  return md.replace(/\n*-{3,}\s*\n+##\s*Timestamps[\s\S]*?(?=\n##\s|\n*$)/i, "\n\n");
+  return md.replace(
+    new RegExp(
+      `\\n*-{3,}\\s*\\n+##\\s*${TIMESTAMPS_HEADING}[\\s\\S]*?(?=\\n##\\s|\\n*$)`,
+      "i",
+    ),
+    "\n\n",
+  );
 }
 
 export function getAllEpisodes(): EpisodeMeta[] {
