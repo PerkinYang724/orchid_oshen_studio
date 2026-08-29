@@ -12,6 +12,7 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     title: m.meta.episodesTitle,
     description: m.meta.episodesDescription,
+    alternates: { canonical: "/episode" },
   };
 }
 

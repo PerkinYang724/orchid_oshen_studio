@@ -12,6 +12,7 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     title: m.privacy.title,
     description: m.privacy.intro.slice(0, 155),
+    alternates: { canonical: "/privacy" },
     // A policy page has no business competing for search traffic, but it must
     // stay reachable: the consent banner links here.
     robots: { index: true, follow: true },

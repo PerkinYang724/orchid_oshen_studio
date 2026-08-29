@@ -37,6 +37,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: `${topic.name} — Still Human Podcast`,
     description: topic.description,
+    alternates: { canonical: `/topics/${slug}` },
   };
 }
 

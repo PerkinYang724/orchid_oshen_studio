@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { Navbar } from "../components/navbar";
 import { PodcastHero } from "../components/podcast-hero";
 import { LatestVideo } from "../components/home/latest-video";
@@ -13,6 +14,12 @@ import { getAllEpisodes } from "../lib/episodes";
 import { getPodcastFeedEpisodes, buildEpisodeImagesArray } from "../lib/podcast-rss";
 import { getMessages } from "../i18n/server";
 import { localizeEpisodes, localizeTopics } from "../i18n/localize";
+
+// Title and description still come from the root layout; only the canonical
+// is set here, so every route self-canonicals rather than inheriting one.
+export const metadata: Metadata = {
+  alternates: { canonical: "/" },
+};
 
 export default async function Home() {
   const messages = await getMessages();

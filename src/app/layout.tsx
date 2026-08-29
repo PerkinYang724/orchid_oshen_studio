@@ -119,14 +119,6 @@ export async function generateMetadata(): Promise<Metadata> {
       ],
     },
     manifest: "/manifest.json",
-    alternates: {
-      canonical: siteUrl,
-      languages: {
-        en: siteUrl,
-        "zh-Hant-TW": siteUrl,
-        "x-default": siteUrl,
-      },
-    },
     verification: {
       google: "WhUGBjtZn51Svv7QS9FBRJDmzbsIE-ATUCmevsB90Cg",
     },
