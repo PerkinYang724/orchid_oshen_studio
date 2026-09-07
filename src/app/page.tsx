@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { IntroGate } from "../components/intro-gate";
+import { INTRO_NO_FLASH_SCRIPT } from "../components/intro-session";
 import { Navbar } from "../components/navbar";
 import { PodcastHero } from "../components/podcast-hero";
 import { LatestVideo } from "../components/home/latest-video";
@@ -70,6 +72,15 @@ export default async function Home() {
 
   return (
     <div className="relative z-10 min-h-screen bg-[#FAF8F5]">
+      {/* Intro gate. Both lines below are self-contained; delete them and the
+          two intro-* files plus components/still-human-intro/ to remove it. */}
+      <script dangerouslySetInnerHTML={{ __html: INTRO_NO_FLASH_SCRIPT }} />
+      <noscript>
+        {/* Without JS the overlay can never dismiss itself. */}
+        <style>{`#intro-gate{display:none!important}`}</style>
+      </noscript>
+      <IntroGate />
+
       <Navbar light topics={navTopics} latestEpisodeSlug={latestEpisode.slug} />
 
       <PodcastHero

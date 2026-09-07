@@ -1,0 +1,192 @@
+/*
+ * Scoped styles for the intro. CSS Modules so nothing leaks into a host app.
+ *
+ * Fonts come from CSS custom properties with real fallbacks, so the component
+ * works in a project that has never heard of Newsreader:
+ *   --sh-serif  headings / human copy
+ *   --sh-mono   machine copy, UI chrome
+ */
+
+.section {
+  position: relative;
+  background: #050505;
+}
+
+.stage {
+  position: relative;
+  width: 100%;
+  height: 100svh;
+  overflow: hidden;
+  background: #050505;
+}
+
+.canvas {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* --- Film grain. Static SVG noise, jittered in steps so it reads as
+       projected grain rather than a smooth animation. --------------------- */
+.grain {
+  position: absolute;
+  inset: -60%;
+  pointer-events: none;
+  opacity: 0.19;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  animation: grainDrift 0.72s steps(3) infinite;
+  will-change: transform;
+}
+
+@keyframes grainDrift {
+  0%   { transform: translate(0, 0); }
+  33%  { transform: translate(-3%, 2%); }
+  66%  { transform: translate(2%, -3%); }
+  100% { transform: translate(0, 0); }
+}
+
+/* --- Vignette. Two layers: a wide falloff plus a tighter corner crush. --- */
+.vignette {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(125% 95% at 50% 50%, rgba(0, 0, 0, 0) 34%, rgba(0, 0, 0, 0.5) 76%, rgba(0, 0, 0, 0.9) 100%),
+    radial-gradient(75% 60% at 50% 50%, rgba(0, 0, 0, 0) 55%, rgba(0, 0, 0, 0.28) 100%);
+}
+
+/* --- Skip control. Visible from the first frame. ------------------------- */
+.skip {
+  position: absolute;
+  top: clamp(1rem, 3vw, 2rem);
+  right: clamp(1rem, 3vw, 2rem);
+  z-index: 30;
+  padding: 0.55rem 0.9rem;
+  font-family: var(--sh-mono, ui-monospace, "SFMono-Regular", Menlo, monospace);
+  font-size: 0.6875rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(232, 226, 216, 0.62);
+  background: rgba(10, 10, 10, 0.35);
+  border: 1px solid rgba(232, 226, 216, 0.18);
+  border-radius: 2px;
+  cursor: pointer;
+  backdrop-filter: blur(6px);
+  transition: color 180ms ease, border-color 180ms ease, background 180ms ease;
+}
+
+.skip:hover {
+  color: #e8e2d8;
+  border-color: rgba(232, 226, 216, 0.45);
+  background: rgba(10, 10, 10, 0.6);
+}
+
+.skip:focus-visible {
+  outline: 2px solid #c8503c;
+  outline-offset: 3px;
+}
+
+/* --- Copy layers -------------------------------------------------------- */
+.copyLayer {
+  position: absolute;
+  inset: 0;
+  z-index: 20;
+  display: grid;
+  place-items: center;
+  padding: 0 clamp(1.25rem, 6vw, 5rem);
+  pointer-events: none;
+  text-align: center;
+}
+
+/* All three beat lines share ONE screen position, so text always appears in
+   the same place and only the words change. The offset clears the wave:
+   the tallest shape visible while copy is on screen reaches ~0.21h from the
+   centreline, so 27vh below centre leaves a real gap at every viewport size.
+   If you raise any `amplitude` in wave-states.ts, raise this to match. */
+.copyLine {
+  transform: translateY(clamp(9rem, 27vh, 20rem));
+  white-space: nowrap;   /* single line, always */
+}
+
+/* Beat 1 — the faint word before anything moves. */
+.whisper {
+  font-family: var(--sh-mono, ui-monospace, monospace);
+  font-size: min(0.75rem, 2.6vw);
+  letter-spacing: 0.42em;
+  text-transform: uppercase;
+  color: rgba(217, 207, 192, 0.34);
+}
+
+/* Beat 2 — machine copy. Monospace: the machine speaks in fixed pitch.
+   Size is vw-capped so the line never wraps, down to a 320px phone. */
+.machineCopy {
+  font-family: var(--sh-mono, ui-monospace, monospace);
+  font-size: min(1.0625rem, 2.7vw);
+  line-height: 1.6;
+  letter-spacing: 0.06em;
+  color: #93b0c0;
+}
+
+/* Beat 3 — human copy. Serif: the voice is warm and irregular. */
+.voiceCopy {
+  font-family: var(--sh-serif, ui-serif, Georgia, "Times New Roman", serif);
+  font-size: min(2.5rem, 4.6vw);
+  font-style: italic;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  color: #e6ded2;
+}
+
+/* Beats 4–5 — the wordmark the line lands under. */
+.titleWrap {
+  position: absolute;
+  inset: 0;
+  z-index: 20;
+  display: grid;
+  place-content: center;
+  pointer-events: none;
+  text-align: center;
+}
+
+.title {
+  margin: 0;
+  font-family: var(--sh-serif, ui-serif, Georgia, serif);
+  font-weight: 400;
+  font-size: clamp(2.75rem, 10vw, 7.5rem);
+  line-height: 1;
+  letter-spacing: -0.035em;
+  color: #f2ede4;
+}
+
+/* Reserved space under the wordmark — the canvas draws the underline here,
+   so nothing is painted in CSS. Height sets the gap. */
+.underlineSlot {
+  height: clamp(1.5rem, 4vh, 3rem);
+}
+
+.question {
+  position: absolute;
+  left: 50%;
+  bottom: clamp(2.5rem, 8vh, 5rem);
+  z-index: 20;
+  transform: translateX(-50%);
+  margin: 0;
+  white-space: nowrap;
+  font-family: var(--sh-mono, ui-monospace, monospace);
+  font-size: min(0.8125rem, 2.75vw);
+  line-height: 1.8;
+  letter-spacing: 0.1em;
+  text-align: center;
+  color: rgba(232, 226, 216, 0.5);
+  pointer-events: none;
+}
+
+/* --- Reduced motion: kill the grain jitter. The component separately
+       skips the whole scroll sequence. ---------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .grain { animation: none; }
+  .skip  { transition: none; }
+}
