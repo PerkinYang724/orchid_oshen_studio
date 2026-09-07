@@ -307,7 +307,9 @@ export default function StillHumanIntro({
 
     // Inside a host overlay, the host owns dismissal — onComplete above has
     // already told it. Scrolling the page here would move the site beneath.
-    if (scroller?.current) return;
+    // Tests the ref object, not its .current: presence is what distinguishes
+    // hosted from standalone, and it is stable across renders.
+    if (scroller) return;
 
     const st = stRef.current;
     if (st) {
