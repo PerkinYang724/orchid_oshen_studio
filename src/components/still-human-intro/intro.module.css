@@ -13,7 +13,12 @@
 }
 
 .stage {
-  position: relative;
+  /* Held by the browser, not by JS. ScrollTrigger's pin cannot use
+     position:fixed inside a custom scroller and falls back to transform
+     positioning, which lags scroll by a frame and shakes. Sticky is
+     composited natively and cannot. */
+  position: sticky;
+  top: 0;
   width: 100%;
   height: 100svh;
   overflow: hidden;

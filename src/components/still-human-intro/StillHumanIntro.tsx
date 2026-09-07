@@ -80,6 +80,9 @@ export default function StillHumanIntro({
   const titleWrapRef = useRef<HTMLDivElement | null>(null);
   const questionRef = useRef<HTMLParagraphElement | null>(null);
 
+  /** Where scroll actually is. */
+  const targetProgressRef = useRef(0);
+  /** What we draw — chases the target, so scroll jitter never reaches the wave. */
   const progressRef = useRef(0);
   const sizeRef = useRef({ w: 0, h: 0 });
   /** Geometry of the underline the line lands on, in CSS px within the stage. */
@@ -100,30 +103,38 @@ export default function StillHumanIntro({
   }, [samples]);
 
   /* --- Measure canvas + underline target ------------------------------- */
-  const measure = useCallback(() => {
+  const measure = useCallback((): boolean => {
     const canvas = canvasRef.current;
     const stage = stageRef.current;
-    if (!canvas || !stage) return;
+    if (!canvas || !stage) return false;
 
     const rect = stage.getBoundingClientRect();
     const dpr = Math.min(window.devicePixelRatio || 1, 2);
+
+    // Assigning canvas.width CLEARS the canvas, and re-fitting the copy forces
+    // a reflow. Both must happen only on a genuine size change, or every
+    // observer callback flickers the frame.
+    const changed =
+      sizeRef.current.w !== rect.width || sizeRef.current.h !== rect.height;
 
     sizeRef.current = { w: rect.width, h: rect.height };
     // Fill rate, not device class, is what actually costs here — a small
     // stage on a 3x phone screen still pushes a lot of pixels.
     lowQualityRef.current = rect.width < 700 || rect.width * dpr > 2600;
-    canvas.width = Math.round(rect.width * dpr);
-    canvas.height = Math.round(rect.height * dpr);
 
-    const ctx = canvas.getContext('2d');
-    if (ctx) ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    if (changed) {
+      canvas.width = Math.round(rect.width * dpr);
+      canvas.height = Math.round(rect.height * dpr);
+      const ctx = canvas.getContext('2d');
+      if (ctx) ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    }
 
     // Single-line copy must also FIT: `white-space: nowrap` stops wrapping,
     // but the stage clips overflow, so an over-long line would be cut off on
     // a narrow phone. Measure the natural width and scale the type down only
     // if it would not fit. The CSS sizes stay the upper bound.
     const maxLineWidth = rect.width * 0.9;
-    for (const el of [
+    if (changed) for (const el of [
       whisperRef.current,
       machineRef.current,
       voiceRef.current,
@@ -155,6 +166,8 @@ export default function StillHumanIntro({
         w: rect.width * 0.4,
       };
     }
+
+    return changed;
   }, []);
 
   /* --- One frame -------------------------------------------------------- */
@@ -207,8 +220,11 @@ export default function StillHumanIntro({
     measure();
 
     const stage = stageRef.current;
+    // Refresh ONLY on a genuine size change. Refreshing unconditionally from
+    // an observer that watches an element ScrollTrigger itself mutates is a
+    // feedback loop.
     const ro = new ResizeObserver(() => {
-      measure();
+      if (!measure()) return;
       if (mode === 'skip') draw(0);
       ScrollTrigger.refresh();
     });
@@ -216,6 +232,7 @@ export default function StillHumanIntro({
 
     // Reduced motion, or already seen: paint the landing frame and stop.
     if (mode === 'skip') {
+      targetProgressRef.current = 1;
       progressRef.current = 1;
       // Two passes: fonts can settle between them and move the underline.
       draw(0);
@@ -228,19 +245,22 @@ export default function StillHumanIntro({
 
     gsap.registerPlugin(ScrollTrigger);
 
+    // ScrollTrigger REPORTS progress; it does not pin. The stage is held by
+    // CSS `position: sticky`, which the browser composites at native scroll
+    // speed. JS pinning inside a custom scroller falls back to transform
+    // positioning, which is always a frame behind the scroll and visibly
+    // shakes. `scrub` is omitted deliberately: it only smooths a tween
+    // attached to the trigger, and there is none here — the damping in the
+    // ticker below is what actually smooths this.
     const st = ScrollTrigger.create({
       // undefined = the page itself, which is ScrollTrigger's default.
       scroller: scroller?.current ?? undefined,
       trigger: sectionRef.current,
       start: 'top top',
       end: () => '+=' + window.innerHeight * pinViewports,
-      pin: stageRef.current,
-      pinSpacing: true,
-      scrub: true,
-      anticipatePin: 1,
       invalidateOnRefresh: true,
       onUpdate: (self) => {
-        progressRef.current = self.progress;
+        targetProgressRef.current = self.progress;
         if (!completedRef.current && self.progress > 0.995) {
           completedRef.current = true;
           markSeen();
@@ -250,7 +270,19 @@ export default function StillHumanIntro({
     });
     stRef.current = st;
 
-    const tick = (time: number) => draw(time / 1000);
+    // Exponential smoothing toward the scroll position, corrected for frame
+    // time so it behaves the same at 60 and 120Hz. TAU is the time constant:
+    // larger = smoother but laggier.
+    const TAU = 0.09;
+    const tick = (time: number, deltaMs: number) => {
+      const k = 1 - Math.exp(-(deltaMs / 1000) / TAU);
+      const cur = progressRef.current;
+      const target = targetProgressRef.current;
+      const next = cur + (target - cur) * k;
+      // Settle exactly rather than crawling asymptotically forever.
+      progressRef.current = Math.abs(target - next) < 0.0002 ? target : next;
+      draw(time / 1000);
+    };
     gsap.ticker.add(tick);
 
     // Fonts change the wordmark width, which moves the underline target.
@@ -290,7 +322,18 @@ export default function StillHumanIntro({
   const initial = mode === 'skip' ? 1 : 0;
 
   return (
-    <section ref={sectionRef} className={styles.section} aria-label="Introduction">
+    <section
+      ref={sectionRef}
+      className={styles.section}
+      // Pin spacing used to create the scroll length. With CSS sticky holding
+      // the stage instead, the section has to be tall enough itself: one
+      // viewport for the stage plus `pinViewports` to scroll through.
+      style={{
+        height:
+          mode === 'play' ? `${(1 + pinViewports) * 100}svh` : '100svh',
+      }}
+      aria-label="Introduction"
+    >
       <div ref={stageRef} className={styles.stage}>
         <canvas ref={canvasRef} className={styles.canvas} aria-hidden="true" />
 
