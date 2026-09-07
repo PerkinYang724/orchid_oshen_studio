@@ -1,0 +1,56 @@
+/*
+ * Overlay gate. Everything here is scoped to the intro; nothing leaks into
+ * the site. In particular the site sets `html { scroll-behavior: smooth }`
+ * globally, which fights ScrollTrigger — so the intro brings its own
+ * scroll container with `scroll-behavior: auto` rather than editing globals.
+ */
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  /* Site tops out at z-[90] (consent banner); navbar is z-[60]. */
+  z-index: 100;
+  background: #050505;
+  opacity: 1;
+  transition: opacity 700ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.dissolving {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/*
+ * The intro's own scroll space. Fixed and inset, so the document never
+ * scrolls and there is no second scrollbar. `overscroll-behavior: contain`
+ * stops scroll chaining to the body at the ends.
+ */
+.scroller {
+  position: absolute;
+  inset: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scroll-behavior: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.scroller::-webkit-scrollbar {
+  display: none;
+}
+
+/*
+ * Set before first paint by the inline script in page.tsx: a returning
+ * visitor in the same session never sees the overlay at all.
+ */
+:global(html[data-intro-seen]) .overlay {
+  display: none;
+}
+
+/* Reduced motion goes straight to the site. */
+@media (prefers-reduced-motion: reduce) {
+  .overlay {
+    display: none;
+  }
+}
